@@ -207,6 +207,9 @@ input {
   font-size: 13px;
 }
 
+.mt-18 { margin-top: 18px; }
+.mb-18 { margin-bottom: 18px; }
+
 .main {
   margin-left: 268px;
   min-height: 100vh;

@@ -320,7 +320,7 @@ h1 {
 }
 
 .focus-card span {
-  color: var(--teal);
+  color: #0d7a63;
   font-size: 12px;
   font-weight: 850;
   text-transform: uppercase;
@@ -909,7 +909,7 @@ td {
 }
 
 .chat-role {
-  color: var(--teal);
+  color: #0d7a63;
   font-size: 12px;
   font-weight: 850;
   text-transform: uppercase;

@@ -63,17 +63,9 @@ async function fetchUsdRate() {
 
 function injectCurrencyToggle() {
   const sidebar = document.querySelector(".sidebar");
-  if (!sidebar || sidebar.querySelector(".currency-toggle")) return;
-  sidebar.querySelector(".sidebar-note").insertAdjacentHTML(
-    "beforebegin",
-    `<span class="currency-toggle-label">Currency</span>
-     <div class="currency-toggle">
-       <button class="currency-btn ${displayCurrency === "EUR" ? "active" : ""}" data-currency="EUR">EUR</button>
-       <button class="currency-btn ${displayCurrency === "USD" ? "active" : ""}" data-currency="USD"
-         disabled title="Loading exchange rate…">USD</button>
-     </div>`,
-  );
+  if (!sidebar) return;
   sidebar.querySelectorAll(".currency-btn").forEach((btn) => {
+    btn.classList.toggle("active", btn.dataset.currency === displayCurrency);
     btn.addEventListener("click", () => {
       displayCurrency = btn.dataset.currency;
       localStorage.setItem("displayCurrency", displayCurrency);

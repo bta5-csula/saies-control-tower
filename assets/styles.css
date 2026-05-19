@@ -222,7 +222,7 @@ input {
 }
 
 .eyebrow {
-  color: var(--teal);
+  color: #0d7a63;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.08em;

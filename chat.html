@@ -87,6 +87,16 @@
             <div class="notice chat-note">
               If the data is not enough to answer, Ask Sales AI will say so instead of guessing.
             </div>
+            <div class="external-toggle-row">
+              <span>External sources</span>
+              <label class="toggle-switch-label" title="Allow AI to reference market trends and news beyond your uploaded files">
+                <input type="checkbox" id="external-sources-toggle" />
+                <span class="toggle-track"><span class="toggle-thumb"></span></span>
+              </label>
+            </div>
+            <div class="notice warning-note" id="external-warning" hidden>
+              AI may reference market trends or news beyond your uploaded files. When it names a source, search for it independently to verify.
+            </div>
           </aside>
         </section>
       </main>

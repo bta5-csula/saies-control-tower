@@ -40,6 +40,8 @@ const percent = new Intl.NumberFormat("en-US", {
 
 let dashboardData = null;
 let productFilter = "All";
+let externalSources = localStorage.getItem("chatExternalSources") === "true";
+let chatHistory = JSON.parse(sessionStorage.getItem("chatHistory") || "[]");
 
 async function fetchUsdRate() {
   try {
@@ -291,7 +293,7 @@ function renderRecommendedFocus(products) {
       title: investigate ? `${investigate.description} - ${investigate.material}` : `${fallback.description} - ${fallback.material}`,
       body: investigate
         ? "This product has meaningful sales, but profit looks weak. Review price and cost."
-        : "Look for products where sales are strong but profit is thin.",
+        : "This product has strong revenue, but a margin too thin to sustain. This is the best starting point for a price and cost review.",
     },
     {
       label: "Growth candidates",
@@ -449,7 +451,13 @@ function renderPriceScenario(data, priceChangePct) {
   text("whatif-revenue-detail", formatSignedCurrency(scenario.revenueChange));
   text("whatif-profit-detail", formatSignedCurrency(scenario.profitChange));
   text("whatif-action", scenario.action);
-  text("price-note", scenario.explanation);
+
+  const typicalRec = Math.max(...data.priceImpact.byProduct.map((r) => recommendProductPriceChange(r).change));
+  const discrepancyNote =
+    priceChangePct > 0 && typicalRec > 0 && priceChangePct > typicalRec
+      ? ` The table below recommends testing a smaller ${formatScenarioPercent(typicalRec)} move first — the model projects higher revenue at ${formatScenarioPercent(priceChangePct)}, but that estimate assumes demand reacts predictably. A smaller test validates the assumption before committing.`
+      : "";
+  text("price-note", scenario.explanation + discrepancyNote);
   text(
     "whatif-copy",
     priceChangePct === 0
@@ -595,25 +603,38 @@ function priceMoveText(value) {
 }
 
 function renderChat(data) {
-  const attentionProduct = data.products.find((p) => p.status === "Needs Attention");
-  const attentionSuggestion = attentionProduct
-    ? `Why is ${attentionProduct.description} marked Needs Attention?`
-    : "Which products need attention?";
   const initialSuggestions = [
     "Which products should we prioritize?",
-    attentionSuggestion,
+    "Which products need attention?",
     "Which products are good promotion candidates?",
     "What happens if prices decrease by 5%?",
     "Were the files matched correctly?",
   ];
 
   const messagesEl = document.getElementById("chat-messages");
-  if (!messagesEl || messagesEl.children.length === 0) {
+  if (messagesEl && messagesEl.children.length === 0) {
     renderChatSuggestions(initialSuggestions);
-    addChatMessage(
-      "assistant",
-      `Hi, I can answer questions about ${data.source.salesFile} and ${data.source.pricesFile}. Try one of the suggested questions or ask your own.`,
-    );
+    if (chatHistory.length > 0) {
+      rebuildMessages();
+    } else {
+      addChatMessage(
+        "assistant",
+        `Hi, I can answer questions about ${data.source.salesFile} and ${data.source.pricesFile}. Try one of the suggested questions or ask your own.`,
+      );
+    }
+  }
+
+  const toggle = document.getElementById("external-sources-toggle");
+  if (toggle && !toggle.dataset.bound) {
+    toggle.dataset.bound = "true";
+    toggle.checked = externalSources;
+    const warning = document.getElementById("external-warning");
+    if (warning) warning.hidden = !externalSources;
+    toggle.addEventListener("change", () => {
+      externalSources = toggle.checked;
+      localStorage.setItem("chatExternalSources", externalSources);
+      if (warning) warning.hidden = !externalSources;
+    });
   }
 
   const form = document.getElementById("chat-form");
@@ -650,7 +671,7 @@ async function askSalesAi(question) {
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ question }),
+      body: JSON.stringify({ question, external: externalSources, currency: displayCurrency, usdRate: usdRate }),
     });
     const payload = await response.json();
     if (!response.ok || !payload.ok) {
@@ -677,54 +698,101 @@ function addChatMessage(role, body) {
     `,
   );
   target.scrollTop = target.scrollHeight;
+  chatHistory.push({ id, role, body, cards: [], products: [] });
+  sessionStorage.setItem("chatHistory", JSON.stringify(chatHistory));
   return id;
+}
+
+function buildChatCardsHtml(cards) {
+  if (!cards?.length) return "";
+  return `<div class="chat-card-grid">${cards
+    .map(
+      (card) =>
+        `<div class="chat-card">
+          <span>${escapeHtml(card.label)}</span>
+          <strong>${card.valueRaw != null ? escapeHtml(formatCurrency(card.valueRaw)) : escapeHtml(card.value)}</strong>
+          <p>${escapeHtml(card.note || "")}</p>
+        </div>`,
+    )
+    .join("")}</div>`;
+}
+
+function buildChatProductsHtml(products) {
+  if (!products?.length) return "";
+  return `<div class="chat-products">${products
+    .slice(0, 4)
+    .map(
+      (p) =>
+        `<div class="chat-product">
+          <div>
+            <strong>${escapeHtml(p.description || p.name)}</strong>
+            <span>${escapeHtml(p.material || "")} - ${formatCurrency(p.revenue || p.expectedRevenueChange || 0)}</span>
+          </div>
+          ${p.status ? statusBadge(p.status) : `<span class="badge">${escapeHtml(p.signal || "Price signal")}</span>`}
+        </div>`,
+    )
+    .join("")}</div>`;
 }
 
 function replaceChatMessage(id, body, payload) {
   const message = document.getElementById(id);
   if (!message) return;
-  const cards = payload.cards?.length
-    ? `<div class="chat-card-grid">${payload.cards
-        .map(
-          (card) => `
-            <div class="chat-card">
-              <span>${escapeHtml(card.label)}</span>
-              <strong>${escapeHtml(card.value)}</strong>
-              <p>${escapeHtml(card.note || "")}</p>
-            </div>
-          `,
-        )
-        .join("")}</div>`
-    : "";
-  const products = payload.products?.length
-    ? `<div class="chat-products">${payload.products
-        .slice(0, 4)
-        .map(
-          (product) => `
-            <div class="chat-product">
-              <div>
-                <strong>${escapeHtml(product.description || product.name)}</strong>
-                <span>${escapeHtml(product.material || "")} - ${formatCurrency(product.revenue || product.expectedRevenueChange || 0)}</span>
-              </div>
-              ${product.status ? statusBadge(product.status) : `<span class="badge">${escapeHtml(product.signal || "Price signal")}</span>`}
-            </div>
-          `,
-        )
-        .join("")}</div>`
-    : "";
   message.innerHTML = `
     <div class="chat-role">Ask Sales AI</div>
     <p>${escapeHtml(body)}</p>
-    ${cards}
-    ${products}
+    ${buildChatCardsHtml(payload.cards)}
+    ${buildChatProductsHtml(payload.products)}
   `;
   message.scrollIntoView({ block: "nearest" });
+  const entry = chatHistory.find((m) => m.id === id);
+  if (entry) {
+    entry.body = body;
+    entry.cards = payload.cards || [];
+    entry.products = payload.products || [];
+    sessionStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+  }
+}
+
+function rebuildMessages() {
+  const target = document.getElementById("chat-messages");
+  if (!target) return;
+  chatHistory.forEach((msg) => {
+    if (msg.role === "user") {
+      target.insertAdjacentHTML(
+        "beforeend",
+        `<div class="chat-message user" id="${msg.id}">
+          <div class="chat-role">You</div>
+          <p>${escapeHtml(msg.body)}</p>
+        </div>`,
+      );
+    } else {
+      target.insertAdjacentHTML(
+        "beforeend",
+        `<div class="chat-message assistant" id="${msg.id}">
+          <div class="chat-role">Ask Sales AI</div>
+          <p>${escapeHtml(msg.body)}</p>
+          ${buildChatCardsHtml(msg.cards)}
+          ${buildChatProductsHtml(msg.products)}
+        </div>`,
+      );
+    }
+  });
+  target.scrollTop = target.scrollHeight;
 }
 
 function renderDataPage(data) {
   bindUploadForm();
   renderMatchStats(data);
   renderPreviewTables(data);
+  renderDefaultDownloads(data);
+}
+
+function renderDefaultDownloads(data) {
+  const el = document.getElementById("default-downloads");
+  if (!el) return;
+  const isDefault =
+    data.source.salesFile === "Sales.xlsx" && data.source.pricesFile === "Prices.xlsx";
+  el.hidden = !isDefault;
 }
 
 function bindUploadForm() {
@@ -766,12 +834,13 @@ function bindUploadForm() {
   const reset = document.getElementById("reset-data");
   if (reset) {
     reset.addEventListener("click", async () => {
-      await fetch("/api/reset");
+      await fetch("/api/reset", { method: "POST" });
       const response = await fetch("/api/dashboard");
       dashboardData = await response.json();
       updateSourcePill(dashboardData);
       renderMatchStats(dashboardData);
       renderPreviewTables(dashboardData);
+      renderDefaultDownloads(dashboardData);
       document.getElementById("upload-message").innerHTML =
         '<span class="status ok">Matched</span> Default files restored.';
     });

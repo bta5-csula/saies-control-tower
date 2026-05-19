@@ -944,6 +944,63 @@ td {
   margin-top: 16px;
 }
 
+.external-toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.toggle-switch-label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.toggle-track {
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--line);
+  position: relative;
+  transition: background 0.2s;
+}
+
+.toggle-thumb {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: left 0.2s;
+}
+
+.toggle-switch-label input {
+  display: none;
+}
+
+.toggle-switch-label input:checked + .toggle-track {
+  background: var(--teal);
+}
+
+.toggle-switch-label input:checked + .toggle-track .toggle-thumb {
+  left: 19px;
+}
+
+.warning-note {
+  margin-top: 10px;
+  border-color: #f5c842;
+  background: #fefce8;
+  color: #7a6000;
+  font-size: 12px;
+}
+
 .chat-card-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));

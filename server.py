@@ -36,7 +36,7 @@ if _env_path.exists():
 
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "")
-_GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key="
+_GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent"
 _GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 
 _DEFAULT_DATA = None
@@ -46,7 +46,7 @@ _data_lock = threading.Lock()
 _rate_limits: dict[str, deque] = defaultdict(deque)
 _rate_lock = threading.Lock()
 _RATE_WINDOW = 60
-_RATE_MAX = 10
+_RATE_MAX = 10  # raise to 20-30 if multiple users share one public IP (e.g. office NAT)
 
 
 def _read_best_sheet(source, required_columns, preferred_sheet):
@@ -615,11 +615,11 @@ def _find_product(question, products):
     return None
 
 
-def _product_summary(product):
+def _product_summary(product, fmt=_format_money):
     return (
         f"{product['description']} ({product['material']}) is marked {product['status']}. "
-        f"It has {_format_money(product['revenue'])} in revenue, "
-        f"{_format_money(product['profit'])} in profit, "
+        f"It has {fmt(product['revenue'])} in revenue, "
+        f"{fmt(product['profit'])} in profit, "
         f"{_format_units(product['quantity'])} units sold, and a recent trend of "
         f"{_format_pct(product['trendPct'])}. Recommended action: "
         f"{product['recommendedAction']}."
@@ -684,7 +684,7 @@ def _check_rate_limit(ip):
         return True
 
 
-def _build_system_prompt(data):
+def _build_system_prompt(data, external=False):
     kpis = data["kpis"]
     source = data["source"]
     forecast = data["forecast"]
@@ -695,9 +695,25 @@ def _build_system_prompt(data):
         f"trend={p['trendPct']:+.1%}, action: {p['recommendedAction']}"
         for p in products
     )
+    if external:
+        preamble = (
+            "You are a sales intelligence assistant. Use the sales data below as your primary source, "
+            "but you may also draw on your broader knowledge of market trends, industry news, and general "
+            "business context when relevant. Be concise (3-5 sentences).\n"
+            "IMPORTANT: When you use information from outside the provided data and can name a specific "
+            "organisation or publication, end your response with 'Source: [name, year]' "
+            "(e.g. 'Source: Gartner, 2024'). If you cannot name a specific source, do not add a "
+            "Source line — instead briefly note 'based on general industry knowledge' inline. "
+            "Do not invent URLs.\n\n"
+        )
+    else:
+        preamble = (
+            "You are a sales intelligence assistant. Answer using only the data below. "
+            "Be concise (2-4 sentences). If the data is insufficient to answer, say so.\n\n"
+        )
     return (
-        "You are a sales intelligence assistant. Answer using only the data below. "
-        "Be concise (2-4 sentences). If the data is insufficient to answer, say so.\n\n"
+        preamble +
+        f"Today's date: {time.strftime('%B %d, %Y')}\n"
         f"Files: {source['salesFile']} + {source['pricesFile']}\n"
         f"Date range: {source['dateRange']}\n"
         f"Match rate: {source['matchRate']:.1%} ({source['matchedRows']:,} of {source['salesRows']:,} rows)\n\n"
@@ -715,18 +731,18 @@ def _build_system_prompt(data):
     )
 
 
-def _gemini_answer(question, data):
+def _gemini_answer(question, data, external=False):
     if not GEMINI_API_KEY:
         return None
     payload = json.dumps({
         "contents": [{"parts": [{"text": question}]}],
-        "systemInstruction": {"parts": [{"text": _build_system_prompt(data)}]},
+        "systemInstruction": {"parts": [{"text": _build_system_prompt(data, external)}]},
         "generationConfig": {"maxOutputTokens": 300, "temperature": 0.2},
     }).encode("utf-8")
     req = Request(
-        _GEMINI_URL + GEMINI_API_KEY,
+        _GEMINI_URL,
         data=payload,
-        headers={"Content-Type": "application/json"},
+        headers={"Content-Type": "application/json", "x-goog-api-key": GEMINI_API_KEY},
         method="POST",
     )
     try:
@@ -738,13 +754,13 @@ def _gemini_answer(question, data):
         return None
 
 
-def _groq_answer(question, data):
+def _groq_answer(question, data, external=False):
     if not GROQ_API_KEY:
         return None
     payload = json.dumps({
         "model": "llama-3.1-8b-instant",
         "messages": [
-            {"role": "system", "content": _build_system_prompt(data)},
+            {"role": "system", "content": _build_system_prompt(data, external)},
             {"role": "user", "content": question},
         ],
         "max_tokens": 300,
@@ -765,7 +781,12 @@ def _groq_answer(question, data):
         return None
 
 
-def _chat_answer(question, data):
+def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
+    def fmt(value):
+        if currency == "USD" and usd_rate:
+            return f"USD {_safe_number(value * usd_rate):,.0f}"
+        return _format_money(value)
+
     products = data["products"]
     q = (question or "").strip()
     q_lower = q.lower()
@@ -782,7 +803,7 @@ def _chat_answer(question, data):
     )
     suggestions = [
         "Which products should we prioritize?",
-        _attention_suggestion,
+        "Which products need attention?",
         "Which products are good promotion candidates?",
         "What happens if prices decrease by 5%?",
         "Were the files matched correctly?",
@@ -798,7 +819,7 @@ def _chat_answer(question, data):
 
     if product and ("why" in q_lower or "marked" in q_lower or "status" in q_lower or product["material"].lower() in q_lower):
         return {
-            "answer": _product_summary(product),
+            "answer": _product_summary(product, fmt),
             "products": [product],
             "cards": [
                 {"label": "AI status", "value": product["status"], "note": product["explanation"]},
@@ -807,7 +828,24 @@ def _chat_answer(question, data):
             "suggestions": suggestions,
         }
 
-    if any(term in q_lower for term in ["prioritize", "focus", "what products", "which products", "top products"]):
+    if any(term in q_lower for term in ["need attention", "needs attention", "attention"]):
+        rows = sorted(needs_attention, key=lambda row: row["profit"])[:4]
+        names = [f"{row['description']} ({row['material']})" for row in rows]
+        return {
+            "answer": (
+                f"There are {len(needs_attention)} product(s) marked Needs Attention: {', '.join(names) if names else 'none'}. "
+                "These have weak or negative profit margins and should be reviewed for pricing, cost, or discounting issues before promotion."
+            ),
+            "products": rows,
+            "cards": [
+                {"label": "Needs Attention", "value": str(len(needs_attention)), "note": "Weak or negative margin."},
+                {"label": "Growth Opportunity", "value": str(len(growth)), "note": "Improving trend with healthy margin."},
+                {"label": "Healthy", "value": str(len(healthy)), "note": "Steady sales and profit."},
+            ],
+            "suggestions": suggestions,
+        }
+
+    if any(term in q_lower for term in ["prioritize", "focus", "top products"]):
         attention_top = sorted(needs_attention, key=lambda row: row["revenue"], reverse=True)[:2]
         growth_top = sorted(growth, key=lambda row: row["trendPct"], reverse=True)[:2]
         names = [f"{row['description']} ({row['material']})" for row in attention_top + growth_top]
@@ -845,15 +883,15 @@ def _chat_answer(question, data):
         return {
             "answer": (
                 f"If prices {move_phrase}, the estimate expects revenue to change by "
-                f"{_format_money(scenario['revenueChange'])}, profit to change by "
-                f"{_format_money(scenario['profitChange'])}, and units to change by "
+                f"{fmt(scenario['revenueChange'])}, profit to change by "
+                f"{fmt(scenario['profitChange'])}, and units to change by "
                 f"{_format_pct(scenario['expectedUnitChangePct'])}. A lower price may increase units sold but shrink "
                 "profit per unit; a higher price may improve profit per unit but soften demand."
             ),
             "products": data["priceImpact"]["byProduct"][:4],
             "cards": [
-                {"label": "Expected revenue change", "value": _format_money(scenario["revenueChange"]), "note": "Selected price move balanced against unit changes."},
-                {"label": "Expected profit change", "value": _format_money(scenario["profitChange"]), "note": "Profit depends on both price and units sold."},
+                {"label": "Expected revenue change", "value": fmt(scenario["revenueChange"]), "valueRaw": _safe_number(scenario["revenueChange"]), "note": "Selected price move balanced against unit changes."},
+                {"label": "Expected profit change", "value": fmt(scenario["profitChange"]), "valueRaw": _safe_number(scenario["profitChange"]), "note": "Profit depends on both price and units sold."},
                 {"label": "Expected unit change", "value": _format_pct(scenario["expectedUnitChangePct"]), "note": "Estimated change in quantity sold."},
             ],
             "suggestions": suggestions,
@@ -863,14 +901,14 @@ def _chat_answer(question, data):
         forecast = data["forecast"]
         return {
             "answer": (
-                f"Based on past sales trends, expected next-month revenue is {_format_money(forecast['expectedRevenue'])}, "
+                f"Based on past sales trends, expected next-month revenue is {fmt(forecast['expectedRevenue'])}, "
                 f"expected units are {_format_units(forecast['expectedUnits'])}, and expected profit is "
-                f"{_format_money(forecast['expectedProfit'])}. This is an early estimate based on "
+                f"{fmt(forecast['expectedProfit'])}. This is an early estimate based on "
                 f"{data['source']['dateRange']}, so use it as a directional planning signal."
             ),
             "products": [],
             "cards": [
-                {"label": "Expected revenue", "value": _format_money(forecast["expectedRevenue"]), "note": "Estimated sales value for the next month."},
+                {"label": "Expected revenue", "value": fmt(forecast["expectedRevenue"]), "valueRaw": _safe_number(forecast["expectedRevenue"]), "note": "Estimated sales value for the next month."},
                 {"label": "Expected units", "value": _format_units(forecast["expectedUnits"]), "note": "Estimated quantity sold next month."},
                 {"label": "Confidence", "value": "Early estimate", "note": data["source"]["dateRange"]},
             ],
@@ -908,7 +946,7 @@ def _chat_answer(question, data):
         }
 
     top_products = sorted(products, key=lambda row: row["revenue"], reverse=True)[:3]
-    llm_answer = _gemini_answer(q, data) or _groq_answer(q, data)
+    llm_answer = _gemini_answer(q, data, external) or _groq_answer(q, data, external)
     if llm_answer:
         return {
             "answer": llm_answer,
@@ -923,17 +961,31 @@ def _chat_answer(question, data):
         ),
         "products": top_products,
         "cards": [
-            {"label": "Total revenue", "value": _format_money(data["kpis"]["totalRevenue"]), "note": "From the sales file."},
-            {"label": "Total profit", "value": _format_money(data["kpis"]["totalProfit"]), "note": "After product cost."},
+            {"label": "Total revenue", "value": fmt(data["kpis"]["totalRevenue"]), "valueRaw": _safe_number(data["kpis"]["totalRevenue"]), "note": "From the sales file."},
+            {"label": "Total profit", "value": fmt(data["kpis"]["totalProfit"]), "valueRaw": _safe_number(data["kpis"]["totalProfit"]), "note": "After product cost."},
             {"label": "Products reviewed", "value": str(data["kpis"]["productCount"]), "note": "From matched sales and prices."},
         ],
         "suggestions": suggestions,
     }
 
 
+_MAX_UPLOAD_BYTES = 50 * 1024 * 1024  # 50 MB
+
 class DashboardHandler(SimpleHTTPRequestHandler):
     def end_headers(self):
         self.send_header("Cache-Control", "no-store")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("X-Frame-Options", "DENY")
+        self.send_header("Referrer-Policy", "no-referrer")
+        self.send_header(
+            "Content-Security-Policy",
+            "default-src 'self'; "
+            "script-src 'self'; "
+            "style-src 'self'; "
+            "img-src 'self' data:; "
+            "connect-src 'self' https://open.er-api.com "
+            "https://generativelanguage.googleapis.com https://api.groq.com",
+        )
         super().end_headers()
 
     def do_GET(self):
@@ -944,12 +996,6 @@ class DashboardHandler(SimpleHTTPRequestHandler):
         if parsed.path == "/api/rates":
             self._send_json(_fetch_usd_rate())
             return
-        if parsed.path == "/api/reset":
-            global _ACTIVE_DATA
-            with _data_lock:
-                _ACTIVE_DATA = None
-            self._send_json({"ok": True, "message": "Default workbook data restored."})
-            return
         if parsed.path == "/":
             self.path = "/index.html"
         return super().do_GET()
@@ -957,28 +1003,51 @@ class DashboardHandler(SimpleHTTPRequestHandler):
     def do_POST(self):
         global _ACTIVE_DATA
         parsed = urlparse(self.path)
+
+        if parsed.path == "/api/reset":
+            with _data_lock:
+                _ACTIVE_DATA = None
+            self._send_json({"ok": True, "message": "Default workbook data restored."})
+            return
+
         if parsed.path == "/api/chat":
             if not _check_rate_limit(self.client_address[0]):
                 self._send_json({"ok": False, "error": "Too many requests. Please wait a moment."}, status=429)
                 return
             try:
-                length = int(self.headers.get("Content-Length", "0"))
+                length = min(int(self.headers.get("Content-Length", "0")), 64 * 1024)
                 body = self.rfile.read(length)
                 payload = json.loads(body.decode("utf-8") or "{}")
-                answer = _chat_answer(payload.get("question", ""), get_dashboard_data())
+                cur = payload.get("currency", "EUR") if payload.get("currency") in ("EUR", "USD") else "EUR"
+                raw_rate = float(payload.get("usdRate") or 1.0)
+                rate = max(0.01, min(100.0, raw_rate))
+                answer = _chat_answer(payload.get("question", ""), get_dashboard_data(), bool(payload.get("external", False)), cur, rate if cur == "USD" else None)
                 self._send_json({"ok": True, **answer})
-            except Exception as exc:
-                self._send_json({"ok": False, "error": str(exc)}, status=500)
+            except Exception:
+                self._send_json({"ok": False, "error": "Could not process your question. Please try again."}, status=500)
             return
 
         if parsed.path != "/api/upload":
             self.send_error(404, "Not found")
             return
 
+        if not _check_rate_limit(self.client_address[0]):
+            self._send_json({"ok": False, "error": "Too many requests. Please wait a moment."}, status=429)
+            return
+
         try:
             length = int(self.headers.get("Content-Length", "0"))
+            if length > _MAX_UPLOAD_BYTES:
+                self._send_json({"ok": False, "error": "Upload too large. Maximum file size is 50 MB per file."}, status=413)
+                return
             body = self.rfile.read(length)
             files = _parse_upload(self.headers, body)
+            for key in ("sales", "prices"):
+                if key in files and not files[key]["content"].read(4).startswith(b"PK\x03\x04"):
+                    self._send_json({"ok": False, "error": "Please upload valid Excel (.xlsx) files."}, status=400)
+                    return
+                if key in files:
+                    files[key]["content"].seek(0)
             if "sales" not in files or "prices" not in files:
                 self._send_json(
                     {"ok": False, "error": "Please upload both Sales.xlsx and Prices.xlsx."},
@@ -994,8 +1063,8 @@ class DashboardHandler(SimpleHTTPRequestHandler):
             with _data_lock:
                 _ACTIVE_DATA = data
             self._send_json({"ok": True, "data": data})
-        except Exception as exc:
-            self._send_json({"ok": False, "error": str(exc)}, status=500)
+        except Exception:
+            self._send_json({"ok": False, "error": "Could not process the uploaded files. Check that both files are valid Excel workbooks."}, status=500)
 
     def guess_type(self, path):
         if path.endswith(".js"):

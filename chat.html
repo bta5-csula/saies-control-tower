@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ask Sales AI | AI Sales Intelligence</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body data-page="chat">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">AI</span>
+          <span>
+            <span class="brand-title">Sales Intelligence</span>
+            <span class="brand-subtitle">Business decision dashboard</span>
+          </span>
+        </a>
+        <div class="nav-section">Navigation</div>
+        <nav>
+          <a class="nav-link" data-page="overview" href="index.html"><span class="nav-icon">OV</span>Overview</a>
+          <a class="nav-link" data-page="products" href="products.html"><span class="nav-icon">PI</span>Product Insights</a>
+          <a class="nav-link" data-page="forecast" href="forecast.html"><span class="nav-icon">FC</span>Forecast</a>
+          <a class="nav-link" data-page="price" href="price-impact.html"><span class="nav-icon">PX</span>Price Impact</a>
+          <a class="nav-link" data-page="chat" href="chat.html"><span class="nav-icon">AI</span>Ask Sales AI</a>
+          <a class="nav-link" data-page="data" href="data.html"><span class="nav-icon">DU</span>Data Upload</a>
+        </nav>
+        <div class="sidebar-note">
+          <strong>Ask Sales AI</strong>
+          <span>Ask plain-English questions about the uploaded sales and price data.</span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Ask Sales AI</p>
+            <h1>Ask questions about sales decisions</h1>
+            <p class="page-lede">
+              This assistant answers from the uploaded spreadsheets and dashboard calculations.
+            </p>
+          </div>
+          <div class="source-pill" data-source-pill>
+            <span class="status-dot"></span>
+            <span>Loading files</span>
+          </div>
+        </header>
+
+        <section class="definition-strip">
+          <div>
+            <strong>Grounded answers</strong>
+            <span>Answers come from the current Sales and Prices data.</span>
+          </div>
+          <div>
+            <strong>Suggested questions</strong>
+            <span>Use guided prompts when you are not sure what to ask.</span>
+          </div>
+          <div>
+            <strong>Plain language</strong>
+            <span>No technical terms are needed to use this page.</span>
+          </div>
+        </section>
+
+        <section class="chat-layout">
+          <article class="chat-panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">Conversation</h2>
+                <p class="panel-copy">Try a question like “Which products should we prioritize?”</p>
+              </div>
+            </div>
+            <div class="chat-messages" id="chat-messages"></div>
+            <form class="chat-form" id="chat-form">
+              <input id="chat-question" type="text" placeholder="Ask about product priority, forecast, price impact, or file matching" />
+              <button class="primary-button" type="submit">Ask</button>
+            </form>
+          </article>
+
+          <aside class="chat-side panel">
+            <h2 class="panel-title">Suggested questions</h2>
+            <div class="suggestion-list" id="chat-suggestions"></div>
+            <div class="notice chat-note">
+              If the data is not enough to answer, Ask Sales AI will say so instead of guessing.
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

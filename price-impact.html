@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Price Impact | AI Sales Intelligence</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body data-page="price">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">AI</span>
+          <span>
+            <span class="brand-title">Sales Intelligence</span>
+            <span class="brand-subtitle">Business decision dashboard</span>
+          </span>
+        </a>
+        <div class="nav-section">Navigation</div>
+        <nav>
+          <a class="nav-link" data-page="overview" href="index.html"><span class="nav-icon">OV</span>Overview</a>
+          <a class="nav-link" data-page="products" href="products.html"><span class="nav-icon">PI</span>Product Insights</a>
+          <a class="nav-link" data-page="forecast" href="forecast.html"><span class="nav-icon">FC</span>Forecast</a>
+          <a class="nav-link" data-page="price" href="price-impact.html"><span class="nav-icon">PX</span>Price Impact</a>
+          <a class="nav-link" data-page="chat" href="chat.html"><span class="nav-icon">AI</span>Ask Sales AI</a>
+          <a class="nav-link" data-page="data" href="data.html"><span class="nav-icon">DU</span>Data Upload</a>
+        </nav>
+        <div class="sidebar-note">
+          <strong>Price view</strong>
+          <span>Connects price movement to sales volume in plain language.</span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Price Impact</p>
+            <h1>How price changes relate to volume</h1>
+            <p class="page-lede" id="price-summary">
+              When prices rise, sales volume may soften.
+            </p>
+          </div>
+          <div class="source-pill" data-source-pill>
+            <span class="status-dot"></span>
+            <span>Loading files</span>
+          </div>
+        </header>
+
+        <section class="summary-band">
+          <div class="summary-item">
+            <span id="whatif-revenue-label">Scenario revenue change</span>
+            <strong id="whatif-revenue">--</strong>
+          </div>
+          <div class="summary-item">
+            <span>Expected profit change</span>
+            <strong id="whatif-profit">--</strong>
+          </div>
+          <div class="summary-item">
+            <span>Expected unit change</span>
+            <strong id="whatif-units">--</strong>
+          </div>
+        </section>
+
+        <section class="panel scenario-panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Test a price change</h2>
+              <p class="panel-copy">
+                Move the slider to estimate how a discount or price increase may affect sales, profit, and units.
+              </p>
+            </div>
+            <strong class="scenario-value" id="price-change-value">+5%</strong>
+          </div>
+          <div class="slider-row">
+            <span>-10%</span>
+            <input id="price-change-slider" type="range" min="-10" max="10" step="1" value="5" />
+            <span>+10%</span>
+          </div>
+        </section>
+
+        <section class="definition-strip">
+          <div>
+            <strong>Revenue impact</strong>
+            <span>Expected change in sales value after the selected price move.</span>
+          </div>
+          <div>
+            <strong>Profit impact</strong>
+            <span>Expected change in profit after unit volume changes.</span>
+          </div>
+          <div>
+            <strong>Expected unit change</strong>
+            <span>Estimated change in quantity sold after the selected price move.</span>
+          </div>
+        </section>
+
+        <section class="grid two-col">
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">Price and sales volume</h2>
+                <p class="panel-copy">Each point compares a product price with units sold on a sales date.</p>
+              </div>
+            </div>
+            <div class="chart-wrap" id="price-scatter"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">Plain-English result</h2>
+                <p class="panel-copy" id="whatif-copy">Loading price estimate.</p>
+              </div>
+            </div>
+            <div class="notice price-note" id="price-note">
+              Move the slider to see how the selected price change may affect units, revenue, and profit.
+            </div>
+            <div class="metric-row">
+              <div>
+                <strong>Revenue impact</strong>
+                <span>Selected price move balanced against expected volume change</span>
+              </div>
+              <b id="whatif-revenue-detail">See top card</b>
+            </div>
+            <div class="metric-row">
+              <div>
+                <strong>Profit impact</strong>
+                <span>Costs stay tied to expected units</span>
+              </div>
+              <b id="whatif-profit-detail">See top card</b>
+            </div>
+            <div class="metric-row">
+              <div>
+                <strong>Recommended action</strong>
+                <span>Use a small test before changing all products at once</span>
+              </div>
+              <b id="whatif-action">Test carefully</b>
+            </div>
+          </article>
+        </section>
+
+        <section class="table-panel" style="margin-top: 18px">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Product price signals</h2>
+              <p class="panel-copy">Shows where a price move could help or hurt.</p>
+            </div>
+          </div>
+          <div id="price-table"></div>
+        </section>
+      </main>
+    </div>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

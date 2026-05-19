@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Forecast | AI Sales Intelligence</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body data-page="forecast">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">AI</span>
+          <span>
+            <span class="brand-title">Sales Intelligence</span>
+            <span class="brand-subtitle">Business decision dashboard</span>
+          </span>
+        </a>
+        <div class="nav-section">Navigation</div>
+        <nav>
+          <a class="nav-link" data-page="overview" href="index.html"><span class="nav-icon">OV</span>Overview</a>
+          <a class="nav-link" data-page="products" href="products.html"><span class="nav-icon">PI</span>Product Insights</a>
+          <a class="nav-link" data-page="forecast" href="forecast.html"><span class="nav-icon">FC</span>Forecast</a>
+          <a class="nav-link" data-page="price" href="price-impact.html"><span class="nav-icon">PX</span>Price Impact</a>
+          <a class="nav-link" data-page="chat" href="chat.html"><span class="nav-icon">AI</span>Ask Sales AI</a>
+          <a class="nav-link" data-page="data" href="data.html"><span class="nav-icon">DU</span>Data Upload</a>
+        </nav>
+        <div class="sidebar-note">
+          <strong>Prediction view</strong>
+          <span>Shows past sales beside the next-month expectation.</span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Forecast</p>
+            <h1>Expected sales for the next month</h1>
+            <p class="page-lede" id="forecast-summary">
+              Based on past sales trends, AI expects the next month to follow recent demand.
+            </p>
+          </div>
+          <div class="source-pill" data-source-pill>
+            <span class="status-dot"></span>
+            <span>Loading files</span>
+          </div>
+        </header>
+
+        <section class="summary-band">
+          <div class="summary-item">
+            <span>Expected revenue</span>
+            <strong id="forecast-revenue">--</strong>
+          </div>
+          <div class="summary-item">
+            <span>Expected units</span>
+            <strong id="forecast-units">--</strong>
+          </div>
+          <div class="summary-item">
+            <span>Expected profit</span>
+            <strong id="forecast-profit">--</strong>
+          </div>
+        </section>
+
+        <section class="notice forecast-confidence" id="forecast-confidence">
+          Early estimate based on limited sales history. Use this as a directional planning signal.
+        </section>
+
+        <section class="definition-strip">
+          <div>
+            <strong>Expected revenue</strong>
+            <span>Estimated sales value for the next month.</span>
+          </div>
+          <div>
+            <strong>Expected units</strong>
+            <span>Estimated number of units that may sell next month.</span>
+          </div>
+          <div>
+            <strong>Expected profit</strong>
+            <span>Estimated profit after expected product cost.</span>
+          </div>
+        </section>
+
+        <section class="grid two-col">
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">Historical and expected sales</h2>
+                <p class="panel-copy">The dotted line is the next-month prediction.</p>
+              </div>
+            </div>
+            <div class="chart-wrap" id="forecast-chart"></div>
+          </article>
+
+          <article class="table-panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">Monthly summary</h2>
+                <p class="panel-copy">Revenue, profit, and units from the sales file.</p>
+              </div>
+            </div>
+            <div id="monthly-table"></div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

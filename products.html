@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Insights | AI Sales Intelligence</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body data-page="products">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">AI</span>
+          <span>
+            <span class="brand-title">Sales Intelligence</span>
+            <span class="brand-subtitle">Business decision dashboard</span>
+          </span>
+        </a>
+        <div class="nav-section">Navigation</div>
+        <nav>
+          <a class="nav-link" data-page="overview" href="index.html"><span class="nav-icon">OV</span>Overview</a>
+          <a class="nav-link" data-page="products" href="products.html"><span class="nav-icon">PI</span>Product Insights</a>
+          <a class="nav-link" data-page="forecast" href="forecast.html"><span class="nav-icon">FC</span>Forecast</a>
+          <a class="nav-link" data-page="price" href="price-impact.html"><span class="nav-icon">PX</span>Price Impact</a>
+          <a class="nav-link" data-page="chat" href="chat.html"><span class="nav-icon">AI</span>Ask Sales AI</a>
+          <a class="nav-link" data-page="data" href="data.html"><span class="nav-icon">DU</span>Data Upload</a>
+        </nav>
+        <div class="sidebar-note">
+          <strong>Decision focus</strong>
+          <span>Rank products by sales, profit, trend, and simple status labels.</span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Product Insights</p>
+            <h1>Which products should we prioritize?</h1>
+            <p class="page-lede">
+              Each product gets a business-friendly status with a short reason and recommended action.
+            </p>
+          </div>
+          <div class="source-pill" data-source-pill>
+            <span class="status-dot"></span>
+            <span>Loading files</span>
+          </div>
+        </header>
+
+        <section class="table-panel">
+          <div class="definition-strip">
+            <div>
+              <strong>Healthy</strong>
+              <span>Sales and profit look steady enough to keep supporting this product.</span>
+            </div>
+            <div>
+              <strong>Growth Opportunity</strong>
+              <span>Recent sales are improving and profit is acceptable.</span>
+            </div>
+            <div>
+              <strong>Needs Attention</strong>
+              <span>Sales, profit, or margin suggest this product should be reviewed.</span>
+            </div>
+          </div>
+          <div class="toolbar">
+            <div class="segmented" aria-label="Status filter">
+              <button class="segment-button active" data-filter="All">All</button>
+              <button class="segment-button" data-filter="Healthy">Healthy</button>
+              <button class="segment-button" data-filter="Growth Opportunity">Growth Opportunity</button>
+              <button class="segment-button" data-filter="Needs Attention">Needs Attention</button>
+            </div>
+            <input class="search-input" id="product-search" type="search" placeholder="Search product" />
+          </div>
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Product table</h2>
+              <p class="panel-copy" id="product-count">Loading products</p>
+            </div>
+          </div>
+          <div id="products-table"></div>
+        </section>
+      </main>
+    </div>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

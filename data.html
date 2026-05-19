@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Data Upload | AI Sales Intelligence</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body data-page="data">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">AI</span>
+          <span>
+            <span class="brand-title">Sales Intelligence</span>
+            <span class="brand-subtitle">Business decision dashboard</span>
+          </span>
+        </a>
+        <div class="nav-section">Navigation</div>
+        <nav>
+          <a class="nav-link" data-page="overview" href="index.html"><span class="nav-icon">OV</span>Overview</a>
+          <a class="nav-link" data-page="products" href="products.html"><span class="nav-icon">PI</span>Product Insights</a>
+          <a class="nav-link" data-page="forecast" href="forecast.html"><span class="nav-icon">FC</span>Forecast</a>
+          <a class="nav-link" data-page="price" href="price-impact.html"><span class="nav-icon">PX</span>Price Impact</a>
+          <a class="nav-link" data-page="chat" href="chat.html"><span class="nav-icon">AI</span>Ask Sales AI</a>
+          <a class="nav-link" data-page="data" href="data.html"><span class="nav-icon">DU</span>Data Upload</a>
+        </nav>
+        <div class="sidebar-note">
+          <strong>Data view</strong>
+          <span>Upload Sales.xlsx and Prices.xlsx, then check the cleaned preview.</span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Data Upload / Data Preview</p>
+            <h1>Upload and review the source files</h1>
+            <p class="page-lede">
+              The app matches sales rows to price records so business users can trust the insights on the other pages.
+            </p>
+          </div>
+          <div class="source-pill" data-source-pill>
+            <span class="status-dot"></span>
+            <span>Loading files</span>
+          </div>
+        </header>
+
+        <section class="upload-panel">
+          <form id="upload-form">
+            <div class="upload-grid">
+              <label class="file-drop">
+                <strong>Sales.xlsx</strong>
+                <span>Sales orders, units, revenue, cost, and profit.</span>
+                <input id="sales-file" type="file" accept=".xlsx,.xls" />
+              </label>
+              <label class="file-drop">
+                <strong>Prices.xlsx</strong>
+                <span>Product prices by date and channel.</span>
+                <input id="prices-file" type="file" accept=".xlsx,.xls" />
+              </label>
+            </div>
+            <div class="upload-actions">
+              <button class="primary-button" type="submit">Match files</button>
+              <button class="quiet-button" type="button" id="reset-data">Use default files</button>
+              <div id="upload-message" class="muted"></div>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel" style="margin-top: 18px">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Match status</h2>
+              <p class="panel-copy" id="match-status">Checking files.</p>
+            </div>
+          </div>
+          <div class="match-strip" id="match-stats"></div>
+        </section>
+
+        <section class="grid two-col" style="margin-top: 18px">
+          <article class="table-panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">Cleaned Sales preview</h2>
+                <p class="panel-copy">The fields used for revenue, profit, and product trends.</p>
+              </div>
+            </div>
+            <div id="sales-preview"></div>
+          </article>
+
+          <article class="table-panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">Cleaned Prices preview</h2>
+                <p class="panel-copy">The fields used for current price and price impact.</p>
+              </div>
+            </div>
+            <div id="prices-preview"></div>
+          </article>
+        </section>
+
+        <section class="table-panel" style="margin-top: 18px">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Matched preview</h2>
+              <p class="panel-copy">Sales rows with their matching price record.</p>
+            </div>
+          </div>
+          <div id="matched-preview"></div>
+        </section>
+      </main>
+    </div>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

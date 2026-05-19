@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI Sales Intelligence Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body data-page="overview">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">AI</span>
+          <span>
+            <span class="brand-title">Sales Intelligence</span>
+            <span class="brand-subtitle">Business decision dashboard</span>
+          </span>
+        </a>
+        <div class="nav-section">Navigation</div>
+        <nav>
+          <a class="nav-link" data-page="overview" href="index.html"><span class="nav-icon">OV</span>Overview</a>
+          <a class="nav-link" data-page="products" href="products.html"><span class="nav-icon">PI</span>Product Insights</a>
+          <a class="nav-link" data-page="forecast" href="forecast.html"><span class="nav-icon">FC</span>Forecast</a>
+          <a class="nav-link" data-page="price" href="price-impact.html"><span class="nav-icon">PX</span>Price Impact</a>
+          <a class="nav-link" data-page="chat" href="chat.html"><span class="nav-icon">AI</span>Ask Sales AI</a>
+          <a class="nav-link" data-page="data" href="data.html"><span class="nav-icon">DU</span>Data Upload</a>
+        </nav>
+        <div class="sidebar-note">
+          <strong>Decision focus</strong>
+          <span>What products should the business prioritize right now?</span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Overview Dashboard</p>
+            <h1>AI Sales Intelligence Dashboard</h1>
+            <p class="page-lede">
+              A clear view of sales, profit, product health, and the next-month prediction from Sales.xlsx and Prices.xlsx.
+            </p>
+          </div>
+          <div class="source-pill" data-source-pill>
+            <span class="status-dot"></span>
+            <span>Loading files</span>
+          </div>
+        </header>
+
+        <section class="grid kpi-grid">
+          <article class="kpi-card">
+            <div class="kpi-label">Total revenue</div>
+            <div class="kpi-value" id="kpi-revenue">--</div>
+            <div class="kpi-note" id="kpi-source">Loading date range</div>
+          </article>
+          <article class="kpi-card">
+            <div class="kpi-label">Total profit</div>
+            <div class="kpi-value" id="kpi-profit">--</div>
+            <div class="kpi-note">Profit after sales cost</div>
+          </article>
+          <article class="kpi-card">
+            <div class="kpi-label">Units sold</div>
+            <div class="kpi-value" id="kpi-units">--</div>
+            <div class="kpi-note">Across all products</div>
+          </article>
+          <article class="kpi-card">
+            <div class="kpi-label">Average selling price</div>
+            <div class="kpi-value" id="kpi-asp">--</div>
+            <div class="kpi-note">Revenue per unit</div>
+          </article>
+          <article class="kpi-card">
+            <div class="kpi-label">Expected next-month revenue</div>
+            <div class="kpi-value" id="kpi-prediction">--</div>
+            <div class="kpi-note">Based on recent sales</div>
+          </article>
+        </section>
+
+        <section class="panel focus-panel">
+          <div class="panel-header">
+            <div>
+              <h2 class="panel-title">Recommended focus right now</h2>
+              <p class="panel-copy">The quickest answer to which products should be prioritized first.</p>
+            </div>
+          </div>
+          <div class="focus-grid" id="recommended-focus"></div>
+        </section>
+
+        <section class="definition-strip">
+          <div>
+            <strong>Needs Attention</strong>
+            <span>Review price, cost, or sales trend before promoting this product.</span>
+          </div>
+          <div>
+            <strong>Growth Opportunity</strong>
+            <span>Recent sales are improving and profit is acceptable.</span>
+          </div>
+          <div>
+            <strong>Expected next-month revenue</strong>
+            <span>A directional estimate based on recent sales history.</span>
+          </div>
+        </section>
+
+        <section class="grid two-col">
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">Sales trend and prediction</h2>
+                <p class="panel-copy">Historical revenue continues into the next-month expectation.</p>
+              </div>
+            </div>
+            <div class="chart-wrap" id="overview-trend"></div>
+          </article>
+
+          <article class="table-panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">Products to watch</h2>
+                <p class="panel-copy">Sorted by attention level and business value.</p>
+              </div>
+            </div>
+            <div id="overview-focus"></div>
+          </article>
+        </section>
+
+        <section class="grid three-col" id="insight-grid" style="margin-top: 18px"></section>
+      </main>
+    </div>
+    <script src="assets/app.js"></script>
+  </body>
+</html>

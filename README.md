@@ -1,6 +1,8 @@
 # AI Sales Intelligence Dashboard
 
-A multi-page web dashboard that turns `Sales.xlsx` and `Prices.xlsx` into plain-English business recommendations. Built by the Society for AI in Enterprise Systems (SAIES).
+A multi-page web dashboard that turns `Sales.xlsx` and `Prices.xlsx` into plain-English business recommendations. Built by the Society for AI in Enterprise Systems (SAIES) at California State University, Los Angeles.
+
+**Live demo:** https://saies-sales-ai-dashboard.onrender.com/
 
 ## Features
 

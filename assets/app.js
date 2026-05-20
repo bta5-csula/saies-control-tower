@@ -207,10 +207,10 @@ function updateSourcePill(data) {
   const pill = document.querySelector("[data-source-pill]");
   if (!pill || !data?.source) return;
   const source = data.source;
-  pill.innerHTML = `
-    <span class="status-dot"></span>
-    <span>${escapeHtml(source.salesFile)} + ${escapeHtml(source.pricesFile)}</span>
-  `;
+  const label = source.usingWarehouse
+    ? "Sales Warehouse"
+    : `${escapeHtml(source.salesFile)} + ${escapeHtml(source.pricesFile)}`;
+  pill.innerHTML = `<span class="status-dot"></span><span>${label}</span>`;
 }
 
 function showPageError(error) {
@@ -611,7 +611,8 @@ function renderChat(data) {
     } else {
       addChatMessage(
         "assistant",
-        `Hi, I can answer questions about ${data.source.salesFile} and ${data.source.pricesFile}. Try one of the suggested questions or ask your own.`,
+        `Hi, I can answer questions about the uploaded sales and price data. Try one of the suggested questions or ask your own.`,
+        false,
       );
     }
   }
@@ -658,7 +659,7 @@ function renderChatSuggestions(suggestions) {
 
 async function askSalesAi(question) {
   addChatMessage("user", question);
-  const loadingId = addChatMessage("assistant", "Checking the sales and price data...");
+  const loadingId = addChatMessage("assistant", "Checking the sales and price data...", false);
   try {
     const response = await fetch("/api/chat", {
       method: "POST",
@@ -666,7 +667,7 @@ async function askSalesAi(question) {
       body: JSON.stringify({ question, external: externalSources, currency: displayCurrency, usdRate: usdRate }),
     });
     const payload = await response.json();
-    if (!response.ok || !payload.ok) {
+    if (!response.ok) {
       throw new Error(payload.error || "Ask Sales AI could not answer right now.");
     }
     replaceChatMessage(loadingId, payload.answer, payload);
@@ -676,7 +677,7 @@ async function askSalesAi(question) {
   }
 }
 
-function addChatMessage(role, body) {
+function addChatMessage(role, body, persist = true) {
   const target = document.getElementById("chat-messages");
   if (!target) return "";
   const id = `chat-${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -690,8 +691,10 @@ function addChatMessage(role, body) {
     `,
   );
   target.scrollTop = target.scrollHeight;
-  chatHistory.push({ id, role, body, cards: [], products: [] });
-  sessionStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+  if (persist) {
+    chatHistory.push({ id, role, body, cards: [], products: [] });
+    sessionStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+  }
   return id;
 }
 
@@ -741,8 +744,10 @@ function replaceChatMessage(id, body, payload) {
     entry.body = body;
     entry.cards = payload.cards || [];
     entry.products = payload.products || [];
-    sessionStorage.setItem("chatHistory", JSON.stringify(chatHistory));
+  } else {
+    chatHistory.push({ id, role: "assistant", body, cards: payload.cards || [], products: payload.products || [] });
   }
+  sessionStorage.setItem("chatHistory", JSON.stringify(chatHistory));
 }
 
 function rebuildMessages() {
@@ -783,7 +788,8 @@ function renderDefaultDownloads(data) {
   const el = document.getElementById("default-downloads");
   if (!el) return;
   const isDefault =
-    data.source.salesFile === "Sales.xlsx" && data.source.pricesFile === "Prices.xlsx";
+    data.source.usingWarehouse ||
+    (data.source.salesFile === "Sales.xlsx" && data.source.pricesFile === "Prices.xlsx");
   el.hidden = !isDefault;
 }
 

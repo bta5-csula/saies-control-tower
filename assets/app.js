@@ -659,7 +659,7 @@ function renderChatSuggestions(suggestions) {
 
 async function askSalesAi(question) {
   addChatMessage("user", question);
-  const loadingId = addChatMessage("assistant", "Checking the sales and price data...", false);
+  const loadingId = addChatMessage("assistant", "Checking the sales and price data", false, true);
   try {
     const response = await fetch("/api/chat", {
       method: "POST",
@@ -677,16 +677,19 @@ async function askSalesAi(question) {
   }
 }
 
-function addChatMessage(role, body, persist = true) {
+function addChatMessage(role, body, persist = true, loading = false) {
   const target = document.getElementById("chat-messages");
   if (!target) return "";
   const id = `chat-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+  const contentHtml = loading
+    ? `Checking the sales and price data<span class="loading-dot"></span><span class="loading-dot"></span><span class="loading-dot"></span>`
+    : escapeHtml(body);
   target.insertAdjacentHTML(
     "beforeend",
     `
-      <div class="chat-message ${role}" id="${id}">
+      <div class="chat-message ${role}${loading ? " loading" : ""}" id="${id}">
         <div class="chat-role">${role === "user" ? "You" : "Ask Sales AI"}</div>
-        <p>${escapeHtml(body)}</p>
+        <p>${contentHtml}</p>
       </div>
     `,
   );
@@ -732,6 +735,7 @@ function buildChatProductsHtml(products) {
 function replaceChatMessage(id, body, payload) {
   const message = document.getElementById(id);
   if (!message) return;
+  message.classList.remove("loading");
   message.innerHTML = `
     <div class="chat-role">Ask Sales AI</div>
     <p>${escapeHtml(body)}</p>

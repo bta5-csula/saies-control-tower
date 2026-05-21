@@ -574,6 +574,19 @@ h1 {
   stroke-dasharray: 6 6;
 }
 
+.chart-tip {
+  position: fixed;
+  background: var(--ink);
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 13px;
+  pointer-events: none;
+  z-index: 200;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+
 .chart-area {
   fill: rgba(34, 168, 143, 0.12);
 }
@@ -676,6 +689,10 @@ table {
   width: 100%;
   border-collapse: collapse;
   min-width: 760px;
+}
+
+#monthly-table table {
+  min-width: 340px;
 }
 
 .watch-row {

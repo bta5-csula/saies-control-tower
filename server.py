@@ -205,10 +205,10 @@ def _load_carbon_summary() -> dict:
             for _, row in by_scope.iterrows()
         ],
         "insight": (
-            f"Total CO2e across all organizations: {int(total):,}. "
+            f"Total CO2e across all organizations is {int(total):,}. "
             f"{by_type.iloc[0]['TYPE']} is the largest emission source. "
-            f"The greenest organization emitted {int(by_org.iloc[-1]['co2e']):,} CO2e vs "
-            f"{int(by_org.iloc[0]['co2e']):,} for the highest emitter."
+            f"The lowest-emitting organization produced {int(by_org.iloc[-1]['co2e']):,} CO2e "
+            f"compared to {int(by_org.iloc[0]['co2e']):,} for the highest emitter."
         ),
     }
 
@@ -1085,6 +1085,10 @@ class DashboardHandler(SimpleHTTPRequestHandler):
             self._send_json(_load_carbon_summary())
             return
 
+        if parsed.path == "/api/carbon/export":
+            self._send_carbon_xlsx()
+            return
+
         if parsed.path == "/api/rates":
             self._send_json(_fetch_usd_rate())
             return
@@ -1166,6 +1170,44 @@ class DashboardHandler(SimpleHTTPRequestHandler):
         if path.endswith(".css"):
             return "text/css"
         return mimetypes.guess_type(path)[0] or "application/octet-stream"
+
+    def _send_carbon_xlsx(self):
+        if not WAREHOUSE_DB.exists():
+            self._send_error(404, "Carbon data not available")
+            return
+        con = sqlite3.connect(WAREHOUSE_DB)
+        has_carbon = con.execute(
+            "SELECT 1 FROM sqlite_master WHERE type='table' AND name='fact_carbon'"
+        ).fetchone()
+        if not has_carbon:
+            con.close()
+            self._send_error(404, "Carbon data not available")
+            return
+        df = pd.read_sql("""
+            SELECT
+                et.TYPE              AS "Emission Type",
+                es.SCOPE             AS "Scope",
+                es.SCOPE_NAME        AS "Scope Name",
+                s.SALES_ORGANIZATION AS "Organization",
+                sim.SIM_ROUND        AS "Simulation Round",
+                ROUND(fc.TOTAL_CO2E_EMISSIONS, 2) AS "Total CO2e"
+            FROM fact_carbon fc
+            JOIN dim_emission_type  et  USING(emission_type_key)
+            JOIN dim_emission_scope es  USING(scope_key)
+            JOIN dim_sales_org      s   USING(sales_org_key)
+            JOIN dim_simulation     sim USING(sim_key)
+            ORDER BY sim.SIM_ROUND, s.SALES_ORGANIZATION, et.TYPE
+        """, con)
+        con.close()
+        buf = BytesIO()
+        df.to_excel(buf, index=False, sheet_name="Carbon Emissions")
+        body = buf.getvalue()
+        self.send_response(200)
+        self.send_header("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+        self.send_header("Content-Disposition", 'attachment; filename="Carbon.xlsx"')
+        self.send_header("Content-Length", str(len(body)))
+        self.end_headers()
+        self.wfile.write(body)
 
     def _send_json(self, data, status=200):
         body = json.dumps(data, allow_nan=False).encode("utf-8")

@@ -173,6 +173,53 @@ function text(id, value) {
   element.textContent = value;
 }
 
+function getChartTip() {
+  let tip = document.getElementById("chart-tip");
+  if (!tip) {
+    tip = document.createElement("div");
+    tip.id = "chart-tip";
+    tip.className = "chart-tip";
+    tip.hidden = true;
+    document.body.appendChild(tip);
+  }
+  return tip;
+}
+
+function showChartTip(e, label) {
+  const tip = getChartTip();
+  tip.textContent = label;
+  tip.hidden = false;
+  positionChartTip(e);
+}
+
+function positionChartTip(e) {
+  const tip = document.getElementById("chart-tip");
+  if (!tip || tip.hidden) return;
+  const offset = 14;
+  let left = e.clientX + offset;
+  let top  = e.clientY - 32;
+  if (left + tip.offsetWidth  > window.innerWidth  - 8) left = e.clientX - tip.offsetWidth - offset;
+  if (top < 8) top = e.clientY + offset;
+  tip.style.left = left + "px";
+  tip.style.top  = top  + "px";
+}
+
+function hideChartTip() {
+  const tip = document.getElementById("chart-tip");
+  if (tip) tip.hidden = true;
+}
+
+function wireChartTips(container) {
+  if (container.dataset.tipsWired) return;
+  container.dataset.tipsWired = "true";
+  container.addEventListener("mouseover",  (e) => {
+    if (e.target.dataset.tip) showChartTip(e, e.target.dataset.tip);
+    else hideChartTip();
+  });
+  container.addEventListener("mousemove",  positionChartTip);
+  container.addEventListener("mouseleave", hideChartTip);
+}
+
 function html(id, value) {
   const element = document.getElementById(id);
   if (element) element.innerHTML = value;
@@ -259,6 +306,8 @@ function renderOverview(data) {
     yFormatter: formatCompact,
     actualLabel: "Actual revenue",
     forecastLabel: "Expected revenue",
+    yLabel: "Revenue",
+    xLabel: "Month",
   });
 
   renderRecommendedFocus(data.products);
@@ -425,10 +474,12 @@ function renderForecast(data) {
     yFormatter: formatCompact,
     actualLabel: "Historical sales",
     forecastLabel: "Expected sales",
+    yLabel: "Revenue",
+    xLabel: "Month",
   });
 
   renderRows("monthly-table", data.forecast.monthly, [
-    { label: "Month", render: (row) => escapeHtml(row.month) },
+    { label: "Month", style: "width:110px", render: (row) => escapeHtml(row.month) },
     { label: "Revenue", className: "numeric", render: (row) => formatCurrency(row.revenue) },
     { label: "Profit", className: "numeric", render: (row) => formatCurrency(row.profit) },
     { label: "Units sold", className: "numeric", render: (row) => formatNumber(row.quantity) },
@@ -904,17 +955,14 @@ function renderRows(targetId, rows, columns) {
     return;
   }
   const header = columns
-    .map((column) => `<th class="${column.className || ""}">${escapeHtml(column.label)}</th>`)
+    .map((col) => `<th class="${col.className || ""}" style="${col.style || ""}">${escapeHtml(col.label)}</th>`)
     .join("");
   const body = rows
     .map(
       (row) => `
         <tr>
           ${columns
-            .map(
-              (column) =>
-                `<td class="${column.className || ""}">${column.render(row)}</td>`,
-            )
+            .map((col) => `<td class="${col.className || ""}" style="${col.style || ""}">${col.render(row)}</td>`)
             .join("")}
         </tr>
       `,
@@ -939,70 +987,86 @@ function renderLineChart(targetId, series, options = {}) {
   const container = document.getElementById(targetId);
   if (!container) return;
 
-  const width = 920;
-  const height = 320;
-  const pad = { top: 22, right: 28, bottom: 42, left: 70 };
+  const width  = 920;
+  const height = 345;
+  const pad    = { top: 22, right: 28, bottom: 58, left: 82 };
   const values = series
-    .flatMap((point) => [point.actual, point.forecast])
-    .filter((value) => value !== null && value !== undefined);
+    .flatMap((p) => [p.actual, p.forecast])
+    .filter((v) => v !== null && v !== undefined);
   const maxValue = Math.max(...values, 1);
-  const minValue = 0;
-  const plotW = width - pad.left - pad.right;
-  const plotH = height - pad.top - pad.bottom;
-  const x = (index) => pad.left + (index / Math.max(series.length - 1, 1)) * plotW;
-  const y = (value) => pad.top + (1 - (value - minValue) / (maxValue - minValue || 1)) * plotH;
+  const plotW = width  - pad.left - pad.right;
+  const plotH = height - pad.top  - pad.bottom;
+  const x = (i) => pad.left + (i / Math.max(series.length - 1, 1)) * plotW;
+  const y = (v) => pad.top  + (1 - v / maxValue) * plotH;
 
-  const actualPoints = [];
-  const forecastPoints = [];
-  series.forEach((point, index) => {
-    if (point.actual !== null && point.actual !== undefined) {
-      actualPoints.push([x(index), y(point.actual)]);
-    }
-    if (point.forecast !== null && point.forecast !== undefined) {
-      forecastPoints.push([x(index), y(point.forecast)]);
-    }
+  const actualPoints = [], forecastPoints = [];
+  series.forEach((p, i) => {
+    if (p.actual   != null) actualPoints.push([x(i), y(p.actual)]);
+    if (p.forecast != null) forecastPoints.push([x(i), y(p.forecast)]);
   });
-  if (actualPoints.length && forecastPoints.length) {
+  if (actualPoints.length && forecastPoints.length)
     forecastPoints.unshift(actualPoints[actualPoints.length - 1]);
-  }
 
-  const path = (points) =>
-    points.map((point, index) => `${index ? "L" : "M"} ${point[0].toFixed(1)} ${point[1].toFixed(1)}`).join(" ");
-  const grid = [0, 0.25, 0.5, 0.75, 1]
-    .map((tick) => {
-      const yy = pad.top + tick * plotH;
-      const value = maxValue * (1 - tick);
-      return `
-        <line class="chart-grid" x1="${pad.left}" y1="${yy}" x2="${width - pad.right}" y2="${yy}"></line>
-        <text class="axis-label" x="${pad.left - 12}" y="${yy + 4}" text-anchor="end">${escapeHtml(
-          options.yFormatter ? options.yFormatter(value) : formatCompact(value),
-        )}</text>
-      `;
-    })
-    .join("");
-  const labels = [
-    [0, series[0]?.label],
-    [Math.floor(series.length / 2), series[Math.floor(series.length / 2)]?.label],
-    [series.length - 1, series[series.length - 1]?.label],
-  ]
-    .map(
-      ([index, label]) =>
-        `<text class="axis-label" x="${x(index)}" y="${height - 12}" text-anchor="middle">${escapeHtml(label || "")}</text>`,
-    )
-    .join("");
+  const pathD = (pts) => pts.map((p, i) => `${i ? "L" : "M"} ${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join(" ");
+
+  const grid = [0, 0.25, 0.5, 0.75, 1].map((tick) => {
+    const yy = pad.top + tick * plotH;
+    const v  = maxValue * (1 - tick);
+    return `
+      <line class="chart-grid" x1="${pad.left}" y1="${yy.toFixed(1)}" x2="${width - pad.right}" y2="${yy.toFixed(1)}"></line>
+      <text class="axis-label" x="${pad.left - 10}" y="${(yy + 4).toFixed(1)}" text-anchor="end">${escapeHtml(
+        options.yFormatter ? options.yFormatter(v) : formatCompact(v))}</text>`;
+  }).join("");
+
+  const midIdx  = Math.floor(series.length / 2);
+  const xLabels = [0, midIdx, series.length - 1].map((i) =>
+    `<text class="axis-label" x="${x(i).toFixed(1)}" y="${(height - pad.bottom / 2 - 8).toFixed(1)}" text-anchor="middle">${escapeHtml(series[i]?.label || "")}</text>`
+  ).join("");
+
+  const midY   = (pad.top + plotH / 2).toFixed(1);
+  const yTitle = `<text class="axis-label" x="14" y="${midY}" text-anchor="middle" transform="rotate(-90 14 ${midY})">${escapeHtml(options.yLabel || "Value")}</text>`;
+  const xTitle = `<text class="axis-label" x="${(width / 2).toFixed(0)}" y="${height - 8}" text-anchor="middle">${escapeHtml(options.xLabel || "Month")}</text>`;
+
+  const lastForecastIdx  = series.reduce((last, p, i) => (p.forecast != null ? i : last), -1);
+  const firstForecastIdx = series.findIndex((p) => p.forecast != null && p.actual == null);
+  const forecastRange    = firstForecastIdx >= 0 ? lastForecastIdx - firstForecastIdx + 1 : 1;
+  const forecastStep     = Math.max(Math.round(forecastRange / 4), 1);
+  const dots = series.map((p, i) => {
+    const parts = [];
+    if (p.actual != null) {
+      const cx  = x(i).toFixed(1), cy = y(p.actual).toFixed(1);
+      const tip = `${p.label}: ${options.yFormatter ? options.yFormatter(p.actual) : formatCompact(p.actual)}`;
+      parts.push(`<circle cx="${cx}" cy="${cy}" r="4" fill="var(--teal)" pointer-events="none"></circle>`);
+      parts.push(`<circle cx="${cx}" cy="${cy}" r="12" fill="transparent" data-tip="${escapeHtml(tip)}"></circle>`);
+    }
+    if (p.forecast != null) {
+      const showDot = i === lastForecastIdx || (firstForecastIdx >= 0 && (i - firstForecastIdx) % forecastStep === 0);
+      if (showDot) {
+        const cx  = x(i).toFixed(1), cy = y(p.forecast).toFixed(1);
+        const tip = `${p.label} (expected): ${options.yFormatter ? options.yFormatter(p.forecast) : formatCompact(p.forecast)}`;
+        parts.push(`<circle cx="${cx}" cy="${cy}" r="5" fill="var(--rose)" pointer-events="none"></circle>`);
+        parts.push(`<circle cx="${cx}" cy="${cy}" r="12" fill="transparent" data-tip="${escapeHtml(tip)}"></circle>`);
+      }
+    }
+    return parts.join("");
+  }).join("");
 
   container.innerHTML = `
     <svg class="chart-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="Sales trend chart">
       ${grid}
-      <path class="chart-line" d="${path(actualPoints)}"></path>
-      <path class="chart-line forecast" d="${path(forecastPoints)}"></path>
-      ${labels}
+      <path class="chart-line" d="${pathD(actualPoints)}"></path>
+      <path class="chart-line forecast" d="${pathD(forecastPoints)}"></path>
+      ${dots}
+      ${xLabels}
+      ${yTitle}
+      ${xTitle}
     </svg>
     <div class="legend">
       <span class="legend-item"><span class="legend-swatch"></span>${escapeHtml(options.actualLabel || "Actual")}</span>
       <span class="legend-item"><span class="legend-swatch forecast"></span>${escapeHtml(options.forecastLabel || "Expected")}</span>
     </div>
   `;
+  wireChartTips(container);
 }
 
 function renderCarbon(data) {
@@ -1075,47 +1139,47 @@ function renderScatter(targetId, points) {
     return;
   }
 
-  const width = 900;
-  const height = 320;
-  const pad = { top: 22, right: 28, bottom: 46, left: 70 };
-  const plotW = width - pad.left - pad.right;
-  const plotH = height - pad.top - pad.bottom;
-  const minPrice = Math.min(...points.map((point) => point.price));
-  const maxPrice = Math.max(...points.map((point) => point.price));
-  const maxQty = Math.max(...points.map((point) => point.quantity), 1);
-  const x = (value) => pad.left + ((value - minPrice) / (maxPrice - minPrice || 1)) * plotW;
-  const y = (value) => pad.top + (1 - value / maxQty) * plotH;
+  const width  = 900;
+  const height = 345;
+  const pad    = { top: 22, right: 28, bottom: 62, left: 82 };
+  const plotW  = width  - pad.left - pad.right;
+  const plotH  = height - pad.top  - pad.bottom;
+  const minPrice = Math.min(...points.map((p) => p.price));
+  const maxPrice = Math.max(...points.map((p) => p.price));
+  const midPrice = (minPrice + maxPrice) / 2;
+  const maxQty   = Math.max(...points.map((p) => p.quantity), 1);
+  const x = (v) => pad.left + ((v - minPrice) / (maxPrice - minPrice || 1)) * plotW;
+  const y = (v) => pad.top  + (1 - v / maxQty) * plotH;
 
-  const circles = points
-    .map(
-      (point, index) => `
-        <circle cx="${x(point.price).toFixed(1)}" cy="${y(point.quantity).toFixed(1)}" r="5"
-          fill="${index % 3 === 0 ? "#22a88f" : index % 3 === 1 ? "#3b82f6" : "#f59e0b"}" opacity="0.72">
-          <title>${escapeHtml(point.product)}: ${formatCurrency(point.price, true)}, ${formatNumber(point.quantity)} units</title>
-        </circle>
-      `,
-    )
-    .join("");
+  const circles = points.map((p, i) => {
+    const tip = `${p.product}: ${formatCurrency(p.price, true)}, ${formatNumber(p.quantity)} units`;
+    return `<circle cx="${x(p.price).toFixed(1)}" cy="${y(p.quantity).toFixed(1)}" r="6"
+      fill="${i % 3 === 0 ? "#22a88f" : i % 3 === 1 ? "#3b82f6" : "#f59e0b"}" opacity="0.72"
+      style="cursor:pointer" data-tip="${escapeHtml(tip)}"></circle>`;
+  }).join("");
 
-  const grid = [0, 0.25, 0.5, 0.75, 1]
-    .map((tick) => {
-      const yy = pad.top + tick * plotH;
-      const value = maxQty * (1 - tick);
-      return `
-        <line class="chart-grid" x1="${pad.left}" y1="${yy}" x2="${width - pad.right}" y2="${yy}"></line>
-        <text class="axis-label" x="${pad.left - 12}" y="${yy + 4}" text-anchor="end">${formatNumber(value)}</text>
-      `;
-    })
-    .join("");
+  const grid = [0, 0.25, 0.5, 0.75, 1].map((tick) => {
+    const yy = pad.top + tick * plotH;
+    const v  = maxQty * (1 - tick);
+    return `
+      <line class="chart-grid" x1="${pad.left}" y1="${yy.toFixed(1)}" x2="${width - pad.right}" y2="${yy.toFixed(1)}"></line>
+      <text class="axis-label" x="${pad.left - 10}" y="${(yy + 4).toFixed(1)}" text-anchor="end">${formatNumber(v)}</text>`;
+  }).join("");
+
+  const xTickY   = (height - pad.bottom / 2 - 8).toFixed(1);
+  const xTitleY  = (height - 8).toFixed(1);
+  const yMid     = (height / 2).toFixed(1);
 
   container.innerHTML = `
     <svg class="chart-svg" viewBox="0 0 ${width} ${height}" role="img" aria-label="Price and volume chart">
       ${grid}
       ${circles}
-      <text class="axis-label" x="${pad.left}" y="${height - 14}">${formatCurrency(minPrice, true)}</text>
-      <text class="axis-label" x="${width - pad.right}" y="${height - 14}" text-anchor="end">${formatCurrency(maxPrice, true)}</text>
-      <text class="chart-label" x="${width / 2}" y="${height - 14}" text-anchor="middle">Price</text>
-      <text class="chart-label" x="18" y="${height / 2}" transform="rotate(-90 18 ${height / 2})" text-anchor="middle">Units sold</text>
+      <text class="axis-label" x="${pad.left}" y="${xTickY}">${formatCurrency(minPrice, true)}</text>
+      <text class="axis-label" x="${x(midPrice).toFixed(1)}" y="${xTickY}" text-anchor="middle">${formatCurrency(midPrice, true)}</text>
+      <text class="axis-label" x="${width - pad.right}" y="${xTickY}" text-anchor="end">${formatCurrency(maxPrice, true)}</text>
+      <text class="axis-label" x="${(width / 2).toFixed(0)}" y="${xTitleY}" text-anchor="middle">Price per unit</text>
+      <text class="axis-label" x="14" y="${yMid}" transform="rotate(-90 14 ${yMid})" text-anchor="middle">Units sold</text>
     </svg>
   `;
+  wireChartTips(container);
 }

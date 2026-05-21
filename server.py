@@ -123,6 +123,13 @@ def _load_carbon_summary() -> dict:
         return {"available": False}
 
     con = sqlite3.connect(WAREHOUSE_DB)
+    con.execute("PRAGMA foreign_keys = ON")
+    has_carbon = con.execute(
+        "SELECT 1 FROM sqlite_master WHERE type = 'table' AND name = 'fact_carbon'"
+    ).fetchone()
+    if not has_carbon:
+        con.close()
+        return {"available": False}
 
     total = pd.read_sql(
         "SELECT SUM(TOTAL_CO2E_EMISSIONS) as total FROM fact_carbon", con
@@ -138,10 +145,11 @@ def _load_carbon_summary() -> dict:
     """, con)
 
     by_type = pd.read_sql("""
-        SELECT TYPE,
-               ROUND(SUM(TOTAL_CO2E_EMISSIONS), 0) AS co2e
-        FROM fact_carbon
-        GROUP BY TYPE
+        SELECT et.TYPE,
+               ROUND(SUM(fc.TOTAL_CO2E_EMISSIONS), 0) AS co2e
+        FROM fact_carbon fc
+        JOIN dim_emission_type et USING(emission_type_key)
+        GROUP BY et.TYPE
         ORDER BY co2e DESC
     """, con)
 
@@ -155,16 +163,27 @@ def _load_carbon_summary() -> dict:
     """, con)
 
     by_scope = pd.read_sql("""
-        SELECT SCOPE,
-               ROUND(SUM(TOTAL_CO2E_EMISSIONS), 0) AS co2e
-        FROM fact_carbon
-        GROUP BY SCOPE
-        ORDER BY SCOPE
+        SELECT es.SCOPE,
+               es.SCOPE_NAME,
+               ROUND(SUM(fc.TOTAL_CO2E_EMISSIONS), 0) AS co2e
+        FROM fact_carbon fc
+        JOIN dim_emission_scope es USING(scope_key)
+        GROUP BY es.SCOPE, es.SCOPE_NAME
+        ORDER BY es.SCOPE
     """, con)
 
     con.close()
 
-    scope_labels = {1: "Direct (Scope 1)", 2: "Indirect energy (Scope 2)", 3: "Value chain (Scope 3)"}
+    if by_org.empty:
+        return {
+            "available": True,
+            "totalCO2e": 0,
+            "byOrg": [],
+            "byType": [],
+            "byRound": [],
+            "byScope": [],
+            "insight": "Carbon emissions table is available, but it does not contain any rows yet.",
+        }
 
     return {
         "available": True,
@@ -182,7 +201,7 @@ def _load_carbon_summary() -> dict:
             for _, row in by_round.iterrows()
         ],
         "byScope": [
-            {"scope": scope_labels.get(int(row["SCOPE"]), f"Scope {row['SCOPE']}"), "co2e": int(row["co2e"])}
+            {"scope": row["SCOPE_NAME"], "co2e": int(row["co2e"])}
             for _, row in by_scope.iterrows()
         ],
         "insight": (

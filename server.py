@@ -206,7 +206,7 @@ def _load_carbon_summary() -> dict:
         ],
         "insight": (
             f"Total CO2e across all organizations: {int(total):,}. "
-            f"Overstock is the largest emission source — unsold inventory generates carbon even when nothing ships. "
+            f"{by_type.iloc[0]['TYPE']} is the largest emission source. "
             f"The greenest organization emitted {int(by_org.iloc[-1]['co2e']):,} CO2e vs "
             f"{int(by_org.iloc[0]['co2e']):,} for the highest emitter."
         ),
@@ -624,6 +624,7 @@ def build_dashboard(sales_source=None, prices_source=None, source_names=None):
         "products": products,
         "forecast": forecast,
         "priceImpact": price_impact,
+        "carbon": _load_carbon_summary() if using_warehouse else {"available": False},
         "preview": {
             "sales": _records(sales, preview_sales_columns),
             "prices": _records(prices, preview_price_columns),
@@ -749,6 +750,22 @@ def _price_move_phrase(price_change_pct):
         return f"decrease by {_format_pct(amount)}"
     return "stay the same"
 
+def _carbon_prompt_section(carbon: dict) -> str:
+    if not carbon.get("available"):
+        return ""
+    lines = ["\nCarbon Emissions:"]
+    lines.append(f" Total CO2e: {int(carbon['totalCO2e']):,}")
+    if carbon.get("byType"):
+        by_type = ", ".join(f"{e['type']} {e['co2e']:,}" for e in carbon["byType"])
+        lines.append(f" By emission type: {by_type}")
+    if carbon.get("byScope"):
+        by_scope = ", ".join(f"{e['scope']} {e['co2e']:,}" for e in carbon["byScope"])
+        lines.append(f" By scope: {by_scope}")
+    if carbon.get("byOrg"):
+        by_org = ", ".join(f"{e['org']} {e['co2e']:,}" for e in carbon["byOrg"])
+        lines.append(f" By organization: {by_org}")
+    return "\n".join(lines) + "\n"
+
 def _build_system_prompt(data, external=False):
     kpis     = data["kpis"]
     source   = data["source"]
@@ -791,6 +808,7 @@ def _build_system_prompt(data, external=False):
         f" Expected next-month revenue: EUR {forecast['expectedRevenue']:,.0f}\n"
         f" Expected next-month units: {forecast['expectedUnits']:,.0f}\n"
         f" Expected next-month profit: EUR {forecast['expectedProfit']:,.0f}\n"
+        + _carbon_prompt_section(data.get("carbon", {}))
     )
 
 def _gemini_answer(question, data, external=False):
@@ -848,13 +866,13 @@ def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
     suggestions = [
         "Which products should we prioritize?",
         "Which products need attention?",
-        "Which products are good promotion candidates?",
         "What happens if prices decrease by 5%?",
-        "Were the files matched correctly?",
+        "What is the sales forecast for next month?",
+        "What are the total carbon emissions?",
     ]
 
     if not q:
-        return {"answer": "Ask a business question about sales, profit, product status, forecast, price impact, or file matching.", "products": [], "cards": [], "suggestions": suggestions}
+        return {"answer": "Ask a business question about sales, profit, product status, forecast, price impact, carbon emissions, or file matching.", "products": [], "cards": [], "suggestions": suggestions}
 
     if product and ("why" in q_lower or "marked" in q_lower or "status" in q_lower or product["material"].lower() in q_lower):
         return {
@@ -956,13 +974,78 @@ def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
             "suggestions": suggestions,
         }
 
+    def _carbon_unavailable_response():
+        return {
+            "answer": "The carbon emissions data belongs to the default ERP simulation dataset and is not part of your uploaded files. To access carbon analysis, restore the default data on the Data Upload page.",
+            "products": [], "cards": [], "suggestions": suggestions,
+        }
+
+    carbon = data.get("carbon", {})
+
+    if any(term in q_lower for term in ["total carbon", "total co2", "co2e", "carbon total", "how much carbon", "carbon footprint", "overall carbon", "total emissions"]):
+        if not carbon.get("available"):
+            return _carbon_unavailable_response()
+        top_type = carbon["byType"][0] if carbon.get("byType") else None
+        top_org  = carbon["byOrg"][0]  if carbon.get("byOrg")  else None
+        low_org  = carbon["byOrg"][-1] if carbon.get("byOrg") and len(carbon["byOrg"]) > 1 else None
+        answer = (
+            f"Total CO2e emissions across all organizations: {int(carbon['totalCO2e']):,}. "
+            + (f"The largest source is {top_type['type']} ({int(top_type['co2e']):,} CO2e). " if top_type else "")
+            + (f"The highest-emitting organization is {top_org['org']} ({int(top_org['co2e']):,} CO2e)"
+               + (f", compared to {low_org['org']} at {int(low_org['co2e']):,} CO2e for the lowest." if low_org else ".") if top_org else "")
+            + " See the Carbon page for a full breakdown by emission type, organization, and scope."
+        )
+        cards = [{"label": "Total CO2e", "value": f"{int(carbon['totalCO2e']):,}", "note": "Across all organizations and emission types."}]
+        if top_type:
+            cards.append({"label": "Largest source", "value": top_type["type"], "note": f"{int(top_type['co2e']):,} CO2e"})
+        if top_org:
+            cards.append({"label": "Highest emitter", "value": top_org["org"], "note": f"{int(top_org['co2e']):,} CO2e"})
+        return {"answer": answer, "products": [], "cards": cards, "suggestions": suggestions}
+
+    if any(term in q_lower for term in ["emission type", "emission source", "what activities", "which activities", "what generates", "source of emission", "type of emission", "activity cause"]):
+        if not carbon.get("available"):
+            return _carbon_unavailable_response()
+        types = carbon.get("byType", [])
+        total = carbon["totalCO2e"]
+        lines = ", ".join(f"{e['type']} ({int(e['co2e']):,}, {e['co2e']/total*100:.1f}%)" for e in types)
+        top_type_name = types[0]["type"] if types else "the largest source"
+        answer = f"Emissions break down by activity type as follows: {lines}. {top_type_name} is the largest source at {types[0]['co2e']/total*100:.1f}% of total CO2e." if types else f"Emissions break down by activity type as follows: {lines}."
+        cards = [{"label": e["type"], "value": f"{int(e['co2e']):,}", "note": f"{e['co2e']/total*100:.1f}% of total CO2e"} for e in types[:3]]
+        return {"answer": answer, "products": [], "cards": cards, "suggestions": suggestions}
+
+    if any(term in q_lower for term in ["which organization", "organization emit", "highest emitter", "lowest emitter", "most carbon", "least carbon", "least emissions", "greenest org", "greenest organization", "carbon by org", "carbon organization", "org carbon", "emitting org"]):
+        if not carbon.get("available"):
+            return _carbon_unavailable_response()
+        orgs = carbon.get("byOrg", [])
+        total = carbon["totalCO2e"]
+        lines = ", ".join(f"{e['org']} ({int(e['co2e']):,})" for e in orgs)
+        top = orgs[0] if orgs else None
+        low = orgs[-1] if len(orgs) > 1 else None
+        answer = (
+            f"Emissions by organization: {lines}. "
+            + (f"{top['org']} emits the most at {int(top['co2e']):,} CO2e ({top['co2e']/total*100:.1f}% of total)" if top else "")
+            + (f", while {low['org']} is the lowest at {int(low['co2e']):,} CO2e." if low else ".")
+        )
+        cards = [{"label": e["org"], "value": f"{int(e['co2e']):,}", "note": f"{e['co2e']/total*100:.1f}% of total CO2e"} for e in orgs[:3]]
+        return {"answer": answer, "products": [], "cards": cards, "suggestions": suggestions}
+
+    if any(term in q_lower for term in ["scope 1", "scope 2", "scope 3", "carbon scope", "emission scope", "which scope", "scope breakdown"]):
+        if not carbon.get("available"):
+            return _carbon_unavailable_response()
+        scopes = carbon.get("byScope", [])
+        total = carbon["totalCO2e"]
+        lines = ", ".join(f"{e['scope']} ({int(e['co2e']):,}, {e['co2e']/total*100:.1f}%)" for e in scopes)
+        answer = f"Carbon emissions by scope: {lines}. Scope 1 covers direct emissions from operations you own; Scope 2 covers purchased energy; Scope 3 covers the broader value chain and is often the hardest to reduce."
+        cards = [{"label": e["scope"], "value": f"{int(e['co2e']):,}", "note": f"{e['co2e']/total*100:.1f}% of total CO2e"} for e in scopes]
+        return {"answer": answer, "products": [], "cards": cards, "suggestions": suggestions}
+
     top_products = sorted(products, key=lambda row: row["revenue"], reverse=True)[:3]
     llm_answer   = _gemini_answer(q, data, external) or _groq_answer(q, data, external)
     if llm_answer:
         return {"answer": llm_answer, "products": top_products, "cards": [], "suggestions": suggestions}
 
     return {
-        "answer": "I can answer questions about product priority, product status, forecast, price impact, profit concerns, and file matching. For a quick starting point, ask which products should be prioritized.",
+        "answer": "I can answer questions about product priority, product status, forecast, price impact, profit concerns, carbon emissions, and file matching. For a quick starting point, ask which products should be prioritized.",
         "products": top_products,
         "cards": [
             {"label": "Total revenue", "value": fmt(data["kpis"]["totalRevenue"]), "valueRaw": _safe_number(data["kpis"]["totalRevenue"]), "note": "From the sales file."},

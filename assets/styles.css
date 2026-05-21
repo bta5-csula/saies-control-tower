@@ -499,6 +499,53 @@ h1 {
   min-height: 330px;
 }
 
+@keyframes shimmer {
+  0%   { background-position: -400% 0; }
+  100% { background-position:  400% 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, #e8edf2 25%, #f3f6f9 50%, #e8edf2 75%);
+  background-size: 400% 100%;
+  animation: shimmer 1.6s ease-in-out infinite;
+  border-radius: 6px;
+  color: transparent !important;
+  user-select: none;
+  pointer-events: none;
+}
+
+.skeleton-text {
+  display: block;
+  min-width: 60px;
+  height: 1em;
+  width: 55%;
+}
+
+.skeleton-bars {
+  padding: 16px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.skeleton-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.skeleton-bar-label {
+  flex: none;
+  width: 90px;
+  height: 14px;
+  border-radius: 4px;
+}
+
+.skeleton-bar {
+  height: 28px;
+  border-radius: 4px;
+}
+
 .chart-svg {
   width: 100%;
   min-height: 320px;

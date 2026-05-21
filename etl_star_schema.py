@@ -315,7 +315,7 @@ CREATE TABLE dim_location (
     AREA TEXT,
     CITY TEXT,
     COUNTRY TEXT,
-    POSTAL_CODE INTEGER
+    POSTAL_CODE TEXT
 );
 
 CREATE TABLE dim_customer (

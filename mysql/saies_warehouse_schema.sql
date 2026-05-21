@@ -39,7 +39,7 @@ CREATE TABLE `dim_location` (
   `AREA` VARCHAR(60),
   `CITY` VARCHAR(100),
   `COUNTRY` VARCHAR(100),
-  `POSTAL_CODE` INT,
+  `POSTAL_CODE` VARCHAR(20),
   PRIMARY KEY (`location_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
 COMMENT='Storage location and geography dimension';

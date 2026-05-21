@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Carbon Impact | AI Sales Intelligence</title>
+    <meta name="description" content="Carbon Impact — CO2e breakdown by emission type, organization, and scope across the supply chain." />
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="stylesheet" href="assets/styles.css" />
+  </head>
+  <body data-page="carbon">
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="index.html">
+          <span class="brand-mark">AI</span>
+          <span>
+            <span class="brand-title">Sales Intelligence</span>
+            <span class="brand-subtitle">Business decision dashboard</span>
+          </span>
+        </a>
+        <div class="nav-section">Navigation</div>
+        <nav>
+          <a class="nav-link" data-page="overview" href="index.html"><span class="nav-icon">OV</span>Overview</a>
+          <a class="nav-link" data-page="products" href="products.html"><span class="nav-icon">PI</span>Product Insights</a>
+          <a class="nav-link" data-page="forecast" href="forecast.html"><span class="nav-icon">FC</span>Sales Forecast</a>
+          <a class="nav-link" data-page="price" href="price-impact.html"><span class="nav-icon">PX</span>Price Impact</a>
+          <a class="nav-link" data-page="carbon" href="carbon.html"><span class="nav-icon">CO</span>Carbon Impact</a>
+          <a class="nav-link" data-page="chat" href="chat.html"><span class="nav-icon">AI</span>Ask Sales AI</a>
+          <a class="nav-link" data-page="data" href="data.html"><span class="nav-icon">DU</span>Data Upload</a>
+        </nav>
+        <span class="currency-toggle-label">Currency</span>
+        <div class="currency-toggle">
+          <button class="currency-btn" data-currency="EUR">EUR</button>
+          <button class="currency-btn" data-currency="USD" disabled title="Loading exchange rate…">USD</button>
+        </div>
+        <div class="sidebar-note">
+          <strong>Carbon Impact</strong>
+          <span>CO2e breakdown by emission type, organization, and scope.</span>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Carbon Impact</p>
+            <h1>Carbon footprint across the supply chain</h1>
+            <p class="page-lede" id="carbon-insight">
+              Loading carbon data.
+            </p>
+          </div>
+          <div class="source-pill" data-source-pill>
+            <span class="status-dot"></span>
+            <span>Loading files</span>
+          </div>
+        </header>
+
+        <section class="definition-strip">
+          <div>
+            <strong>CO2e (CO2 equivalent)</strong>
+            <span>A single unit that combines all greenhouse gases — CO2, methane, and others — into one comparable number.</span>
+          </div>
+          <div>
+            <strong>Emission scopes</strong>
+            <span>Scope 1 = direct operations. Scope 2 = purchased energy. Scope 3 = supply chain and customers. Scope 3 is usually the largest.</span>
+          </div>
+          <div>
+            <strong>Simulation periods</strong>
+            <span>Each period is one round of the ERP business simulation. Trends across periods show how emissions change as business conditions shift.</span>
+          </div>
+        </section>
+
+        <section class="summary-band">
+          <div class="summary-item">
+            <span>Total CO2e emissions</span>
+            <strong id="carbon-total">--</strong>
+          </div>
+          <div class="summary-item">
+            <span>Largest emission source</span>
+            <strong id="carbon-top-type">--</strong>
+          </div>
+          <div class="summary-item">
+            <span>Highest-emitting organization</span>
+            <strong id="carbon-top-org">--</strong>
+          </div>
+        </section>
+
+        <section class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px">
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">What activities generate emissions?</h2>
+                <p class="panel-copy">Each bar shows CO2e from one activity category and its share of total. Overstock is typically the largest source — unsold inventory generates carbon even when nothing ships.</p>
+              </div>
+            </div>
+            <div class="chart-wrap" style="min-height:0" id="carbon-by-type"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">Which organizations emit the most?</h2>
+                <p class="panel-copy">CO2e attributed to each sales organization. A large gap between the highest and lowest emitters suggests room to improve operations in higher-emitting locations.</p>
+              </div>
+            </div>
+            <div class="chart-wrap" style="min-height:0" id="carbon-by-org"></div>
+          </article>
+        </section>
+
+        <section class="grid" style="grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:18px">
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">How are emissions classified by scope?</h2>
+                <p class="panel-copy">Scope 1 = direct emissions from company operations. Scope 2 = energy purchased from the grid. Scope 3 = the value chain (suppliers, shipping, customers) and is usually the largest and hardest to reduce.</p>
+              </div>
+            </div>
+            <div class="chart-wrap" style="min-height:0" id="carbon-by-scope"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <h2 class="panel-title">How did emissions change over time?</h2>
+                <p class="panel-copy">Total CO2e per simulation period. Rising emissions over time may indicate growing overstock or increased shipping activity.</p>
+              </div>
+            </div>
+            <div class="chart-wrap" style="min-height:0" id="carbon-by-round"></div>
+          </article>
+        </section>
+
+        <div id="carbon-unavailable" class="notice" style="display:none">
+          <strong>Carbon data belongs to the default dataset.</strong>
+          The carbon emissions shown on this page come from the default ERP simulation warehouse and are not part of your uploaded files. To view carbon data, <a href="data.html">restore the default data</a> on the Data Upload page.
+        </div>
+      </main>
+    </div>
+    <script src="assets/app.js" defer></script>
+  </body>
+</html>

@@ -107,11 +107,33 @@ function setupMobileNav() {
   );
 }
 
+function skeletonBarsHtml(rows = 4) {
+  const widths = [75, 55, 90, 40, 65, 45];
+  return `<div class="skeleton-bars">${Array.from({ length: rows }, (_, i) => `
+    <div class="skeleton-bar-row">
+      <div class="skeleton skeleton-bar-label"></div>
+      <div class="skeleton skeleton-bar" style="width:${widths[i % widths.length]}%"></div>
+    </div>`).join("")}</div>`;
+}
+
+function paintSkeletons() {
+  document.querySelectorAll(".kpi-value").forEach((el) => {
+    el.classList.add("skeleton", "skeleton-text");
+  });
+  document.querySelectorAll(".summary-item strong").forEach((el) => {
+    el.classList.add("skeleton", "skeleton-text");
+  });
+  document.querySelectorAll(".chart-wrap").forEach((el) => {
+    el.innerHTML = skeletonBarsHtml(4);
+  });
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
   setActiveNav();
   injectCurrencyToggle();
   setupMobileNav();
   fetchUsdRate();
+  paintSkeletons();
   try {
     const response = await fetch("/api/dashboard");
     dashboardData = await response.json();
@@ -139,13 +161,16 @@ function renderCurrentPage() {
   if (page === "products") renderProducts(dashboardData);
   if (page === "forecast") renderForecast(dashboardData);
   if (page === "price") renderPriceImpact(dashboardData);
+  if (page === "carbon") renderCarbon(dashboardData);
   if (page === "chat") renderChat(dashboardData);
   if (page === "data") renderDataPage(dashboardData);
 }
 
 function text(id, value) {
   const element = document.getElementById(id);
-  if (element) element.textContent = value;
+  if (!element) return;
+  element.classList.remove("skeleton", "skeleton-text");
+  element.textContent = value;
 }
 
 function html(id, value) {
@@ -598,9 +623,9 @@ function renderChat(data) {
   const initialSuggestions = [
     "Which products should we prioritize?",
     "Which products need attention?",
-    "Which products are good promotion candidates?",
     "What happens if prices decrease by 5%?",
-    "Were the files matched correctly?",
+    "What is the sales forecast for next month?",
+    "What are the total carbon emissions?",
   ];
 
   const messagesEl = document.getElementById("chat-messages");
@@ -978,6 +1003,68 @@ function renderLineChart(targetId, series, options = {}) {
       <span class="legend-item"><span class="legend-swatch forecast"></span>${escapeHtml(options.forecastLabel || "Expected")}</span>
     </div>
   `;
+}
+
+function renderCarbon(data) {
+  const carbon = data.carbon;
+  const unavail = document.getElementById("carbon-unavailable");
+  if (!carbon || !carbon.available) {
+    if (unavail) unavail.style.display = "";
+    return;
+  }
+  if (unavail) unavail.style.display = "none";
+
+  text("carbon-total", formatNumber(carbon.totalCO2e));
+  text("carbon-insight", carbon.insight);
+  const topType = carbon.byType[0];
+  if (topType) text("carbon-top-type", topType.type);
+  const topOrg = carbon.byOrg[0];
+  if (topOrg) text("carbon-top-org", topOrg.org);
+
+  const total = carbon.totalCO2e;
+  renderBarChart("carbon-by-type",  carbon.byType.map((e)  => ({ label: e.type,             value: e.co2e })), { labelWidth: 130, viewWidth: 540, total, ariaLabel: "CO2e by emission type" });
+  renderBarChart("carbon-by-org",   carbon.byOrg.map((e)   => ({ label: e.org,              value: e.co2e })), { labelWidth: 36,  viewWidth: 540, total, ariaLabel: "CO2e by organization" });
+  renderBarChart("carbon-by-scope", carbon.byScope.map((e) => ({ label: e.scope,            value: e.co2e })), { labelWidth: 190, viewWidth: 540, total, ariaLabel: "CO2e by scope" });
+  renderBarChart("carbon-by-round", carbon.byRound.map((e) => ({ label: "Period " + e.round, value: e.co2e })), { labelWidth: 62,  viewWidth: 540, total, ariaLabel: "CO2e by period" });
+}
+
+function renderBarChart(targetId, items, options = {}) {
+  const container = document.getElementById(targetId);
+  if (!container) return;
+  if (!items.length) {
+    container.innerHTML = '<div class="empty-state">No data available.</div>';
+    return;
+  }
+  const viewW  = options.viewWidth  || 540;
+  const labelW = options.labelWidth || 120;
+  const barH   = 40;
+  const gap    = 14;
+  const pad    = { top: 14, right: 6, bottom: 14, left: labelW };
+  const plotW  = viewW - pad.left - pad.right;
+  const svgH   = pad.top + items.length * (barH + gap) - gap + pad.bottom;
+  const maxVal = Math.max(...items.map((item) => item.value), 1);
+  const total  = options.total || items.reduce((s, item) => s + item.value, 0);
+
+  const INSIDE_MIN = 130;
+  const bars = items
+    .map((item, index) => {
+      const bw   = Math.max((item.value / maxVal) * plotW, 2).toFixed(1);
+      const yy   = pad.top + index * (barH + gap);
+      const midY = (yy + barH / 2 + 5).toFixed(1);
+      const pct  = total > 0 ? " (" + ((item.value / total) * 100).toFixed(1) + "%)" : "";
+      const lbl  = formatNumber(item.value) + pct;
+      const wide = parseFloat(bw) >= INSIDE_MIN;
+      const lx   = wide ? (pad.left + parseFloat(bw) - 9).toFixed(1) : (pad.left + parseFloat(bw) + 9).toFixed(1);
+      return `
+        <text x="${pad.left - 9}" y="${midY}" text-anchor="end" font-size="13" fill="var(--text)">${escapeHtml(String(item.label))}</text>
+        <rect x="${pad.left}" y="${yy}" width="${bw}" height="${barH}" rx="4" fill="#22a88f" opacity="0.85">
+          <title>${escapeHtml(String(item.label))}: ${lbl}</title>
+        </rect>
+        <text x="${lx}" y="${midY}" text-anchor="${wide ? "end" : "start"}" font-size="13" fill="${wide ? "#fff" : "var(--text-muted)"}">${lbl}</text>
+      `;
+    })
+    .join("");
+  container.innerHTML = `<svg class="chart-svg" viewBox="0 0 ${viewW} ${svgH}" style="min-height:0" role="img" aria-label="${escapeHtml(options.ariaLabel || "Bar chart")}">${bars}</svg>`;
 }
 
 function renderScatter(targetId, points) {

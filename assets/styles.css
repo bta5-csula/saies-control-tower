@@ -496,7 +496,7 @@ h1 {
 }
 
 .chart-wrap {
-  min-height: 330px;
+  min-height: 0;
 }
 
 @keyframes shimmer {

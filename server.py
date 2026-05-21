@@ -1069,7 +1069,7 @@ class DashboardHandler(SimpleHTTPRequestHandler):
         self.send_header("Referrer-Policy", "no-referrer")
         self.send_header(
             "Content-Security-Policy",
-            "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; "
+            "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; "
             "connect-src 'self' https://open.er-api.com https://generativelanguage.googleapis.com https://api.groq.com",
         )
         super().end_headers()

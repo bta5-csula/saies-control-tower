@@ -1074,6 +1074,10 @@ function renderCarbon(data) {
   const unavail = document.getElementById("carbon-unavailable");
   if (!carbon || !carbon.available) {
     if (unavail) unavail.style.display = "";
+    text("carbon-insight", "Carbon data belongs to the default dataset and is not available for custom uploads.");
+    text("carbon-total", "N/A");
+    text("carbon-top-type", "N/A");
+    text("carbon-top-org", "N/A");
     return;
   }
   if (unavail) unavail.style.display = "none";

@@ -5,3 +5,6 @@ __pycache__/
 *.mwb.bak
 NOTES.md
 .claude/
+docs/aabs_control_tower_notes.md
+docs/aabs_control_tower_recommendations.docx
+scripts/build_aabs_friend_doc.py

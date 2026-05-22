@@ -40,6 +40,15 @@ const percent = new Intl.NumberFormat("en-US", {
 
 let dashboardData = null;
 let productFilter = "All";
+
+function getSessionId() {
+  let id = localStorage.getItem("sessionId");
+  if (!id) {
+    id = (crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2));
+    localStorage.setItem("sessionId", id);
+  }
+  return id;
+}
 let externalSources = localStorage.getItem("chatExternalSources") === "true";
 let chatHistory = JSON.parse(sessionStorage.getItem("chatHistory") || "[]");
 
@@ -135,7 +144,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   fetchUsdRate();
   paintSkeletons();
   try {
-    const response = await fetch("/api/dashboard");
+    const response = await fetch("/api/dashboard", { headers: { "X-Session-Id": getSessionId() } });
     dashboardData = await response.json();
     updateSourcePill(dashboardData);
     renderCurrentPage();
@@ -739,10 +748,14 @@ async function askSalesAi(question) {
   try {
     const response = await fetch("/api/chat", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "application/json", "X-Session-Id": getSessionId() },
       body: JSON.stringify({ question, external: externalSources, currency: displayCurrency, usdRate: usdRate }),
     });
     const payload = await response.json();
+    if (response.status === 429) {
+      replaceChatMessage(loadingId, payload.error, { cards: [], products: [] }, true);
+      return;
+    }
     if (!response.ok) {
       throw new Error(payload.error || "Ask Sales AI could not answer right now.");
     }
@@ -808,10 +821,15 @@ function buildChatProductsHtml(products) {
     .join("")}</div>`;
 }
 
-function replaceChatMessage(id, body, payload) {
+function replaceChatMessage(id, body, payload, isRateLimit = false) {
   const message = document.getElementById(id);
   if (!message) return;
   message.classList.remove("loading");
+  if (isRateLimit) {
+    message.classList.add("rate-limit-notice");
+    message.innerHTML = `<p class="rate-limit-text">⏳ ${escapeHtml(body)}</p>`;
+    return;
+  }
   message.innerHTML = `
     <div class="chat-role">Ask Sales AI</div>
     <p>${escapeHtml(body)}</p>
@@ -894,7 +912,7 @@ function bindUploadForm() {
 
     message.innerHTML = '<span class="status attention">Checking</span> Matching the files now.';
     try {
-      const response = await fetch("/api/upload", { method: "POST", body: formData });
+      const response = await fetch("/api/upload", { method: "POST", headers: { "X-Session-Id": getSessionId() }, body: formData });
       const payload = await response.json();
       if (!response.ok || !payload.ok) {
         throw new Error(payload.error || "Upload failed.");
@@ -912,8 +930,8 @@ function bindUploadForm() {
   const reset = document.getElementById("reset-data");
   if (reset) {
     reset.addEventListener("click", async () => {
-      await fetch("/api/reset", { method: "POST" });
-      const response = await fetch("/api/dashboard");
+      await fetch("/api/reset", { method: "POST", headers: { "X-Session-Id": getSessionId() } });
+      const response = await fetch("/api/dashboard", { headers: { "X-Session-Id": getSessionId() } });
       dashboardData = await response.json();
       updateSourcePill(dashboardData);
       renderMatchStats(dashboardData);

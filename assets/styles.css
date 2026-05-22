@@ -507,7 +507,7 @@ h1 {
 .skeleton {
   background: linear-gradient(90deg, #e8edf2 25%, #f3f6f9 50%, #e8edf2 75%);
   background-size: 400% 100%;
-  animation: shimmer 1.6s ease-in-out infinite;
+  animation: shimmer 2.2s ease-in-out infinite;
   border-radius: 6px;
   color: transparent !important;
   user-select: none;
@@ -970,6 +970,20 @@ td {
 .chat-message.user {
   align-self: flex-end;
   background: #e7f0ff;
+}
+
+.chat-message.rate-limit-notice {
+  align-self: center;
+  background: #fff8e6;
+  border-color: #f0c040;
+  max-width: 72%;
+  text-align: center;
+}
+
+.rate-limit-text {
+  margin: 0;
+  color: #7a5800;
+  font-size: 14px;
 }
 
 .chat-role {

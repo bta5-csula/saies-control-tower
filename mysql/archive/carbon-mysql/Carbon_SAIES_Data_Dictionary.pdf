@@ -1,181 +1,7870 @@
-%PDF-1.4
-%“Œ‹ž ReportLab Generated PDF document (opensource)
+%PDF-1.3
+%âãÏÓ
 1 0 obj
 <<
-/F1 2 0 R /F2 3 0 R /F3 4 0 R /F4 5 0 R
+/Producer (pypdf)
+/Title (Legacy Carbon SAIES Data Dictionary)
+/Subject (Archived legacy PDF\072 Legacy Carbon SAIES Data Dictionary)
+/Creator (Codex \057 pypdf)
 >>
 endobj
 2 0 obj
 <<
-/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+/Type /Pages
+/Count 6
+/Kids [ 4 0 R 12 0 R 16 0 R 20 0 R 24 0 R 28 0 R ]
 >>
 endobj
 3 0 obj
 <<
-/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+/Type /Catalog
+/Pages 2 0 R
 >>
 endobj
 4 0 obj
 <<
-/BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+/Type /Page
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F1-0 6 0 R
+/F2 7 0 R
+/F2-0 8 0 R
+/F3 9 0 R
+/F4 10 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/MediaBox [ 0.0 0.0 612 840 ]
+/Contents 11 0 R
+/Annots [ ]
+/Parent 2 0 R
 >>
 endobj
 5 0 obj
 <<
-/BaseFont /Symbol /Name /F4 /Subtype /Type1 /Type /Font
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 6 0 obj
 <<
-/Contents 15 0 R /MediaBox [ 0 0 612 792 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 7 0 obj
 <<
-/Contents 16 0 R /MediaBox [ 0 0 612 792 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 8 0 obj
 <<
-/Contents 17 0 R /MediaBox [ 0 0 612 792 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 9 0 obj
 <<
-/Contents 18 0 R /MediaBox [ 0 0 612 792 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
+/BaseFont /Courier
+/Encoding /WinAnsiEncoding
+/Name /F3
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 10 0 obj
 <<
-/Contents 19 0 R /MediaBox [ 0 0 612 792 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
+/BaseFont /Symbol
+/Name /F4
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 11 0 obj
 <<
-/Contents 20 0 R /MediaBox [ 0 0 612 792 ] /Parent 14 0 R /Resources <<
-/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
->> /Rotate 0 /Trans <<
-
->> 
-  /Type /Page
+/Length 12709
 >>
+stream
+q
+q
+1 0.0 0.0 1 0.0 0.0 cm
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1 12 Tf
+14.4 TL
+ET
+q
+1 0 0 1 60 712.8 cm
+q
+0.047059 0.266667 0.486275 rg
+BT
+1 0 0 1 0 -12 Tm
+/F2 24 Tf
+12 TL
+(SAIES Control Tower) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 60 688.8 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 -1 Tm
+/F1 13 Tf
+12 TL
+(Data Dictionary) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 60 676.8 cm
+Q
+q
+1 0 0 1 60 664.8 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 2 Tm
+/F1 10 Tf
+12 TL
+(NSF Undergraduate Research Program \267 CSULA \267 Spring\057Summer 2026) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 60 648.8 cm
+Q
+q
+1 0 0 1 60 646.8 cm
+q
+1 w
+1 J
+0.215686 0.541176 0.866667 RG
+n
+0 0 m
+492 0 l
+S
+Q
+Q
+q
+1 0 0 1 39.6 586.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 44 532.8 -44 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 10 16 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key types) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 74.8 8 cm
+q
+BT
+1 0 0 1 0 19 Tm
+14 TL
+/F2 9 Tf
+0.152941 0.313725 0.039216 rg
+(PK) Tj
+/F1 9 Tf
+0.172549 0.172549 0.164706 rg
+( Primary Key \227 uniquely identifies) Tj
+T*
+(each row) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 254.8 8 cm
+q
+BT
+1 0 0 1 0 19 Tm
+14 TL
+/F2 9 Tf
+0.47451 0.121569 0.121569 rg
+(FK) Tj
+/F1 9 Tf
+0.172549 0.172549 0.164706 rg
+( Foreign Key \227 links to) Tj
+T*
+(another table) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 406 8 cm
+q
+BT
+1 0 0 1 0 19 Tm
+14 TL
+/F1 9 Tf
+0.533333 0.529412 0.501961 rg
+(\227) Tj
+0.172549 0.172549 0.164706 rg
+( Measure or attribute) Tj
+T*
+(column) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 44 m
+532.8 44 l
+S
+n
+0 0 m
+532.8 0 l
+S
+n
+0 0 m
+0 44 l
+S
+n
+532.8 0 m
+532.8 44 l
+S
+n
+64.8 0 m
+64.8 44 l
+S
+n
+244.8 0 m
+244.8 44 l
+S
+n
+396 0 m
+396 44 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 566.8 cm
+Q
+q
+1 0 0 1 39.6 524.8 cm
+q
+0.388235 0.219608 0.023529 rg
+n
+0 42 532.8 -42 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 12 9 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 15 Tm
+/F2 9 Tf
+12 TL
+(FACT) Tj
+T*
+(TABLE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 91.2 15 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 0 Tm
+/F2 12 Tf
+12 TL
+(fact\137sales) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+1 1 0.266667 RG
+0.5 w
+n
+79.2 0 m
+79.2 42 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 518.8 cm
+Q
+q
+1 0 0 1 60 488.8 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 20 Tm
+/F1 10 Tf
+15 TL
+(The core transaction record\056 One row per sales order line item \227 captures what was sold\054 to whom\054 where\054) Tj
+T*
+(when\054 at what price\054 and how much profit it generated\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 75.6 67.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 413 460.8 -24 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 364 460.8 -25 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 314 460.8 -25 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 264 460.8 -25 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 201 460.8 -25 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 138 460.8 -25 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 88 460.8 -25 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 38 460.8 -38 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 8 395 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Technical name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 395 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Plain English meaning) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 395 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Data type) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 395 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 395 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Example value) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 370 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(fact\137sales\137id) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 370 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Unique record ID) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 370 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 370 cm
+q
+0.152941 0.313725 0.039216 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(PK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 370 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1\054 2\054 3\205) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 345 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(product\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 345 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Links to product catalog) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 345 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 345 cm
+q
+0.47451 0.121569 0.121569 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(FK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 345 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(7 ) Tj
+/F4 9 Tf
+13 TL
+(\256) Tj
+/F1 9 Tf
+13 TL
+( Cheese) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 320 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(location\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 320 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Links to region and city) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 320 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 320 cm
+q
+0.47451 0.121569 0.121569 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(FK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 320 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(3 ) Tj
+/F4 9 Tf
+13 TL
+(\256) Tj
+/F1 9 Tf
+13 TL
+( Hamburg\054 North) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 295 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(customer\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 295 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Links to customer account) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 295 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 295 cm
+q
+0.47451 0.121569 0.121569 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(FK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 295 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(5 ) Tj
+/F4 9 Tf
+13 TL
+(\256) Tj
+/F1 9 Tf
+13 TL
+( Customer 80295) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 270 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(sales\137org\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 270 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Links to sales organization) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 270 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 270 cm
+q
+0.47451 0.121569 0.121569 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(FK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 270 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(2 ) Tj
+/F4 9 Tf
+13 TL
+(\256) Tj
+/F1 9 Tf
+13 TL
+( Org O3) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 245 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(date\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 245 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Links to calendar date) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 245 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 245 cm
+q
+0.47451 0.121569 0.121569 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(FK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 245 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(12 ) Tj
+/F4 9 Tf
+13 TL
+(\256) Tj
+/F1 9 Tf
+13 TL
+( Jan 14\054 2022) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 220 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(sim\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 207 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Links to simulation round) Tj
+T*
+(and step) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 220 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 220 cm
+q
+0.47451 0.121569 0.121569 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(FK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 220 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(8 ) Tj
+/F4 9 Tf
+13 TL
+(\256) Tj
+/F1 9 Tf
+13 TL
+( Round 2\054 Step 5) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 182 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(SALES\137ORDER\137NUMBER) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 182 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Order number) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 182 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 182 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 182 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(3241) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 157 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(LINE\137ITEM) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 144 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Line position within the) Tj
+T*
+(order) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 157 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 157 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 157 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1\054 2\054 3) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 119 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(QUANTITY) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 119 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Units ordered) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 119 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(39) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 94 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(QUANTITY\137DELIVERED) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 94 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Units actually delivered) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 94 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(39) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 69 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(NET\137PRICE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 69 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Price per unit \050EUR\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(DECIMAL) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 69 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(26\05699) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 44 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(NET\137VALUE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 44 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Total sale amount \050EUR\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(DECIMAL) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 44 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1\054052\05661) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 19 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(COST) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 6 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Total cost of goods sold) Tj
+T*
+(\050EUR\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 19 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(DECIMAL) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 19 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 19 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(900\05690) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 389 m
+460.8 389 l
+S
+n
+0 413 m
+460.8 413 l
+S
+n
+0 0 m
+0 413 l
+S
+n
+460.8 0 m
+460.8 413 l
+S
+0.945098 0.937255 0.909804 RG
+0.25 w
+n
+0 0 m
+460.8 0 l
+S
+n
+0 364 m
+460.8 364 l
+S
+n
+0 339 m
+460.8 339 l
+S
+n
+0 314 m
+460.8 314 l
+S
+n
+0 289 m
+460.8 289 l
+S
+n
+0 264 m
+460.8 264 l
+S
+n
+0 239 m
+460.8 239 l
+S
+n
+0 201 m
+460.8 201 l
+S
+n
+0 176 m
+460.8 176 l
+S
+n
+0 138 m
+460.8 138 l
+S
+n
+0 113 m
+460.8 113 l
+S
+n
+0 88 m
+460.8 88 l
+S
+n
+0 63 m
+460.8 63 l
+S
+n
+0 38 m
+460.8 38 l
+S
+n
+126 0 m
+126 389 l
+S
+n
+255.6 0 m
+255.6 389 l
+S
+n
+321.84 0 m
+321.84 389 l
+S
+n
+359.28 0 m
+359.28 389 l
+S
+Q
+Q
+Q
+Q
+
+
+Q
+
+q
+0.0 0.0 612 840 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+0.066667 0.094118 0.152941 rg
+BT
+/F2-0 16 Tf
+19.2 TL
+ET
+BT
+1 0 0 1 36 815 Tm
+(Legacy Carbon SAIES Data Dictionary) Tj
+T*
+ET
+0.294118 0.333333 0.388235 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 36 800 Tm
+(SAIES Control Tower Data Warehouse Archive) Tj
+T*
+ET
+0.819608 0.835294 0.858824 RG
+0.5 w
+n
+36 798 m
+576 798 l
+S
+Q
+
+
+endstream
 endobj
 12 0 obj
 <<
-/PageMode /UseNone /Pages 14 0 R /Type /Catalog
+/Type /Page
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F1-0 13 0 R
+/F2 7 0 R
+/F2-0 14 0 R
+/F3 9 0 R
+/F4 10 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/MediaBox [ 0.0 0.0 612 840 ]
+/Contents 15 0 R
+/Annots [ ]
+/Parent 2 0 R
 >>
 endobj
 13 0 obj
 <<
-/Author (\(anonymous\)) /CreationDate (D:20260520081356+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20260520081356+00'00') /Producer (ReportLab PDF Library - \(opensource\)) 
-  /Subject (\(unspecified\)) /Title (\(anonymous\)) /Trapped /False
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 14 0 obj
 <<
-/Count 6 /Kids [ 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R ] /Type /Pages
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 15 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2452
+/Length 13558
 >>
 stream
-GauI9>B?Q!(<>>(.F)F8b/5>FDNF&#fl`?;8_[dU[OP9+g/`$%\7@9e2Z)b5Ll3Bn"(k_[>VWMqqWg[:*?@BJFSq6[HPHR/o&/,(!ec1"!eb7r]K&[!Mn^l8<RT=3-<,&j39Fs:ZZX_#NEZ*iK>nmhg*WVb$`o6,g4'\l7T_SQb)3d0W;1IZ24H5W3f11"$,K9kGkr(uIt7:";#Q9D&'C3u87f]9-:;@^&s@JrWQW?`j\cqT10VORIceOBYf_PCp=&bB;;3Qhp[]sp[P:ai7;oTqDKuVNnX?AFe6hBf`aQ]-geV!UGXrLlN8TP%k?]e`k>u58q3hNXk1=/c76CaR;leLOjrCg[=g\D9hXLR:KgpoU2LoBp6>SbFjhNMJFV,E+7_i8d`t4P`6ADOD?okScc"3d?3hX$XG>(-Y0:dqp&QLOiVBJ5$"]Hk*Q_,r'U8G6Fp3Z$+KQr)NPmXM%?61[dde^-4NLE)@eapQGGKAWJq6%'uCb`qp5p,A:Y,IEr'1>m%O`K57K*[r4dg_WVd29B@poP)>G#`+c)@i)nmQlM.JnX'U7AB?4pabOd3s9=?B>I6f[/#m^84o>`FW,i(O0XAjbX<\3@)8*udBM@[7bf=>%lSE;6l<jlmN>/5bPaEB[Kpj7Ig^O7o,1Rgh"\HLVBPs.-q8gJ;(&M8MAD%<'Ipf@rkeV>N^+p?pfWmehssILm;eJFGn_?6l=^%pj$Ig#flmp`lH$^,#R&*<d7g'>(&1X[4sn62Wb5A#WIN"<RmQf4n#e8_OiT0g17PR1^J)`_L2.OWi`Kc@rSD=WecENe:3,(ZI#^Q',b7s?lW!XC3Q\7jjE1#>(H>I@8UU5E1bfM8l.`7S:QC`bok?VWjN8be't*[Ikd<gd,*j-#r[N9Oq;FWS;1]o?Wu&`en827%7F)bVm#nNS-\i^#)o)ALI;d@b$PU0)LDA*1aAP7Zq8GCN",'fm%IR^Yr!C$qe1Ah^\U_keR(jVmN(;uO?MUcB:6Zd3D>an"r#P-eE';#DN]BZf_/Gq9M&[!&),EL3($0E=>B0QYY@3>m;3"E<2,.D/$mf<!A"M[X\CS5sZ\^)6p9DdM0)s/D"cBZnD[%gK/1*#)O1^.)^4_MJTfO'<#r.sTQT1bDBJ_D#Eje'n>0Lu"+'d5W^=pTCaq#ZhU[C!n(eg(M6g+b09]Jham'[IF5K:dGHRZB3UfNIq&]9LqV,PX3Y3)Z<'US?-+e4<eeIYLUlUS-%LVNdAn$W\UCqYi0b;FbK\?EnE25=&*p71r"YjU\Nd5ruCA@:`?lTH#G>ifa0Fu+f/'Kr`p%uS[#]Ko(,lah]#K0o3_:_i*c0quT/1''E:j,*&5+!Jj-5R=MblPq)DZY'=RHo,S&^rO(pP+e&XAN'.tAC.0WO]1]jF!?=LDA/&GjE;@R-2,tfh64$nfh^,)52O@[-fB<on_Ukg.B:8LKF*YgL0VVi;&)8b16qEi#kUO3[0j3Wl&$p90&In-:<Sk7H]54'rS*CIjlp@YG=e6?He>'q$?ro#G?GRKFHEVjS-l]>?1:pr,`f84\EMRIiLe!;#b;Y^2>3E4*EM"^NfG^TK1eeC<!Grd\f%A<8[Kc-Wp`;6(gm<Hn=;poSL\YoKMK^W&prhE^@'GZg`(ZH.>b=\Gcs>jPhH*FD\@?.p/;O^6St>a]V=QqYLM2l7cX-oO+FNlG\'2<TMcD6m=K#=.GZ&c'X@Q6<"S/b?Tq6&<D_OL?Ab+cQgrZNd*<AIdIY:]C@#r[EjcO-05_Agf]CJh/eWph5](d(T.Zc)(H9g^oA/Gn:X_`cFY1u_n7;:4;qX-k^@f,s/[9$n:Q/9ueG1<N#U0#@VM?][-5i&14uuAA!?Ldbh=Q!T9u$<f_3cEJ`8NT,"bdV9$aOU\6agjg@20=ELNnr)T:-QFFE1]PQrH4nl9g<9$BY)[G]i2o]`7U;dn'Gi'?R>%`P]<[J6#oG`D^h$KhfpI&sEa5#76_G,i\W33hQ@7>thjP*=Fd\Oj9a-%=aZ)IMff:RYS`:7o1D;:CN*03Ai$R%-g:";W0J#VV^p^@WpT+c<HB=WGiadiq70YL,_[mi9>:Y\9RjaJ.##h9Y6^!cb<Z/LY/iVjZetH74ldO_h4rX+9IV]YNCoEG`7VK%bfqhR3*1TD8;4Ne%d17@4EVXObBr[Gn22jObmsRc0>a=<VV[Aqdm7o/_l,=+LU9?Q0^7s?=8sBlZ2`U$rW/(7ENu+,VJ6f85pGflFQ-C5I=;4E*T[(Ze3YKde1%*Z'D33([8X#C,2\<Tmp.PCDViSVR:Yi=gK2FCrh_JZC8IJL='b7d54hh`f^(m.8O0&d?\4J<Bk?N:L!M@<rHJLNm,OcSM)nHf(gLAo*qV>a0a'/FXUsHW7)H)RaP58fP8R;Wg5LU>41tqa(>=VbI'+?9JpGk8d+@sf"a&o3bQ$Uc/MurXO!1/fAPZgd,,/G~>endstream
+q
+q
+1 0.0 0.0 1 0.0 0.0 cm
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1 12 Tf
+14.4 TL
+ET
+q
+1 0 0 1 75.6 637.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 87 460.8 -24 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 38 460.8 -38 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 8 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Technical name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Plain English meaning) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Data type) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Example value) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 44 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(CONTRIBUTION\137MARGIN) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 44 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Profit on this sale \050EUR\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(DECIMAL) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 44 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(151\05671) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 6 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 17 Tm
+/F3 9 Tf
+13 TL
+(CONTRIBUTION\137MARGIN\137) Tj
+T*
+(PCT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 6 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Profit as a percentage of) Tj
+T*
+(revenue) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 19 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(DECIMAL) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 19 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 19 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(0\05614 \075 14\045) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 63 m
+460.8 63 l
+S
+n
+0 87 m
+460.8 87 l
+S
+n
+0 63 m
+0 87 l
+S
+n
+0 0 m
+0 63 l
+S
+n
+460.8 63 m
+460.8 87 l
+S
+n
+460.8 0 m
+460.8 63 l
+S
+n
+0 0 m
+460.8 0 l
+S
+0.945098 0.937255 0.909804 RG
+0.25 w
+n
+0 63 m
+460.8 63 l
+S
+n
+0 38 m
+460.8 38 l
+S
+n
+126 0 m
+126 63 l
+S
+n
+255.6 0 m
+255.6 63 l
+S
+n
+321.84 0 m
+321.84 63 l
+S
+n
+359.28 0 m
+359.28 63 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 619.8 cm
+Q
+q
+1 0 0 1 39.6 577.8 cm
+q
+0.388235 0.219608 0.023529 rg
+n
+0 42 532.8 -42 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 12 9 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 15 Tm
+/F2 9 Tf
+12 TL
+(FACT) Tj
+T*
+(TABLE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 91.2 15 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 0 Tm
+/F2 12 Tf
+12 TL
+(fact\137pricing) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+1 1 0.266667 RG
+0.5 w
+n
+79.2 0 m
+79.2 42 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 571.8 cm
+Q
+q
+1 0 0 1 60 541.8 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 20 Tm
+/F1 10 Tf
+15 TL
+(Price history record\056 One row per product price setting \227 tracks how each sales organization changed prices) Tj
+T*
+(across simulation rounds\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 75.6 271.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 262 460.8 -24 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 213 460.8 -25 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 163 460.8 -25 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 100 460.8 -25 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 50 460.8 -25 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 8 244 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Technical name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 244 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Plain English meaning) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 244 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Data type) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 244 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 244 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Example value) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 219 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(fact\137pricing\137id) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 219 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Unique record ID) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 219 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 219 cm
+q
+0.152941 0.313725 0.039216 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(PK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 219 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1\054 2\054 3\205) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 194 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(product\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 194 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Links to product catalog) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 194 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 194 cm
+q
+0.47451 0.121569 0.121569 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(FK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 194 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(3 ) Tj
+/F4 9 Tf
+13 TL
+(\256) Tj
+/F1 9 Tf
+13 TL
+( Milk) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 169 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(sales\137org\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 169 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Links to sales organization) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 169 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 169 cm
+q
+0.47451 0.121569 0.121569 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(FK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 169 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1 ) Tj
+/F4 9 Tf
+13 TL
+(\256) Tj
+/F1 9 Tf
+13 TL
+( Org O3) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 144 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(date\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 144 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Links to calendar date) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 144 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 144 cm
+q
+0.47451 0.121569 0.121569 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(FK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 144 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1 ) Tj
+/F4 9 Tf
+13 TL
+(\256) Tj
+/F1 9 Tf
+13 TL
+( Jan 1\054 2022) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 119 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(sim\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 106 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Links to simulation round) Tj
+T*
+(and step) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 119 cm
+q
+0.47451 0.121569 0.121569 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(FK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(3 ) Tj
+/F4 9 Tf
+13 TL
+(\256) Tj
+/F1 9 Tf
+13 TL
+( Round 1\054 Step 3) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 81 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(DISTRIBUTION\137CHANNEL) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 81 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Sales channel code) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 81 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 81 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 81 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(16) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 56 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(DC\137NAME) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 56 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Sales channel name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 56 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 56 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 56 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Retailers) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 31 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(PRICE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 31 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Listed price in EUR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 31 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(DECIMAL) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 31 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 31 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(26\05699) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 6 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(CURRENCY) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 6 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Currency used) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 6 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 6 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 6 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(EUR) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 238 m
+460.8 238 l
+S
+n
+0 262 m
+460.8 262 l
+S
+n
+0 0 m
+460.8 0 l
+S
+n
+0 0 m
+0 262 l
+S
+n
+460.8 0 m
+460.8 262 l
+S
+0.945098 0.937255 0.909804 RG
+0.25 w
+n
+0 213 m
+460.8 213 l
+S
+n
+0 188 m
+460.8 188 l
+S
+n
+0 163 m
+460.8 163 l
+S
+n
+0 138 m
+460.8 138 l
+S
+n
+0 100 m
+460.8 100 l
+S
+n
+0 75 m
+460.8 75 l
+S
+n
+0 50 m
+460.8 50 l
+S
+n
+0 25 m
+460.8 25 l
+S
+n
+126 0 m
+126 238 l
+S
+n
+255.6 0 m
+255.6 238 l
+S
+n
+321.84 0 m
+321.84 238 l
+S
+n
+359.28 0 m
+359.28 238 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 253.8 cm
+Q
+q
+1 0 0 1 39.6 211.8 cm
+q
+0.047059 0.266667 0.486275 rg
+n
+0 42 532.8 -42 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 12 9 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 15 Tm
+/F2 9 Tf
+12 TL
+(DIMENSION) Tj
+T*
+(TABLE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 91.2 15 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 0 Tm
+/F2 12 Tf
+12 TL
+(dim\137product) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+1 1 0.266667 RG
+0.5 w
+n
+79.2 0 m
+79.2 42 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 205.8 cm
+Q
+q
+1 0 0 1 60 175.8 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 20 Tm
+/F1 10 Tf
+15 TL
+(Product catalog\056 Describes each of the 6 dairy products sold across all 7 sales organizations \05042 unique) Tj
+T*
+(product combinations\051\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 75.6 68.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 99 460.8 -24 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 50 460.8 -25 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 8 81 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Technical name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 81 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Plain English meaning) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 81 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Data type) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 81 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 81 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Example value) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 56 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(product\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 56 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Unique product ID) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 56 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 56 cm
+q
+0.152941 0.313725 0.039216 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(PK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 56 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1 through 42) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 31 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(MATERIAL\137NUMBER) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 31 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(SAP product code) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 31 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 31 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 31 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(OO\055T01) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 6 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(MATERIAL\137DESCRIPTION) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 6 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Product name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 6 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 6 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 6 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Milk) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 75 m
+460.8 75 l
+S
+n
+0 99 m
+460.8 99 l
+S
+n
+0 0 m
+0 99 l
+S
+n
+460.8 0 m
+460.8 99 l
+S
+0.945098 0.937255 0.909804 RG
+0.25 w
+n
+0 0 m
+460.8 0 l
+S
+n
+0 50 m
+460.8 50 l
+S
+n
+0 25 m
+460.8 25 l
+S
+n
+126 0 m
+126 75 l
+S
+n
+255.6 0 m
+255.6 75 l
+S
+n
+321.84 0 m
+321.84 75 l
+S
+n
+359.28 0 m
+359.28 75 l
+S
+Q
+Q
+Q
+Q
+
+
+Q
+
+q
+0.0 0.0 612 840 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+0.066667 0.094118 0.152941 rg
+BT
+/F2-0 16 Tf
+19.2 TL
+ET
+BT
+1 0 0 1 36 815 Tm
+(Legacy Carbon SAIES Data Dictionary) Tj
+T*
+ET
+0.294118 0.333333 0.388235 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 36 800 Tm
+(SAIES Control Tower Data Warehouse Archive) Tj
+T*
+ET
+0.819608 0.835294 0.858824 RG
+0.5 w
+n
+36 798 m
+576 798 l
+S
+Q
+
+
+endstream
 endobj
 16 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2262
+/Type /Page
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F1-0 17 0 R
+/F2 7 0 R
+/F2-0 18 0 R
+/F3 9 0 R
+/F4 10 0 R
 >>
-stream
-Gb"/)>Ar7S'RnB33%kB^U/aYIAj,LsELb<iihVSj?pF]ZPndN*/Z"Wc0)P<'e:i!\?"5q5J2M#Zn=ku!r,f(fT]-JRs)lonB2eSE6%De!4oitF*N#/WS=Y*m+o+gT:eWQ#9BkC:lrS#Z;!f;P[UrCS^aK,Yl4>OB!aO*Y5W;]5r17Ai#7kaB<bT0U"h(]OC5S#2`V.f'HZX1I4YZ8N>O:1W%>nck9PWP8TXIVdQOkdX#1GHDPCbAmGrkWRA`12G$3Fl-]n,ELR(d-&TCGFE&P\UEGI)>f!/A=!ji:"rHVWK(Mb7)dC?u:<!1u?0"3K#%[>Z$3Q(B6U5C$&T32WNK8_5p!b?7'44S[m:2V!s6c1E!7W5LS#looX0oF+F:_6anmE'9df7V?qodIha-eXq4/NGAhF5][8-e'ou"X9']o5]<Cd_+u0^+BeOq`"#CdIlb63gqRQr%>SkI^npP`_nkQ:J([4.Nb)nj%k&k0`FnT650(74e7rHP'VU=K'T:Jf`U(S[@^W#TXM?s3),0@]9fM>O4"03N'8$CJ?K?Dui[d1t+8@`<mtV_/HoW(.8B4O!&12Cu@l$]6:oZj(p_D':0-tSPj57$f8rm/eJ`Q(Sr`-=Z<_q7^$BpN!,Q(4ETrGjh2hfmh_/3UWMdC38^$/dE]15RWpd4tO]uA[.C)N?$<7AQ2bKY3)laMk^]]d=Hek;s06Ehi0MXOQNm]=A41eJT"fLXj56\`i<0-/3(q9\;q>;gJJ`6MVSB=De(P$nZp7dK`GL'#g$H;r#m:q.o7"[f'/7DW"p(POPIQ%BS@g\s]YPaSn:^/,9:e,J%^Y`d*d;(-ca%>J%OjF1Ein_gq!lnS(eEp"Yl/pj-U:&JL<Ok%<9:QI_Wi1X*i^1!0&_e8p/&P(aHbG/hBl/bEPjP%k&4[>d0K[CIiN>k?."g.q<U@9PZGOQH'o8T6T@lcF>Op'kMVAp_8*;<YG9:Y6,mP;2N0ndpU*O<GN`(,1?/tHD/c*PqT^CnSH_AE`e^YZ&tM,Cbhk-7g09rT4//^i(.VC(]q85iJX`=es%&n6#kU8hLc)#GgEGkeYH[6N0[QNR!q+(#LuCF<I!>RN2l%T$@gT5p]ULnDGa*G>AaShU<:!%7e!n@rnS>_g/Z]SS1;I$`6jg'''A,,ECgXD!8QU6S+_L/^c8T=^eh)He7Q+S$$+44*DpC=I3UfJ6pPgpG;>eU.FW+'WC`nDhq-cr_S;[qICCkc:pZW<hu<o0`TCRBK730he'$>LDN+OX>,0d3-F(E1ua=%#1/\4J*-crp!].ThH=r-Zq[dk^YKgb*8T?32Q=3T-dT]c.ot!<?154XHFb<l,p$lBE?^g*Nu7aXl`C<2,d+>Wes^^I4[+>3tX19-8nH;kd4c^r]3)4:55c!RsoQ8a@?');HcR>.K0p650]$aV.?f`QJ)YS6oYt++\o\j-CVW6b9VUu9/A$fF>egdG4pl.[s6t1VnICE!n5Fb[j$MepoQb%&$$A"N-59q!'PLp>!s/*#MogCE8ID.39lX:`Gpp/)jMTY0l,u]FA/s+dpk'NpTLUg@uM!h7m5@R&[c>+N"I'&O9>EU5=*RjRTRD2Nm.n[6;>,2nQ0$2f8r@`Tf[-=UHq%#1`=HqdRWVe-OG@#II=*g/E;I3j5XlW:!m9?@n72hRYkt*/'F1oEUP6<iHXjibj&E30S<(6H%GhqS(Ode+lsI<f@(M=V(?/5<;nJW0<<L&;AA6#W%>j3qb:6s";Aa30l+7Q<fFC8R'Ab:?V!T,N:b%X=e#/(<S5AnM2c<X7^`G0)1(/C$6^sQG@RuC28j#mbb\c$2+l#8iZNI2G@G*tJ@@DE=2?E,8ubG3cmhY4P_aXCMI32go4!uZ1TD>m?4$(JF>Y&qU<e/P3o1i$Yrj=WUbWukNRBR'Ymb>X]OrZf"jXg6NVkHnE2Ai1n,\]KL\bQLpsE$&!KA64=*)H@ER&;&<_4VgLAOo6D3LjKq.9%@C:O9&#MI&m2\#FAZe)L1BA6^mGD?pT])(]If#XZF]qe%C"h8]/9F=s]!gsam[e2@(;-2N#LQok1YDa3gCh%0Q8rV1B'GnV,[4ipr*.eMS$9*khlM4p[?!%!hE&-]ccGk'0B>\J&<*K3BgV4>#Z0##FPW5M9X8Uo_^94Zs:K<8O.C,NdkJQ&jA99W`EfuFuM%q($MnI=7JQO?r70U&H,ZYt:TW;&a@e4l``B/5FY'cmB]N#`o]e&I-]A=!CpqV@&,DPnYSpVr-\DcKj%p?J5~>endstream
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/MediaBox [ 0.0 0.0 612 840 ]
+/Contents 19 0 R
+/Annots [ ]
+/Parent 2 0 R
+>>
 endobj
 17 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2087
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
 >>
-stream
-Gb"/)?$"^Z'Re<2\;s4Zla>gBLHZ8W;mm".i,#;IRE7G.M;9)>g8<R$qn4bn9E6#1">`-gOMjIm7oqa7mQEg#`YZbs]/+t1)ufbn!23db!Dt-Xltbh>B0X[4;:El;*H\;Q-8rYea\k"L1-r2[K5);gnXZaJnpD3]"3UaGQa-*''_=G3HFKr/U%&n%],#LpKq+2>b=dKKg`X1:NX7$]$t4Rb(.a=#lI<VI7P0l>SIdt^$J70$PCceWH#@u3*sJe\6KHA'$a@BsrJi%L``Ij`'NGRuD<M*7oV:S'8:?kN:)$+B[BNV3E7'==pRKHYlucWQUI$QS'P->Rn$O3,2^Bkdq>1+PZ[(cN:FBDs>@rJa(LTWXQ;1id\IPJh_3>!pah_jUG(2X<>X-kJDu5MnWSe-<pet6'=g*H&Dr>MsGe.iME1P4"Ng';G?*],n[[b[GR/_9Jh2e,s/rjm%9jp7/jU`,uNRR\=l^h!a(J08sALGb;G8XZ)nMG)*M*aUnUc[j!PGEdlJ0Ydm:,83'</IOG]3n2DA^>4;#Yd;0Z"YE#-sJ#-j:HWf>^%gtf8\i&EId\5F<3KH&3>kY\:YPE4?QA]G).j:-4%A)_>,&M^7@hB2,k#F@,et5oPt@=<\+U<.l7`B8uH?'3'!?7@8]-fAM,=Qgq9f&RNpu5]HQ`VU[doW]FCpaPk2OKT8\bu2@j#mqU/oG9<5Y2X@oL`"1'BD!7@TRp+jSp'M92s=@nXVMDU6nAR;`;(.FkI(1!9sf2t)CDoc>JG@Tb.b.*!ZU]]0;#O.m:<bS=&W`%1Xb$7h<mHKcHk*tESKY?,J(t#cQAqQTPE&&7>9:h^/S]g?qX2?+oAR..naX'[o%P31._<`>(d@1F$W0Yo6]5hX9*ZI*1q&8<#S=,f\cu=h"<e0:1MpHmrm7?>Z58Njmj[NL#nT3^6rP4+0HA[nhDN4i_06NK:d7`H;pMesJAEkK9L8@g5R*WGp37/F5"4r;E-h7+ZOlH3i_P\LbYr)'c))uLHV^X$A/[1t5_Ys9AY?ClgI.>YO4\Xj(k20P,*EmFDi@#lqb;5/(Q"h*f&&>-?[g^(98p&Q<![EG+2Gq\a:%4h1ZO(OJ"/7\')lF/"_uTd/ga369Fl4SNY!qCu#,lD&7SG;IodUKdL[P]G0tOI%*T28"7DY%=#:1i.H98W7_&hU=%#4I.QE8`Jlr[-kK*7&,/u7&^qDL81[#62=$mKpI-h63L8(KM:6o+sbA7CV>SZDb-or-WM="`S$4K0G6i5lda&[_o#.``9JknVjUrH+d6qjBm3D,@MnKFa1%e,8q%pO!WuLa@R5j8RS(``,2.0W+=td`fh#QW(C7]9pL0:Ve"\G')jP1$bSjHX%ihQT9e'WW7cq`r/XW5:VmboH5ML+..>U4"+P)\`jT4"NNP]+njHN\"=paI/Q%`Vb-=M+'W:D%d^C>f9Ubi)#X#h=)`fY\$17mP=(/%g`>2[m;Xp4KS[b+GS+LK5A9ho+?/3&p%'P#7D9d:lo(Ih#l+lY7Rn\>j.)"Z:G'GMs-%\d0Y2CgH;%mJBrdW`P3].19'`nA8jfarX\6WE8Ln)6.84;?Q7bIZ@TN;lk4ptO4<N$jUi&KpE]#T;!cqAIWA(N?D+Ml^fbT:*)J4uK9GRN8`lp8OGEHM-bY)]=J!e5L'mZk"9Sp3]`iO$BR(L?4_/Wb(+f5n)^;hcu]Z^]O1gI3aRI=Z?%is8kQHJf@Og*0%1MiH`ZUMCRWLLk8X6l6p#S(HBD-0jL;/Q&e((M'rL#DoeAh+"o[:CcjXbC47"K/A0X,G>'b!!13YLQ't.YV-N2tg"W<YloAZuL<"F[m0^Kp^=eX&VTE.G_Um4hBm=+,4tuQi6b7Jh]Y.TrY8%$4ne$O'D(_<LW9TD#PnYe5HZ)64>V\C2$D"XG?tS2ji7X_;u[NnfKR8*"Kr:j(>oFoJ(g:YC(e^4>'t9=3f+[cX#Fb,&\>qh-]MHD,58pS5-7&Em3b:!QMYtL47]>iK[OL/`pfl6<@V3g*4&,C97_BAP&r\9!;\M]aC$*+tF^:XbK&fjQk2(0A$\^WhPL*V^U9YGT6S82/r72!R;(r~>endstream
 endobj
 18 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 1979
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
 >>
-stream
-Gb"/)>BA7Q(k(kVp`<Qb(e_S-n.=<<%@!_8Afl2`af(5g(jlXu"*B%kIe#?fSQi.*Q^P;B>*^][J'tTDNa)W8rf[2_(BV6liUnJt6G^>;U+8:7=3u$7^7UPY:<cX00Q!iB=98".<OYrF!JR!;@tCB/-FF7QVIpKAcm]g#\G6l:&e9+=cd]TR/?ck=*/m(3_CVSb+l]N'6L%&f#.Pg7+`=>bG]D.2fXi3t#M4HUq\@nQnA=S,^$8U!M!t_#)\e&U<&Cud8?HjRIOTdoIQ1)*^sd:n9O!s8O2okb`N!j2n'2ULIU^?"%YC\l(('>r!(M7QjX2ia0J0Wpkk0>ZX9V"sW1i5OBVt!=4<)et*sP$S.-_:$ngHsO!l,(DjT!+Q5E8VFg_g>)]JuGQb`AW_E>GG08!%.FDg7KB+lKU2nd6DqbaUo>+u[^7SoHuGph'a$`:lY0M^J+19`-_?r7cq($(,6@TAD(;LW;03Dh^RCE#mb2*?,\_`,4EMY>i3pRr*^oWe,.g0DW&OL1XLE0QeL*D(qNu7R:gbXNS:[jEiG.LkU4d<tJ)mK6It_*6VYF%K$p\NT8AUD%&$8Tr'/CGo=C6/7XdtcSrnC;+Il;L&$;WDoOL`Kh<8thCfYi!tIOtYh0p5dS)=1Le8X#VhMPM3ga6(BdK.4K@Md'ptM,("B?AM1:I$qifn:tJg2dbT-OC5JrBF*qA24A;?Q@?RB;#<CNgRTR_Xf('o`Je:fP]5A7K"h"m>$c/oF2dLZ!!9`/EjgX=_X=NW`sQ\lZSmGVFNs^$bpVFdH.E<dHTi:S<K$$NlQ%Ac9DeA$Ynf.&]HBI.(7Ts6:*?s6L5>dA=i<2":Z?%RKWt[<#ES^/2Cd!3=6&YaC6s"uO[fE.c1Y4GJ*>Zq_iVnG9K";/.L;[<)LR@q/an/pN[6hM<K2J\j]?d8?uhQkZQq>W&Qe9NJ]=SZ/dQWQe.;nQP<S9<NLP>!33F[oG:Z(@;]Kk,jJ]rI!7L;IgTC\j3#Y%'V-/P>.1uL`sluMI]l>,-m:H%n0O%F*37#lWg-)-`GIR,]Rt]BU-*=@7ZQkkI>%l':+0)!nH[`r.?@G?iu<rFj'C8/r;r?c_:S9m]j;RL.cub'N]#S)lL%Fl't1>.<=Bb&Hk`f\/pGd:],IC6dod<h,De^l?9,)[;/WtYM0@o0KF5AJ#X!E"8E]V/-gH=,qK:=%k0%7BO<@XaO%f`^"k,i*JlOR!:JFScA?YIEuH&M-(IF0lXUAT9IW<<s)EFH@efeo3uhULh9B`pMPGV-5;'oIi%;,gP3m?AlIOV=Sb1=[YDe:U,5XtYYLGIq/(I,tP3h7a'FR(("[Xqn"RMEZVm+TrqP+tpfF3lTPY,8#-&3HjNT@V6%Jte&;ggiP*6+"^_tV^m![/u>743I(-i&L4Tce,:)(i^0St*Yrn$26W?@J?YRnD2*L5.^1T2stN8TpPa`_VM7AWqgYYOf/M/9Q$c\u2]'p+k0AA#aCXL1kf0]*rotd(0<t8fh1*V6U=I]II^%J^gA49K4mJUSQR$eM))K%Z*d])?)]2Ib?l.O6s^NR$WdqQJ=A.;mHS)]&%2<.FFtpE:N_=6U+;a-RKfR02<i$$mH0Qr)6:6FXcf%4N]o_&We<_qj,+pJ9%%JLl9SJ'=b`2BcKoH#gpeMG]VSTP3(giMnO$LQnK(j`_rll:ZBL5_qW,--kNl331Bp>OuQ0eTm3mdD>=gQh85Z,Z\*aNnBVUDnNq#*DB&J:PPOu_p3CiPO)je>UH5&rTrN*K,JX8f:+7Ohb)^M@al8VOi"U'X&"_91HD+"=-&1[6kIkPL\W\@\S35jdY:oQ+h/AZl_<UtQ8>\(#]'\Bjb>=)`YM"$=[a<,\Tc]OjP.mS280i;(5`5"fa5/17rG_M\,\*%2R@9ShUa07trEGQ6[;!YDs0k^SUCp6m1tnW+)iBXl'H:J1_pc??5@t!`g1EY*DT)"NJH0?_!h]0j2Z~>endstream
 endobj
 19 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 2265
+/Length 12716
 >>
 stream
-GauHNgN)"=&:O:SoV4?6[$oD@+V350%NF.6OH\Cu<4N\tJ7=T[8_E@Dh]>@&\4MMLJ6b'#&#5n;Sa"<S"B>:FfmeJPE94s/Ih<e;g^+NtdD<MMY']^9JeXia%)i?a'?.rp-s%DE:`UJh8$f.&i%)N?Fblq3+YM,a%<POf:Of/gA2*guBSg>beIo4I&o*l9-(<Y/M5hT.KMZHl`#qcsf`=r+6fS$denSf4\moGZ8r^^/r8P9iMItQhhM%[AeBpj-'iI4`%GV+nP_(-_H0I)6('_K3LX9805J[4$mKX6p'n6B,d<%s1K=MeOcjcoE+IU&tH!q7Z.rhPf+f"*@GJ)FXo^01m98tui/PFJEm&_2IZkP"U&U+3I(=.%+0A_(ZXW+"6C4SiRig9kW?anGT*).s1Zj^g(s8L[:e.P3VXVF[+<r$LqQ>5gf&M$?q)bBoeQj+]h1QGcb>V:K2(aa70=CGP`d5(E8gB@+_[0m&$W])cA^@-f&p[1?4PX'uCImD,Y:[tjD`g]4X.('P*7uBp7"geHe&#pO*bgB*6JN<-_K5Nhj"ACW.lrC$s#a-Hh6L_[Q9r#4E(ZsKaW:)J%\+]=fF*i.f*s1fYr6VBcUfuJ9W1,1R-ZBm8YQYE`<k7u$0.]lHaFDnXc'UG-_'"cX90Z.nW<$ndR?t-t%EYPY9-DpOiT_Q3W,9WF:SVRb#Euq.cVK1[+FSmo+Iuq[94t(c\njo(U&5d!.)8SP6>@OO[ktL]KL=n.i-C<7*B"FiErep;cjNbfA$@@/h:N+!$'MZUEk3QJErBG8VKZCn3;euV\3/]_H81mXbCi.qQhnG#E#cjT8)ltQ:hY7eY*EBBk?;T[L2-+bnMe\<5='23(9#qMHn&u\+3!J<R(nYaW[!'tSaOSdh7)3HrrB_8g,f@KLF"D3>:GW(JmqF[<PkA\:aOc9#pi"lA.YZdGQ)M[_\ckK&f<DAp,`f:eS-LG$aGKrB2f$0N$+2dC^b$b&c,UlL`Kla;#Cag&R_MKO0J2egl\WMF@UPkr2Bk&9%TT\Fj.M;J]+,CV?BfQ[GC8Tf=l\"oWKA)\i!Ja7P@K"''n6R(e=RgVk"ATN8uP^"hF2Mn.<!"p"r-=.j!OX<dk,9jNNd]Q(_eS`3S_(UIrYMYPSP[E^r_gIe3AiQQB7o7!%#S5*q*JeK"N%KMc<ViD%t!SgsuRV.AN>$$Cieq.U5fSPUsZB2W+\Ml1JFd+0PYnH15U_CqjJ!B(cMEq&L&D`#<fWB.n.-^[f;n9.[sI@RV[2M^T^AMCsM)f%Z8n`!N8*akH\,7j6bYBtK\gI$WMcBX,W;2V;eSQCu:>J#;",8rbYmUJ'DQnl237]BHc-4'SGEkHSjICX`#;BF>=9dX]DpnZ&8a[f2HdYF>Ckrpl0mC0Ar8]u3tnGG7<'(G&C=<NW1pY#4Xr;1W1f[S=Y,a+-ZTncZ">La]#_])Pp?Lsa'RUT.dD>8>cUU$4db&L\/Zd5Zk1,YD_X2WV4YE6M#pL4K/R`VT+:&P"T+U*+'D'eB*;N<XfjZ$SgH!>,3kMoI#:U-/E\<O&25^^5-'@SAkHsFgn^uaUAg_-iW\T[^_2d])^2)>p9=.q&]7`jcf8Bbb3E3Af3@^n=/31QSn>WuE;IGH*QWFl#`MshSfGBg)\7;l-o^L88(d<MOF'\>@oNNtK8_9aTK%cZ]njriUlU'u_EGItK,f\7M6@;\;54);?JgK1l7M46jHatH`sUonZoSoG5s%Mk*sYZT2WZ\HWYa=k%YNnAmu)F&QWf`5kfoaHY]q[?:rCdU3<aeNE><*7qsF,o2Z[=G6c@"=7VCZ/jK'Q@R.InFr3N*]>Z$$!<\a68K!0qSh_$ije],K<@b#YE11P85KBhTn2OK`&.uUDF\qb_G3mH"Je.)@I'K+Y:8BcX%S:;5dGXUT>VW)@cT6"<Z!QrHM7_n;ZITfZoVUs*Iu&;XjZ]#?qOSis)q+Zj-JE.6(&Vf;=M.&,5,E;iP6hU*ntTocX`mA+?n6s7m^kRa-1R'N7J!f:W*Y9'4`*1r9hji<^$o<0D.W%)*]Tk@CMYcs`XfSB`hNepY;!`W>A'GP=)`5MXk?_r967Ej&Y*4E+j!*?(J\kq^OURs^"M>XtSf'Ipi5ciU;aohuZdS/ii`4#hY^39&ehpsR?W[dlmgE6A$]a][3*C-sEW$"lTuSM;rS"Dq"UfV6OI.9'HX&@tm4$-@?n\!h#1_JRnQ73]/QRTeaWW4_`hWi2H?/W.Kr:/+\]jlna0r!1,/3D'~>endstream
+q
+q
+1 0.0 0.0 1 0.0 0.0 cm
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1 12 Tf
+14.4 TL
+ET
+q
+1 0 0 1 75.6 625.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 99 460.8 -24 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 75 460.8 -25 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 25 460.8 -25 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 8 81 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Technical name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 81 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Plain English meaning) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 81 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Data type) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 81 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 81 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Example value) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 56 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(MATERIAL\137TYPE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 56 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Product category) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 56 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 56 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 56 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Trading Goods) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 31 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(MATERIAL\137CODE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 31 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Short product code) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 31 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 31 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 31 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(T01) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 6 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(MATERIAL\137LABEL) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 6 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Display label) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 6 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 6 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 6 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Milk) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 75 m
+460.8 75 l
+S
+n
+0 99 m
+460.8 99 l
+S
+n
+0 75 m
+0 99 l
+S
+n
+0 0 m
+0 75 l
+S
+n
+460.8 75 m
+460.8 99 l
+S
+n
+460.8 0 m
+460.8 75 l
+S
+n
+0 0 m
+460.8 0 l
+S
+0.945098 0.937255 0.909804 RG
+0.25 w
+n
+0 75 m
+460.8 75 l
+S
+n
+0 50 m
+460.8 50 l
+S
+n
+0 25 m
+460.8 25 l
+S
+n
+126 0 m
+126 75 l
+S
+n
+255.6 0 m
+255.6 75 l
+S
+n
+321.84 0 m
+321.84 75 l
+S
+n
+359.28 0 m
+359.28 75 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 607.8 cm
+Q
+q
+1 0 0 1 39.6 565.8 cm
+q
+0.047059 0.266667 0.486275 rg
+n
+0 42 532.8 -42 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 12 9 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 15 Tm
+/F2 9 Tf
+12 TL
+(DIMENSION) Tj
+T*
+(TABLE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 91.2 15 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 0 Tm
+/F2 12 Tf
+12 TL
+(dim\137location) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+1 1 0.266667 RG
+0.5 w
+n
+79.2 0 m
+79.2 42 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 559.8 cm
+Q
+q
+1 0 0 1 60 529.8 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 20 Tm
+/F1 10 Tf
+15 TL
+(Geographic information\056 Describes where orders were shipped and which warehouse fulfilled them across 3) Tj
+T*
+(areas \050North\054 West\054 South\051 and 9 German regions\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 75.6 296.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 225 460.8 -24 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 176 460.8 -38 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 113 460.8 -38 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 50 460.8 -25 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 8 207 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Technical name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 207 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Plain English meaning) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 207 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Data type) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 207 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 207 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Example value) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 182 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(location\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 182 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Unique location ID) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 182 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 182 cm
+q
+0.152941 0.313725 0.039216 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(PK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 182 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1 through 12) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 157 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(STORAGE\137LOCATION) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 157 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Warehouse code) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 157 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 157 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 144 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(03N \075 North) Tj
+T*
+(warehouse) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 119 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(REGION) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 119 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(German state or region) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 119 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Hamburg) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 94 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(AREA) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 94 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Sales area) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 94 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 81 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(North\054 West\054 or) Tj
+T*
+(South) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 56 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(CITY) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 56 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Delivery city) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 56 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 56 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 56 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Hamburg) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 31 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(COUNTRY) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 31 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Country) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 31 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 31 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 31 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Germany) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 6 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(POSTAL\137CODE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 6 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Postal code) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 6 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 6 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 6 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(22769) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 201 m
+460.8 201 l
+S
+n
+0 225 m
+460.8 225 l
+S
+n
+0 0 m
+460.8 0 l
+S
+n
+0 0 m
+0 225 l
+S
+n
+460.8 0 m
+460.8 225 l
+S
+0.945098 0.937255 0.909804 RG
+0.25 w
+n
+0 176 m
+460.8 176 l
+S
+n
+0 138 m
+460.8 138 l
+S
+n
+0 113 m
+460.8 113 l
+S
+n
+0 75 m
+460.8 75 l
+S
+n
+0 50 m
+460.8 50 l
+S
+n
+0 25 m
+460.8 25 l
+S
+n
+126 0 m
+126 201 l
+S
+n
+255.6 0 m
+255.6 201 l
+S
+n
+321.84 0 m
+321.84 201 l
+S
+n
+359.28 0 m
+359.28 201 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 278.8 cm
+Q
+q
+1 0 0 1 39.6 236.8 cm
+q
+0.047059 0.266667 0.486275 rg
+n
+0 42 532.8 -42 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 12 9 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 15 Tm
+/F2 9 Tf
+12 TL
+(DIMENSION) Tj
+T*
+(TABLE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 91.2 15 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 0 Tm
+/F2 12 Tf
+12 TL
+(dim\137customer) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+1 1 0.266667 RG
+0.5 w
+n
+79.2 0 m
+79.2 42 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 230.8 cm
+Q
+q
+1 0 0 1 60 215.8 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 5 Tm
+/F1 10 Tf
+15 TL
+(Customer accounts\056 The 12 retail customer accounts that placed orders during the simulation\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 75.6 95.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 112 460.8 -24 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 63 460.8 -25 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 8 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Technical name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Plain English meaning) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Data type) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Example value) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 69 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(customer\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 69 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Unique customer ID) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 69 cm
+q
+0.152941 0.313725 0.039216 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(PK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1 through 12) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 44 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(CUSTOMER\137NUMBER) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 44 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Customer account number) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 44 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(80295) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 19 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(DISTRIBUTION\137CHANNEL) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 6 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(How the customer buys) Tj
+T*
+(\050channel code\051) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 19 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 19 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 19 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(16 \075 Retailers) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 88 m
+460.8 88 l
+S
+n
+0 112 m
+460.8 112 l
+S
+n
+0 0 m
+460.8 0 l
+S
+n
+0 0 m
+0 112 l
+S
+n
+460.8 0 m
+460.8 112 l
+S
+0.945098 0.937255 0.909804 RG
+0.25 w
+n
+0 63 m
+460.8 63 l
+S
+n
+0 38 m
+460.8 38 l
+S
+n
+126 0 m
+126 88 l
+S
+n
+255.6 0 m
+255.6 88 l
+S
+n
+321.84 0 m
+321.84 88 l
+S
+n
+359.28 0 m
+359.28 88 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 77.8 cm
+Q
+Q
+
+
+Q
+
+q
+0.0 0.0 612 840 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+0.066667 0.094118 0.152941 rg
+BT
+/F2-0 16 Tf
+19.2 TL
+ET
+BT
+1 0 0 1 36 815 Tm
+(Legacy Carbon SAIES Data Dictionary) Tj
+T*
+ET
+0.294118 0.333333 0.388235 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 36 800 Tm
+(SAIES Control Tower Data Warehouse Archive) Tj
+T*
+ET
+0.819608 0.835294 0.858824 RG
+0.5 w
+n
+36 798 m
+576 798 l
+S
+Q
+
+
+endstream
 endobj
 20 0 obj
 <<
-/Filter [ /ASCII85Decode /FlateDecode ] /Length 622
+/Type /Page
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F1-0 21 0 R
+/F2 7 0 R
+/F2-0 22 0 R
+/F3 9 0 R
+/F4 10 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/MediaBox [ 0.0 0.0 612 840 ]
+/Contents 23 0 R
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+21 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+22 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+23 0 obj
+<<
+/Length 11784
 >>
 stream
-Gatn$?Z4CY%)Ccl.JsGb*-]+]aZY4kcsWN4guG1Z.V[K`8^!P'qt<"99?OiC'iGr-^=[)um+AlTi,f9T?W7"I*5).s5TmQ_#fRLfCIhb'1D4,/XI0)VpOjMWc`GRM-GZ^A;/;?e`"bD9U7*'d"_BZ1IZ(!P@!Qb;"81TGK*V-eZM3U'T,t^;/cdCf>&A)-1MIJS0hI@*M%E&`AP6tW`C-s-OKVoo\?"5>]S&>LMV$eS_-OFD3F.!#OD5]jXN]9RV"L`mn*Zhunp4TF7^6VP[9sX:A_uLp4Di,SP\=2T;41dKVf@`R),A\qoM8e1b6!.Sjl:Ss$(/L@>Z`6/:`coAa-)!"4Y+/@HCJ6UT4R9KD<B8LG&gaj@]41+7`F/A&]HQ#gGCaS];F6K@'ODRD2KF>gV>Ro3&<AQs'G+jr7*`MDHM4DQL,3MO,bJ]^=VP8)oVO,YY7oSGQW2C>f5S;RLLZo"T"PcpCU%P<gq#QTdi#B?ZErZ7JQk=.YZdYfi<aTMj>Z"r>F7'C"[;#?N.-_Hc=o&`-L=s4n<*a]om`ufO<NHNMk2?BRI$b%SDVo3d%nM$kc"`q:61EH]tmTZb38A#1NLCX+l8SEVEb,7hGV&>Jt4I~>endstream
+q
+q
+1 0.0 0.0 1 0.0 0.0 cm
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1 12 Tf
+14.4 TL
+ET
+q
+1 0 0 1 39.6 682.8 cm
+q
+0.047059 0.266667 0.486275 rg
+n
+0 42 532.8 -42 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 12 9 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 15 Tm
+/F2 9 Tf
+12 TL
+(DIMENSION) Tj
+T*
+(TABLE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 91.2 15 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 0 Tm
+/F2 12 Tf
+12 TL
+(dim\137sales\137org) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+1 1 0.266667 RG
+0.5 w
+n
+79.2 0 m
+79.2 42 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 676.8 cm
+Q
+q
+1 0 0 1 60 646.8 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 20 Tm
+/F1 10 Tf
+15 TL
+(Sales organizations\056 The 7 competing teams in the ERPsim simulation\054 each managing their own pricing and) Tj
+T*
+(distribution strategy\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 75.6 551.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 87 460.8 -24 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 38 460.8 -38 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 8 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Technical name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Plain English meaning) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Data type) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Example value) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 44 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(sales\137org\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 44 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Unique org ID) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 44 cm
+q
+0.152941 0.313725 0.039216 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(PK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1 through 7) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 19 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(SALES\137ORGANIZATION) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 19 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Team or organization code) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 19 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 19 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 6 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(O3\054 P3\054 Q3\054 R3\054 S3\054) Tj
+T*
+(T3\054 U3) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 63 m
+460.8 63 l
+S
+n
+0 87 m
+460.8 87 l
+S
+n
+0 0 m
+460.8 0 l
+S
+n
+0 0 m
+0 87 l
+S
+n
+460.8 0 m
+460.8 87 l
+S
+0.945098 0.937255 0.909804 RG
+0.25 w
+n
+0 38 m
+460.8 38 l
+S
+n
+126 0 m
+126 63 l
+S
+n
+255.6 0 m
+255.6 63 l
+S
+n
+321.84 0 m
+321.84 63 l
+S
+n
+359.28 0 m
+359.28 63 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 533.8 cm
+Q
+q
+1 0 0 1 39.6 491.8 cm
+q
+0.047059 0.266667 0.486275 rg
+n
+0 42 532.8 -42 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 12 9 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 15 Tm
+/F2 9 Tf
+12 TL
+(DIMENSION) Tj
+T*
+(TABLE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 91.2 15 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 0 Tm
+/F2 12 Tf
+12 TL
+(dim\137date) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+1 1 0.266667 RG
+0.5 w
+n
+79.2 0 m
+79.2 42 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 485.8 cm
+Q
+q
+1 0 0 1 60 455.8 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 20 Tm
+/F1 10 Tf
+15 TL
+(Calendar dates\056 Covers 41 unique dates from January 1 to February 10\054 2022\054 spanning the full simulation) Tj
+T*
+(period\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 75.6 310.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 137 460.8 -24 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 88 460.8 -25 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 38 460.8 -38 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 8 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Technical name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Plain English meaning) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Data type) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Example value) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 94 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(date\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 94 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Unique date ID) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 94 cm
+q
+0.152941 0.313725 0.039216 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(PK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1 through 41) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 69 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(SIM\137CALENDAR\137DATE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 69 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Full calendar date) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(DATE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 69 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(2022\05501\05503) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 44 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(SIM\137DATE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 44 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Simulation date label) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 44 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(01\05703) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 19 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(SIM\137PERIOD) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 6 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Billing or reporting period) Tj
+T*
+(number) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 19 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 19 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 6 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(1 \075 January\054 2 \075) Tj
+T*
+(February) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 113 m
+460.8 113 l
+S
+n
+0 137 m
+460.8 137 l
+S
+n
+0 0 m
+460.8 0 l
+S
+n
+0 0 m
+0 137 l
+S
+n
+460.8 0 m
+460.8 137 l
+S
+0.945098 0.937255 0.909804 RG
+0.25 w
+n
+0 88 m
+460.8 88 l
+S
+n
+0 63 m
+460.8 63 l
+S
+n
+0 38 m
+460.8 38 l
+S
+n
+126 0 m
+126 113 l
+S
+n
+255.6 0 m
+255.6 113 l
+S
+n
+321.84 0 m
+321.84 113 l
+S
+n
+359.28 0 m
+359.28 113 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 292.8 cm
+Q
+q
+1 0 0 1 39.6 250.8 cm
+q
+0.388235 0.219608 0.023529 rg
+n
+0 42 532.8 -42 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 12 9 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 15 Tm
+/F2 9 Tf
+12 TL
+(FACT) Tj
+T*
+(TABLE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 91.2 15 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 0 Tm
+/F2 12 Tf
+12 TL
+(fact\137carbon) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+1 1 0.266667 RG
+0.5 w
+n
+79.2 0 m
+79.2 42 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 244.8 cm
+Q
+q
+1 0 0 1 60 214.8 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 20 Tm
+/F1 10 Tf
+15 TL
+(Carbon emissions record\056 One row per emission event \227 tracks CO2e generated by goods movements\054) Tj
+T*
+(overstock\054 purchased products\054 and overhead across all 7 sales organizations\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 75.6 69.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 137 460.8 -24 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 88 460.8 -25 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 38 460.8 -38 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 8 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Technical name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Plain English meaning) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Data type) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 119 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Example value) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 94 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(fact\137carbon\137id) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 94 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Unique record ID) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 94 cm
+q
+0.152941 0.313725 0.039216 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(PK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1\054 2\054 3\205) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 69 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(sales\137org\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 69 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Links to sales organization) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 69 cm
+q
+0.47451 0.121569 0.121569 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(FK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(2 ) Tj
+/F4 9 Tf
+13 TL
+(\256) Tj
+/F1 9 Tf
+13 TL
+( Org O3) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 44 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(date\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 44 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Links to calendar date) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 44 cm
+q
+0.47451 0.121569 0.121569 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(FK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1 ) Tj
+/F4 9 Tf
+13 TL
+(\256) Tj
+/F1 9 Tf
+13 TL
+( Jan 1\054 2022) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 19 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(sim\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 6 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Links to simulation round) Tj
+T*
+(and step) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 19 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 19 cm
+q
+0.47451 0.121569 0.121569 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(FK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 19 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(3 ) Tj
+/F4 9 Tf
+13 TL
+(\256) Tj
+/F1 9 Tf
+13 TL
+( Round 1\054 Step 3) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 113 m
+460.8 113 l
+S
+n
+0 137 m
+460.8 137 l
+S
+n
+0 0 m
+0 137 l
+S
+n
+460.8 0 m
+460.8 137 l
+S
+0.945098 0.937255 0.909804 RG
+0.25 w
+n
+0 0 m
+460.8 0 l
+S
+n
+0 88 m
+460.8 88 l
+S
+n
+0 63 m
+460.8 63 l
+S
+n
+0 38 m
+460.8 38 l
+S
+n
+126 0 m
+126 113 l
+S
+n
+255.6 0 m
+255.6 113 l
+S
+n
+321.84 0 m
+321.84 113 l
+S
+n
+359.28 0 m
+359.28 113 l
+S
+Q
+Q
+Q
+Q
+
+
+Q
+
+q
+0.0 0.0 612 840 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+0.066667 0.094118 0.152941 rg
+BT
+/F2-0 16 Tf
+19.2 TL
+ET
+BT
+1 0 0 1 36 815 Tm
+(Legacy Carbon SAIES Data Dictionary) Tj
+T*
+ET
+0.294118 0.333333 0.388235 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 36 800 Tm
+(SAIES Control Tower Data Warehouse Archive) Tj
+T*
+ET
+0.819608 0.835294 0.858824 RG
+0.5 w
+n
+36 798 m
+576 798 l
+S
+Q
+
+
+endstream
+endobj
+24 0 obj
+<<
+/Type /Page
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F1-0 25 0 R
+/F2 7 0 R
+/F2-0 26 0 R
+/F3 9 0 R
+/F4 10 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/MediaBox [ 0.0 0.0 612 840 ]
+/Contents 27 0 R
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+25 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+26 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+27 0 obj
+<<
+/Length 11639
+>>
+stream
+q
+q
+1 0.0 0.0 1 0.0 0.0 cm
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1 12 Tf
+14.4 TL
+ET
+q
+1 0 0 1 75.6 281.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 443 460.8 -24 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 381 460.8 -64 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 266 460.8 -38 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 203 460.8 -38 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 127 460.8 -51 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 38 460.8 -38 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 8 425 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Technical name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 425 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Plain English meaning) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 425 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Data type) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 425 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 425 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Example value) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 400 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(ROW\137ID) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 387 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Original row number from) Tj
+T*
+(source file) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 400 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 400 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 400 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1\054 2\054 3\205) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 362 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(TYPE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 362 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Emission category) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 362 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 362 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 323 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 43 Tm
+/F1 9 Tf
+13 TL
+(Goods Movement\054) Tj
+T*
+(Overstock\054) Tj
+T*
+(Overhead\054 Products) Tj
+T*
+(Purchased) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 298 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(SUBTYPE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 285 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Specific activity within the) Tj
+T*
+(category) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 298 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 298 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 272 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 30 Tm
+/F1 9 Tf
+13 TL
+(Goods Receipt\054) Tj
+T*
+(Deliveries\054 Internal) Tj
+T*
+(Transfers) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 247 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(ORIGIN) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 234 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Source warehouse or) Tj
+T*
+(vendor code) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 247 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 247 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 234 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(V04 \075 vendor\054 03N \075) Tj
+T*
+(North warehouse) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 209 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(DESTINATION) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 209 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Destination warehouse code) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 209 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 209 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 209 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(03N\054 03W\054 03S) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 184 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(PRODUCT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 171 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Product code tied to the) Tj
+T*
+(emission) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 184 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(VARCHAR) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 184 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 171 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(T01 \075 Milk\054 T02 \075) Tj
+T*
+(Cream\205) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 146 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(MATERIAL\137DOCUMENT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 133 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(SAP document reference) Tj
+T*
+(number) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 146 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(BIGINT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 146 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 146 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(5000000178) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 108 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(SCOPE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 95 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(GHG Protocol emission) Tj
+T*
+(scope) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 108 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 108 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 82 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 30 Tm
+/F1 9 Tf
+13 TL
+(1 \075 Direct\054 2 \075) Tj
+T*
+(Indirect energy\054 3 \075) Tj
+T*
+(Value chain) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 57 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(EMISSIONS) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 44 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Activity\055level CO2e for this) Tj
+T*
+(event) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 57 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(DECIMAL) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 57 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 57 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(100) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 19 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(TOTAL\137CO2E\137EMISSIONS) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 6 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Total CO2e including) Tj
+T*
+(upstream effects) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 19 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(DECIMAL) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 19 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 6 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(421\054694 across all) Tj
+T*
+(rows) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 419 m
+460.8 419 l
+S
+n
+0 443 m
+460.8 443 l
+S
+n
+0 419 m
+0 443 l
+S
+n
+0 0 m
+0 419 l
+S
+n
+460.8 419 m
+460.8 443 l
+S
+n
+460.8 0 m
+460.8 419 l
+S
+n
+0 0 m
+460.8 0 l
+S
+0.945098 0.937255 0.909804 RG
+0.25 w
+n
+0 419 m
+460.8 419 l
+S
+n
+0 381 m
+460.8 381 l
+S
+n
+0 317 m
+460.8 317 l
+S
+n
+0 266 m
+460.8 266 l
+S
+n
+0 228 m
+460.8 228 l
+S
+n
+0 203 m
+460.8 203 l
+S
+n
+0 165 m
+460.8 165 l
+S
+n
+0 127 m
+460.8 127 l
+S
+n
+0 76 m
+460.8 76 l
+S
+n
+0 38 m
+460.8 38 l
+S
+n
+126 0 m
+126 419 l
+S
+n
+255.6 0 m
+255.6 419 l
+S
+n
+321.84 0 m
+321.84 419 l
+S
+n
+359.28 0 m
+359.28 419 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 263.8 cm
+Q
+q
+1 0 0 1 39.6 221.8 cm
+q
+0.047059 0.266667 0.486275 rg
+n
+0 42 532.8 -42 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 12 9 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 15 Tm
+/F2 9 Tf
+12 TL
+(DIMENSION) Tj
+T*
+(TABLE) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 91.2 15 cm
+q
+1 1 1 rg
+BT
+1 0 0 1 0 0 Tm
+/F2 12 Tf
+12 TL
+(dim\137simulation) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+1 1 0.266667 RG
+0.5 w
+n
+79.2 0 m
+79.2 42 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 215.8 cm
+Q
+q
+1 0 0 1 60 185.8 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 20 Tm
+/F1 10 Tf
+15 TL
+(ERPsim game structure\056 Tracks the 4 simulation rounds and their individual steps\054 enabling round\055over\055round) Tj
+T*
+(performance comparison\056) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 75.6 65.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 112 460.8 -24 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 63 460.8 -25 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 8 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Technical name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Plain English meaning) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Data type) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 94 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Example value) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 69 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(sim\137key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 69 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Unique simulation step ID) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 69 cm
+q
+0.152941 0.313725 0.039216 rg
+BT
+1 0 0 1 0 4 Tm
+/F2 9 Tf
+13 TL
+(PK) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 69 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1 through 41) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 44 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(SIM\137ROUND) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 44 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Game round number) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 44 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 44 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1\054 2\054 3\054 or 4) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 19 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(SIM\137STEP) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 6 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 17 Tm
+/F1 9 Tf
+13 TL
+(Step number within the) Tj
+T*
+(round) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 19 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 19 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 19 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1 through 10) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 88 m
+460.8 88 l
+S
+n
+0 112 m
+460.8 112 l
+S
+n
+0 0 m
+0 112 l
+S
+n
+460.8 0 m
+460.8 112 l
+S
+0.945098 0.937255 0.909804 RG
+0.25 w
+n
+0 0 m
+460.8 0 l
+S
+n
+0 63 m
+460.8 63 l
+S
+n
+0 38 m
+460.8 38 l
+S
+n
+126 0 m
+126 88 l
+S
+n
+255.6 0 m
+255.6 88 l
+S
+n
+321.84 0 m
+321.84 88 l
+S
+n
+359.28 0 m
+359.28 88 l
+S
+Q
+Q
+Q
+Q
+
+
+Q
+
+q
+0.0 0.0 612 840 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+0.066667 0.094118 0.152941 rg
+BT
+/F2-0 16 Tf
+19.2 TL
+ET
+BT
+1 0 0 1 36 815 Tm
+(Legacy Carbon SAIES Data Dictionary) Tj
+T*
+ET
+0.294118 0.333333 0.388235 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 36 800 Tm
+(SAIES Control Tower Data Warehouse Archive) Tj
+T*
+ET
+0.819608 0.835294 0.858824 RG
+0.5 w
+n
+36 798 m
+576 798 l
+S
+Q
+
+
+endstream
+endobj
+28 0 obj
+<<
+/Type /Page
+/Resources <<
+/Font <<
+/F1 5 0 R
+/F1-0 29 0 R
+/F2 7 0 R
+/F2-0 30 0 R
+/F3 9 0 R
+/F4 10 0 R
+>>
+/ProcSet [ /ImageB /ImageC /ImageI /PDF /Text ]
+>>
+/MediaBox [ 0.0 0.0 612 840 ]
+/Contents 31 0 R
+/Annots [ ]
+/Parent 2 0 R
+>>
+endobj
+29 0 obj
+<<
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Name /F1
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+30 0 obj
+<<
+/BaseFont /Helvetica-Bold
+/Encoding /WinAnsiEncoding
+/Name /F2
+/Subtype /Type1
+/Type /Font
+>>
+endobj
+31 0 obj
+<<
+/Length 2180
+>>
+stream
+q
+q
+1 0.0 0.0 1 0.0 0.0 cm
+0.0 0.0 612 792 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1 12 Tf
+14.4 TL
+ET
+q
+1 0 0 1 75.6 675.8 cm
+q
+0.945098 0.937255 0.909804 rg
+n
+0 49 460.8 -24 re
+f*
+0.945098 0.937255 0.909804 rg
+n
+0 25 460.8 -25 re
+f*
+0 0 0 rg
+BT
+/F1 10 Tf
+12 TL
+ET
+q
+1 0 0 1 8 31 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Technical name) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 31 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Plain English meaning) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 31 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Data type) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 31 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Key) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 31 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 3 Tm
+/F2 9 Tf
+12 TL
+(Example value) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 8 6 cm
+q
+0.101961 0.101961 0.101961 rg
+BT
+1 0 0 1 0 4 Tm
+/F3 9 Tf
+13 TL
+(SIM\137ELAPSED\137STEPS) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 134 6 cm
+q
+0.172549 0.172549 0.164706 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(Total steps completed so far) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 263.6 6 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(INT) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 329.84 6 cm
+q
+0.533333 0.529412 0.501961 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(\227) Tj
+T*
+ET
+Q
+Q
+q
+1 0 0 1 367.28 6 cm
+q
+0.372549 0.368627 0.352941 rg
+BT
+1 0 0 1 0 4 Tm
+/F1 9 Tf
+13 TL
+(1\054 2\205 up to 40) Tj
+T*
+ET
+Q
+Q
+q
+1 J
+1 j
+0.827451 0.819608 0.780392 RG
+0.5 w
+n
+0 25 m
+460.8 25 l
+S
+n
+0 49 m
+460.8 49 l
+S
+n
+0 25 m
+0 49 l
+S
+n
+0 0 m
+0 25 l
+S
+n
+460.8 25 m
+460.8 49 l
+S
+n
+460.8 0 m
+460.8 25 l
+S
+n
+0 0 m
+460.8 0 l
+S
+0.945098 0.937255 0.909804 RG
+0.25 w
+n
+0 25 m
+460.8 25 l
+S
+n
+126 0 m
+126 25 l
+S
+n
+255.6 0 m
+255.6 25 l
+S
+n
+321.84 0 m
+321.84 25 l
+S
+n
+359.28 0 m
+359.28 25 l
+S
+Q
+Q
+Q
+q
+1 0 0 1 60 657.8 cm
+Q
+Q
+
+
+Q
+
+q
+0.0 0.0 612 840 re
+W
+n
+1 0 0 1 0 0 cm
+BT
+/F1-0 12 Tf
+14.4 TL
+ET
+0.066667 0.094118 0.152941 rg
+BT
+/F2-0 16 Tf
+19.2 TL
+ET
+BT
+1 0 0 1 36 815 Tm
+(Legacy Carbon SAIES Data Dictionary) Tj
+T*
+ET
+0.294118 0.333333 0.388235 rg
+BT
+/F1-0 10 Tf
+12 TL
+ET
+BT
+1 0 0 1 36 800 Tm
+(SAIES Control Tower Data Warehouse Archive) Tj
+T*
+ET
+0.819608 0.835294 0.858824 RG
+0.5 w
+n
+36 798 m
+576 798 l
+S
+Q
+
+
+endstream
 endobj
 xref
-0 21
+0 32
 0000000000 65535 f 
-0000000061 00000 n 
-0000000122 00000 n 
-0000000229 00000 n 
+0000000015 00000 n 
+0000000198 00000 n 
+0000000292 00000 n 
 0000000341 00000 n 
-0000000446 00000 n 
-0000000523 00000 n 
-0000000718 00000 n 
-0000000913 00000 n 
-0000001108 00000 n 
-0000001303 00000 n 
-0000001499 00000 n 
-0000001695 00000 n 
-0000001765 00000 n 
-0000002046 00000 n 
-0000002138 00000 n 
-0000004682 00000 n 
-0000007036 00000 n 
-0000009215 00000 n 
-0000011286 00000 n 
-0000013643 00000 n 
+0000000589 00000 n 
+0000000696 00000 n 
+0000000803 00000 n 
+0000000915 00000 n 
+0000001027 00000 n 
+0000001132 00000 n 
+0000001210 00000 n 
+0000013973 00000 n 
+0000014224 00000 n 
+0000014332 00000 n 
+0000014445 00000 n 
+0000028057 00000 n 
+0000028308 00000 n 
+0000028416 00000 n 
+0000028529 00000 n 
+0000041299 00000 n 
+0000041550 00000 n 
+0000041658 00000 n 
+0000041771 00000 n 
+0000053609 00000 n 
+0000053860 00000 n 
+0000053968 00000 n 
+0000054081 00000 n 
+0000065774 00000 n 
+0000066025 00000 n 
+0000066133 00000 n 
+0000066246 00000 n 
 trailer
 <<
-/ID 
-[<b7fd31ec2855339fdbdd67838ca2d3fe><b7fd31ec2855339fdbdd67838ca2d3fe>]
-% ReportLab generated PDF document -- digest (opensource)
-
-/Info 13 0 R
-/Root 12 0 R
-/Size 21
+/Size 32
+/Root 3 0 R
+/Info 1 0 R
 >>
 startxref
-14356
+68479
 %%EOF

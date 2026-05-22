@@ -32,7 +32,7 @@ Advisor-facing warehouse documentation:
 - `docs/validation_report.md`
 - `mysql/saies_warehouse_schema.sql`
 - `mysql/saies_warehouse_model.mwb`
-- `mysql/saies_warehouse_erd.pdf`
+- `mysql/saies_warehouse_erd_all_diagrams.pdf`
 
 Optional MySQL load path:
 

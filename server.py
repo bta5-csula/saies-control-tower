@@ -55,13 +55,26 @@ _GROQ_URL   = "https://api.groq.com/openai/v1/chat/completions"
 
 # ── Global data cache ─────────────────────────────────────────────────────────
 _DEFAULT_DATA = None
-_ACTIVE_DATA  = None
+_sessions: dict[str, dict] = {}   # session_id -> {"data": ..., "last_access": float}
 _data_lock    = threading.Lock()
+_SESSION_TTL  = 3600  # seconds before an idle session is evicted
 
 _rate_limits: dict[str, deque] = defaultdict(deque)
 _rate_lock  = threading.Lock()
 _RATE_WINDOW = 60
 _RATE_MAX    = 10  # raise to 20-30 if multiple users share one public IP (e.g. office NAT)
+
+
+def _session_eviction_loop():
+    while True:
+        time.sleep(300)
+        cutoff = time.time() - _SESSION_TTL
+        with _data_lock:
+            stale = [sid for sid, s in _sessions.items() if s["last_access"] < cutoff]
+            for sid in stale:
+                del _sessions[sid]
+
+threading.Thread(target=_session_eviction_loop, daemon=True).start()
 
 
 # ── Warehouse loader ──────────────────────────────────────────────────────────
@@ -645,11 +658,15 @@ def _fetch_usd_rate():
         print(f"[Rates] {exc}", file=sys.stderr)
         return {"ok": False, "rate": None}
 
-def get_dashboard_data():
+def _sanitize_session_id(raw: str) -> str:
+    return re.sub(r"[^a-zA-Z0-9\-_]", "", raw)[:64]
+
+def get_dashboard_data(session_id: str = ""):
     global _DEFAULT_DATA
     with _data_lock:
-        if _ACTIVE_DATA is not None:
-            return _ACTIVE_DATA
+        if session_id and session_id in _sessions:
+            _sessions[session_id]["last_access"] = time.time()
+            return _sessions[session_id]["data"]
         if _DEFAULT_DATA is None:
             _DEFAULT_DATA = build_dashboard()
         return _DEFAULT_DATA
@@ -766,22 +783,29 @@ def _carbon_prompt_section(carbon: dict) -> str:
         lines.append(f" By organization: {by_org}")
     return "\n".join(lines) + "\n"
 
-def _build_system_prompt(data, external=False):
+def _build_system_prompt(data, external=False, currency="EUR", usd_rate=None):
+    def fmt(value):
+        if currency == "USD" and usd_rate:
+            return f"USD {_safe_number(value * usd_rate):,.0f}"
+        return f"EUR {_safe_number(value):,.0f}"
+
     kpis     = data["kpis"]
     source   = data["source"]
     forecast = data["forecast"]
     products = data["products"][:20]
     product_lines = "\n".join(
-        f" - {p['name']}: {p['status']}, revenue=EUR {p['revenue']:,.0f}, "
-        f"profit=EUR {p['profit']:,.0f}, margin={p['marginPct']:.1%}, "
+        f" - {p['name']}: {p['status']}, revenue={fmt(p['revenue'])}, "
+        f"profit={fmt(p['profit'])}, margin={p['marginPct']:.1%}, "
         f"trend={p['trendPct']:+.1%}, action: {p['recommendedAction']}"
         for p in products
     )
+    currency_instruction = f"IMPORTANT: All monetary values below are in {currency}. Always quote figures in {currency} — never use a different currency symbol in your response.\n\n"
     if external:
         preamble = (
             "You are a sales intelligence assistant. Use the sales data below as your primary source, "
             "but you may also draw on your broader knowledge of market trends, industry news, and general "
-            "business context when relevant. Be concise (3-5 sentences).\n"
+            "business context when relevant. Be as concise as the question allows — aim for 3-5 sentences. "
+            "If listing items, name at most 5; do not enumerate every product.\n"
             "IMPORTANT: When you use information from outside the provided data and can name a specific "
             "organisation or publication, end your response with 'Source: [name, year]'. "
             "Do not invent URLs.\n\n"
@@ -789,34 +813,37 @@ def _build_system_prompt(data, external=False):
     else:
         preamble = (
             "You are a sales intelligence assistant. Answer using only the data below. "
-            "Be concise (2-4 sentences). If the data is insufficient to answer, say so.\n\n"
+            "Be as concise as the question allows — aim for 2-4 sentences. "
+            "If listing items, name at most 5; do not enumerate every product. "
+            "If the data is insufficient to answer, say so.\n\n"
         )
     return (
         preamble +
+        currency_instruction +
         f"Today's date: {time.strftime('%B %d, %Y')}\n"
         f"Data source: {source.get('dataSource', 'Excel files')}\n"
         f"Date range: {source['dateRange']}\n"
         f"Match rate: {source['matchRate']:.1%} ({source['matchedRows']:,} of {source['salesRows']:,} rows)\n\n"
         f"KPIs:\n"
-        f" Revenue: EUR {kpis['totalRevenue']:,.0f}\n"
-        f" Profit: EUR {kpis['totalProfit']:,.0f}\n"
+        f" Revenue: {fmt(kpis['totalRevenue'])}\n"
+        f" Profit: {fmt(kpis['totalProfit'])}\n"
         f" Units sold: {kpis['unitsSold']:,.0f}\n"
-        f" Avg selling price: EUR {kpis['averageSellingPrice']:,.2f}\n"
-        f" Predicted next-month revenue: EUR {kpis['predictedNextMonthSales']:,.0f}\n\n"
+        f" Avg selling price: {fmt(kpis['averageSellingPrice'])}\n"
+        f" Predicted next-month revenue: {fmt(kpis['predictedNextMonthSales'])}\n\n"
         f"Products (top {len(products)} by revenue):\n{product_lines}\n\n"
         f"Forecast:\n"
-        f" Expected next-month revenue: EUR {forecast['expectedRevenue']:,.0f}\n"
+        f" Expected next-month revenue: {fmt(forecast['expectedRevenue'])}\n"
         f" Expected next-month units: {forecast['expectedUnits']:,.0f}\n"
-        f" Expected next-month profit: EUR {forecast['expectedProfit']:,.0f}\n"
+        f" Expected next-month profit: {fmt(forecast['expectedProfit'])}\n"
         + _carbon_prompt_section(data.get("carbon", {}))
     )
 
-def _gemini_answer(question, data, external=False):
+def _gemini_answer(question, data, external=False, currency="EUR", usd_rate=None):
     if not GEMINI_API_KEY:
         return None
     payload = json.dumps({
         "contents": [{"parts": [{"text": question}]}],
-        "systemInstruction": {"parts": [{"text": _build_system_prompt(data, external)}]},
+        "systemInstruction": {"parts": [{"text": _build_system_prompt(data, external, currency, usd_rate)}]},
         "generationConfig": {"maxOutputTokens": 300, "temperature": 0.2},
     }).encode("utf-8")
     req = Request(_GEMINI_URL, data=payload, headers={"Content-Type": "application/json", "x-goog-api-key": GEMINI_API_KEY}, method="POST")
@@ -828,13 +855,13 @@ def _gemini_answer(question, data, external=False):
         print(f"[Gemini] {exc}", file=sys.stderr)
         return None
 
-def _groq_answer(question, data, external=False):
+def _groq_answer(question, data, external=False, currency="EUR", usd_rate=None):
     if not GROQ_API_KEY:
         return None
     payload = json.dumps({
         "model": "llama-3.1-8b-instant",
         "messages": [
-            {"role": "system", "content": _build_system_prompt(data, external)},
+            {"role": "system", "content": _build_system_prompt(data, external, currency, usd_rate)},
             {"role": "user", "content": question},
         ],
         "max_tokens": 300,
@@ -873,6 +900,27 @@ def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
 
     if not q:
         return {"answer": "Ask a business question about sales, profit, product status, forecast, price impact, carbon emissions, or file matching.", "products": [], "cards": [], "suggestions": suggestions}
+
+    kpis = data["kpis"]
+    if any(term in q_lower for term in ["total revenue", "overall revenue", "how much revenue", "what is the revenue", "what's the revenue"]):
+        return {
+            "answer": f"Total revenue is {fmt(kpis['totalRevenue'])}, based on {data['source']['dateRange']}.",
+            "products": [], "cards": [{"label": "Total revenue", "value": fmt(kpis['totalRevenue']), "valueRaw": _safe_number(kpis['totalRevenue']), "note": data['source']['dateRange']}],
+            "suggestions": suggestions,
+        }
+    if any(term in q_lower for term in ["total profit", "overall profit", "how much profit", "what is the profit", "what's the profit"]):
+        margin = kpis['totalProfit'] / kpis['totalRevenue'] if kpis['totalRevenue'] else 0
+        return {
+            "answer": f"Total profit is {fmt(kpis['totalProfit'])}, a margin of {_format_pct(margin)} on {fmt(kpis['totalRevenue'])} revenue.",
+            "products": [], "cards": [{"label": "Total profit", "value": fmt(kpis['totalProfit']), "valueRaw": _safe_number(kpis['totalProfit']), "note": f"Margin: {_format_pct(margin)}"}],
+            "suggestions": suggestions,
+        }
+    if any(term in q_lower for term in ["average selling price", "average price", "avg price", "avg selling"]):
+        return {
+            "answer": f"The average selling price across all products is {fmt(kpis['averageSellingPrice'])}.",
+            "products": [], "cards": [{"label": "Avg selling price", "value": fmt(kpis['averageSellingPrice']), "valueRaw": _safe_number(kpis['averageSellingPrice']), "note": "Weighted average across all sales"}],
+            "suggestions": suggestions,
+        }
 
     if product and ("why" in q_lower or "marked" in q_lower or "status" in q_lower or product["material"].lower() in q_lower):
         return {
@@ -964,13 +1012,16 @@ def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
             "suggestions": suggestions,
         }
 
-    if any(term in q_lower for term in ["low profit", "low margin", "loss", "losing money", "unprofitable", "poor margin", "worst profit", "least profitable"]):
-        low_profit = sorted(needs_attention, key=lambda row: row["profit"])[:4]
-        names      = [f"{row['description']} ({row['material']})" for row in low_profit]
+    if any(term in q_lower for term in ["low profit", "low margin", "loss", "losing money", "unprofitable", "poor margin", "worst profit"]):
+        low_profit = sorted(products, key=lambda row: row["profit"])[:5]
+        summary    = ", ".join(f"{row['description']} ({row['material']}) at {fmt(row['profit'])}" for row in low_profit)
         return {
-            "answer": f"The low-profit products to review first are {', '.join(names)}. These products should be checked for price, cost, or discounting issues before promotion.",
+            "answer": f"The five least profitable products are {summary}. These should be checked for price, cost, or discounting issues before promotion.",
             "products": low_profit,
-            "cards": [],
+            "cards": [
+                {"label": row["description"], "value": fmt(row["profit"]), "valueRaw": _safe_number(row["profit"]), "note": f"Margin: {_format_pct(row['marginPct'])}"}
+                for row in low_profit
+            ],
             "suggestions": suggestions,
         }
 
@@ -1040,7 +1091,7 @@ def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
         return {"answer": answer, "products": [], "cards": cards, "suggestions": suggestions}
 
     top_products = sorted(products, key=lambda row: row["revenue"], reverse=True)[:3]
-    llm_answer   = _gemini_answer(q, data, external) or _groq_answer(q, data, external)
+    llm_answer   = _gemini_answer(q, data, external, currency, usd_rate) or _groq_answer(q, data, external, currency, usd_rate)
     if llm_answer:
         return {"answer": llm_answer, "products": top_products, "cards": [], "suggestions": suggestions}
 
@@ -1078,7 +1129,8 @@ class DashboardHandler(SimpleHTTPRequestHandler):
         parsed = urlparse(self.path)
 
         if parsed.path == "/api/dashboard":
-            self._send_json(get_dashboard_data())
+            session_id = _sanitize_session_id(self.headers.get("X-Session-Id", ""))
+            self._send_json(get_dashboard_data(session_id))
             return
 
         if parsed.path == "/api/carbon":
@@ -1099,12 +1151,12 @@ class DashboardHandler(SimpleHTTPRequestHandler):
         return super().do_GET()
 
     def do_POST(self):
-        global _ACTIVE_DATA
         parsed = urlparse(self.path)
+        session_id = _sanitize_session_id(self.headers.get("X-Session-Id", ""))
 
         if parsed.path == "/api/reset":
             with _data_lock:
-                _ACTIVE_DATA = None
+                _sessions.pop(session_id, None)
             self._send_json({"ok": True})
             return
 
@@ -1135,7 +1187,8 @@ class DashboardHandler(SimpleHTTPRequestHandler):
                     source_names={"sales": files["sales"]["filename"], "prices": files["prices"]["filename"]},
                 )
                 with _data_lock:
-                    _ACTIVE_DATA = data
+                    if session_id:
+                        _sessions[session_id] = {"data": data, "last_access": time.time()}
                 self._send_json({"ok": True, "data": data})
             except Exception:
                 self._send_error(500, "Could not process the uploaded files. Check that both files are valid Excel workbooks.")
@@ -1144,7 +1197,7 @@ class DashboardHandler(SimpleHTTPRequestHandler):
         if parsed.path == "/api/chat":
             ip = self.client_address[0]
             if not _check_rate_limit(ip):
-                self._send_error(429, "Too many requests. Please wait a moment.")
+                self._send_error(429, "You've sent several questions in a short time. Please wait about a minute, then try again.")
                 return
             length = min(int(self.headers.get("Content-Length", "0")), 64 * 1024)
             body = self.rfile.read(length)
@@ -1155,7 +1208,7 @@ class DashboardHandler(SimpleHTTPRequestHandler):
                 currency = payload.get("currency", "EUR") if payload.get("currency") in ("EUR", "USD") else "EUR"
                 raw_rate = float(payload.get("usdRate") or 1.0)
                 usd_rate = max(0.01, min(100.0, raw_rate))
-                data     = get_dashboard_data()
+                data     = get_dashboard_data(session_id)
                 answer   = _chat_answer(question, data, external=external, currency=currency, usd_rate=usd_rate if currency == "USD" else None)
                 self._send_json(answer)
             except Exception:

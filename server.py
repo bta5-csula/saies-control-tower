@@ -1111,9 +1111,15 @@ def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
         attention_top = sorted(needs_attention, key=lambda row: row["revenue"], reverse=True)[:2]
         growth_top    = sorted(growth, key=lambda row: row["trendPct"], reverse=True)[:2]
         names         = [f"{row['description']} ({row['material']})" for row in attention_top + growth_top]
+        if names:
+            answer = f"Prioritize products marked Needs Attention first, then review Growth Opportunity products. Start with {', '.join(names)}. The first group needs a price or cost review; the growth group may be useful for focused campaigns."
+        else:
+            healthy_top = sorted(healthy, key=lambda row: row["revenue"], reverse=True)[:3]
+            top_names = [row["description"] for row in healthy_top]
+            answer = f"All {len(healthy)} products are currently Healthy — none need urgent attention. Your top performers by revenue are {', '.join(top_names)}. Keep monitoring margins and watch for trend changes."
         return {
-            "answer": f"Prioritize products marked Needs Attention first, then review Growth Opportunity products. Start with {', '.join(names)}. The first group needs a price or cost review; the growth group may be useful for focused campaigns.",
-            "products": attention_top + growth_top,
+            "answer": answer,
+            "products": attention_top + growth_top if names else healthy_top,
             "cards": [
                 {"label": "Needs Attention", "value": str(len(needs_attention)), "note": "Review price, cost, or trend before promoting."},
                 {"label": "Growth Opportunity", "value": str(len(growth)), "note": "Recent sales are improving and profit is acceptable."},
@@ -1125,8 +1131,15 @@ def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
     if any(term in q_lower for term in ["promotion", "campaign", "grow", "growth"]):
         growth_top = sorted(growth, key=lambda row: row["trendPct"], reverse=True)[:4]
         names      = [f"{row['description']} ({row['material']})" for row in growth_top]
+        if names:
+            answer = f"Good promotion candidates are {', '.join(names)}. They have recent sales momentum and acceptable profit, so they are safer candidates than low-profit products."
+        else:
+            healthy_top = sorted(healthy, key=lambda row: row["revenue"], reverse=True)[:3]
+            top_names = [row["description"] for row in healthy_top]
+            answer = f"No products currently show a strong growth trend, but your top healthy performers ({', '.join(top_names)}) are the safest promotion candidates since they have steady demand and solid margins."
+            growth_top = healthy_top
         return {
-            "answer": f"Good promotion candidates are {', '.join(names)}. They have recent sales momentum and acceptable profit, so they are safer candidates than low-profit products.",
+            "answer": answer,
             "products": growth_top,
             "cards": [],
             "suggestions": suggestions,

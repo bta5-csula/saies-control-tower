@@ -241,6 +241,147 @@ def _read_best_sheet(source, required_columns, preferred_sheet):
     raise ValueError(f"Could not find a sheet with these columns: {', '.join(required_columns)}")
 
 
+# ── Multi-format normalization ───────────────────────────────────────────────
+
+_DISPLAY_NAMES = {
+    "SIM_CALENDAR_DATE": "Date",
+    "MATERIAL_NUMBER": "Product",
+    "MATERIAL_DESCRIPTION": "Description",
+    "DISTRIBUTION_CHANNEL": "Channel",
+    "QUANTITY": "Quantity",
+    "NET_PRICE": "Unit Price",
+    "NET_VALUE": "Revenue",
+    "COST": "Cost",
+    "CONTRIBUTION_MARGIN": "Profit",
+    "PRICE": "List Price",
+    "CURRENCY": "Currency",
+}
+
+
+def _detect_data_format(df: pd.DataFrame) -> str:
+    cols = set(df.columns)
+    if {"Material/Product", "Date"}.issubset(cols):
+        return "lax"
+    return "erpsim"
+
+
+def _strip_footer_rows(df: pd.DataFrame, date_col: str) -> pd.DataFrame:
+    out = df.copy()
+    out[date_col] = pd.to_datetime(out[date_col], errors="coerce")
+    return out.dropna(subset=[date_col])
+
+
+def _normalize_lax_sales(df: pd.DataFrame, prices_df: pd.DataFrame | None = None) -> pd.DataFrame:
+    out = _strip_footer_rows(df, "Date")
+    out = out.rename(columns={
+        "Date": "SIM_CALENDAR_DATE",
+        "Material/Product": "MATERIAL_NUMBER",
+        "Quantity": "QUANTITY",
+        "Price_USD_per_kg_Used": "NET_PRICE",
+        "Revenue": "NET_VALUE",
+        "Cost": "COST",
+    })
+    out["MATERIAL_DESCRIPTION"] = out["MATERIAL_NUMBER"]
+    out["CURRENCY"] = "USD"
+
+    if prices_df is not None and "DISTRIBUTION_CHANNEL" in prices_df.columns:
+        dc_lookup = (
+            prices_df
+            .drop_duplicates(subset=["SIM_CALENDAR_DATE", "MATERIAL_NUMBER"])
+            [["SIM_CALENDAR_DATE", "MATERIAL_NUMBER", "DISTRIBUTION_CHANNEL"]]
+        )
+        dc_lookup = dc_lookup.copy()
+        dc_lookup["SIM_CALENDAR_DATE"] = pd.to_datetime(dc_lookup["SIM_CALENDAR_DATE"])
+        out = out.merge(dc_lookup, on=["SIM_CALENDAR_DATE", "MATERIAL_NUMBER"], how="left")
+        out["DISTRIBUTION_CHANNEL"] = out["DISTRIBUTION_CHANNEL"].fillna("Air Direct")
+    else:
+        out["DISTRIBUTION_CHANNEL"] = "Air Direct"
+
+    return out
+
+
+def _normalize_lax_prices(df: pd.DataFrame) -> pd.DataFrame:
+    out = _strip_footer_rows(df, "Date")
+    out = out.rename(columns={
+        "Date": "SIM_CALENDAR_DATE",
+        "Material/Product": "MATERIAL_NUMBER",
+        "Price_USD_per_kg": "PRICE",
+        "Distribution_Channel": "DISTRIBUTION_CHANNEL",
+        "Currency": "CURRENCY",
+    })
+    out["MATERIAL_DESCRIPTION"] = out["MATERIAL_NUMBER"]
+    return out
+
+
+def _normalize_lax_carbon(df: pd.DataFrame) -> pd.DataFrame:
+    out = _strip_footer_rows(df, "Date")
+    out = out.rename(columns={"Date": "SIM_CALENDAR_DATE"})
+    return out
+
+
+def _carbon_summary_from_upload(df: pd.DataFrame) -> dict:
+    if df is None or df.empty:
+        return {"available": False}
+
+    data_format = _detect_data_format(df)
+    if data_format == "lax":
+        carbon = _normalize_lax_carbon(df)
+    else:
+        carbon = df.copy()
+
+    if "Total_CO2e_kg" in carbon.columns:
+        total = float(carbon["Total_CO2e_kg"].sum())
+
+        by_org = (
+            carbon.groupby("Carrier", dropna=False)["Total_CO2e_kg"]
+            .sum().sort_values(ascending=False).reset_index()
+        )
+        by_org_list = [{"org": str(r["Carrier"]), "co2e": int(r["Total_CO2e_kg"])} for _, r in by_org.iterrows()]
+
+        by_type = (
+            carbon.groupby("Material/Product", dropna=False)["Total_CO2e_kg"]
+            .sum().sort_values(ascending=False).reset_index()
+        )
+        by_type_list = [{"type": str(r["Material/Product"]), "co2e": int(r["Total_CO2e_kg"])} for _, r in by_type.iterrows()]
+
+        scope_totals = [
+            ("Scope_1_CO2e_kg", "Direct (Scope 1)"),
+            ("Scope_2_CO2e_kg", "Indirect energy (Scope 2)"),
+            ("Scope_3_CO2e_kg", "Value chain (Scope 3)"),
+        ]
+        by_scope_list = [
+            {"scope": label, "co2e": int(carbon[col].sum())}
+            for col, label in scope_totals if col in carbon.columns
+        ]
+
+        monthly = carbon.set_index("SIM_CALENDAR_DATE").resample("MS")["Total_CO2e_kg"].sum().reset_index()
+        by_round_list = [
+            {"round": i + 1, "co2e": int(row["Total_CO2e_kg"])}
+            for i, (_, row) in enumerate(monthly.iterrows())
+        ]
+
+        top_type = by_type_list[0]["type"] if by_type_list else "N/A"
+        lowest_org = by_org_list[-1]["co2e"] if by_org_list else 0
+        highest_org = by_org_list[0]["co2e"] if by_org_list else 0
+
+        return {
+            "available": True,
+            "totalCO2e": round(total, 0),
+            "byOrg": by_org_list,
+            "byType": by_type_list,
+            "byRound": by_round_list,
+            "byScope": by_scope_list,
+            "insight": (
+                f"Total CO2e across all carriers is {int(total):,}. "
+                f"{top_type} is the largest emission source. "
+                f"The lowest-emitting carrier produced {lowest_org:,} CO2e "
+                f"compared to {highest_org:,} for the highest emitter."
+            ),
+        }
+
+    return {"available": False}
+
+
 # ── Helpers (unchanged) ───────────────────────────────────────────────────────
 
 def _safe_number(value, digits=2):
@@ -264,18 +405,19 @@ def _date_text(value):
         return ""
     return pd.to_datetime(value).strftime("%Y-%m-%d")
 
-def _records(frame, columns, limit=8):
+def _records(frame, columns, limit=8, display_names=None):
     rows = []
     for _, row in frame.loc[:, columns].head(limit).iterrows():
         clean = {}
         for column in columns:
             value = row[column]
+            key = display_names.get(column, column) if display_names else column
             if "DATE" in column or column == "date":
-                clean[column] = _date_text(value)
+                clean[key] = _date_text(value)
             elif isinstance(value, (int, float)) and not isinstance(value, bool):
-                clean[column] = _safe_number(value)
+                clean[key] = _safe_number(value)
             else:
-                clean[column] = _clean_text(value)
+                clean[key] = _clean_text(value)
         rows.append(clean)
     return rows
 
@@ -560,13 +702,14 @@ def _price_impact(sales, merged, products):
 
 # ── Dashboard builder ─────────────────────────────────────────────────────────
 
-def build_dashboard(sales_source=None, prices_source=None, source_names=None):
+def build_dashboard(sales_source=None, prices_source=None, carbon_source=None, source_names=None):
     """
     Build the dashboard data dict.
     - If saies_warehouse.db exists and no custom files supplied: load from warehouse.
-    - If custom files supplied (user upload): load from Excel (original behavior).
+    - If custom files supplied (user upload): load from Excel with auto-format detection.
     """
     using_warehouse = WAREHOUSE_DB.exists() and sales_source is None
+    carbon_df = None
 
     if using_warehouse:
         sales, prices = _load_from_warehouse()
@@ -575,8 +718,25 @@ def build_dashboard(sales_source=None, prices_source=None, source_names=None):
     else:
         sales_source  = sales_source  or DEFAULT_SALES
         prices_source = prices_source or DEFAULT_PRICES
-        sales = _read_best_sheet(sales_source, ["MATERIAL_NUMBER", "SIM_CALENDAR_DATE", "QUANTITY", "NET_VALUE", "COST"], "Sales")
-        prices = _read_best_sheet(prices_source, ["MATERIAL_NUMBER", "SIM_CALENDAR_DATE", "PRICE"], "Pricing_Conditions")
+
+        sales_xl = pd.ExcelFile(sales_source)
+        sales_raw = pd.read_excel(sales_xl, sheet_name=sales_xl.sheet_names[0])
+        data_format = _detect_data_format(sales_raw)
+
+        if data_format == "lax":
+            prices_xl = pd.ExcelFile(prices_source)
+            prices_raw = pd.read_excel(prices_xl, sheet_name=prices_xl.sheet_names[0])
+            prices = _normalize_lax_prices(prices_raw)
+            sales = _normalize_lax_sales(sales_raw, prices)
+        else:
+            sales = _read_best_sheet(sales_source, ["MATERIAL_NUMBER", "SIM_CALENDAR_DATE", "QUANTITY", "NET_VALUE", "COST"], "Sales")
+            prices = _read_best_sheet(prices_source, ["MATERIAL_NUMBER", "SIM_CALENDAR_DATE", "PRICE"], "Pricing_Conditions")
+
+        if carbon_source is not None:
+            carbon_xl = pd.ExcelFile(carbon_source)
+            sheet = "Carbon_Emissions" if "Carbon_Emissions" in carbon_xl.sheet_names else carbon_xl.sheet_names[0]
+            carbon_df = pd.read_excel(carbon_xl, sheet_name=sheet)
+
         data_source = "Excel files"
         source_names = source_names or {"sales": DEFAULT_SALES.name, "prices": DEFAULT_PRICES.name}
 
@@ -637,11 +797,11 @@ def build_dashboard(sales_source=None, prices_source=None, source_names=None):
         "products": products,
         "forecast": forecast,
         "priceImpact": price_impact,
-        "carbon": _load_carbon_summary() if using_warehouse else {"available": False},
+        "carbon": _load_carbon_summary() if using_warehouse else _carbon_summary_from_upload(carbon_df) if carbon_df is not None else {"available": False},
         "preview": {
-            "sales": _records(sales, preview_sales_columns),
-            "prices": _records(prices, preview_price_columns),
-            "matched": _records(merged, preview_merged_columns),
+            "sales": _records(sales, preview_sales_columns, display_names=_DISPLAY_NAMES),
+            "prices": _records(prices, preview_price_columns, display_names=_DISPLAY_NAMES),
+            "matched": _records(merged, preview_merged_columns, display_names=_DISPLAY_NAMES),
         },
     }
 
@@ -1171,7 +1331,7 @@ class DashboardHandler(SimpleHTTPRequestHandler):
                 return
             body  = self.rfile.read(content_length)
             files = _parse_upload(self.headers, body)
-            for key in ("sales", "prices"):
+            for key in ("sales", "prices", "carbon"):
                 if key in files and not files[key]["content"].read(4).startswith(b"PK\x03\x04"):
                     self._send_error(400, "Please upload valid Excel (.xlsx) files.")
                     return
@@ -1180,10 +1340,12 @@ class DashboardHandler(SimpleHTTPRequestHandler):
             if "sales" not in files or "prices" not in files:
                 self._send_error(400, "Please upload both Sales.xlsx and Prices.xlsx.")
                 return
+            carbon_content = files["carbon"]["content"] if "carbon" in files else None
             try:
                 data = build_dashboard(
                     sales_source=files["sales"]["content"],
                     prices_source=files["prices"]["content"],
+                    carbon_source=carbon_content,
                     source_names={"sales": files["sales"]["filename"], "prices": files["prices"]["filename"]},
                 )
                 with _data_lock:

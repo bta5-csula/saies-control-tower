@@ -900,15 +900,17 @@ function bindUploadForm() {
     event.preventDefault();
     const sales = document.getElementById("sales-file").files[0];
     const prices = document.getElementById("prices-file").files[0];
+    const carbon = document.getElementById("carbon-file").files[0];
     const message = document.getElementById("upload-message");
     if (!sales || !prices) {
-      message.innerHTML = '<span class="status error">Error</span> Please choose both files.';
+      message.innerHTML = '<span class="status error">Error</span> Please choose both Sales and Prices files.';
       return;
     }
 
     const formData = new FormData();
     formData.append("sales", sales);
     formData.append("prices", prices);
+    if (carbon) formData.append("carbon", carbon);
 
     message.innerHTML = '<span class="status attention">Checking</span> Matching the files now.';
     try {

@@ -26,6 +26,7 @@ const usdFmtExact = new Intl.NumberFormat("en-US", {
 
 let usdRate = null;
 let displayCurrency = localStorage.getItem("displayCurrency") || "EUR";
+let dataCurrency = "EUR";
 
 const whole = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
 const compact = new Intl.NumberFormat("en-US", {
@@ -146,6 +147,15 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const response = await fetch("/api/dashboard", { headers: { "X-Session-Id": getSessionId() } });
     dashboardData = await response.json();
+    if (dashboardData.source && dashboardData.source.dataCurrency) {
+      dataCurrency = dashboardData.source.dataCurrency;
+      if (!localStorage.getItem("displayCurrency")) {
+        displayCurrency = dataCurrency;
+        document.querySelectorAll(".currency-btn").forEach((b) =>
+          b.classList.toggle("active", b.dataset.currency === displayCurrency),
+        );
+      }
+    }
     updateSourcePill(dashboardData);
     renderCurrentPage();
   } catch (error) {
@@ -244,10 +254,13 @@ function escapeHtml(value) {
 }
 
 function formatCurrency(value, exact = false) {
-  if (displayCurrency === "USD" && usdRate) {
-    return (exact ? usdFmtExact : usdFmt).format((value || 0) * usdRate);
+  const raw = value || 0;
+  if (displayCurrency === "USD") {
+    const converted = dataCurrency === "USD" ? raw : usdRate ? raw * usdRate : raw;
+    return (exact ? usdFmtExact : usdFmt).format(converted);
   }
-  return (exact ? currencyExact : currency).format(value || 0);
+  const converted = dataCurrency === "EUR" ? raw : usdRate ? raw / usdRate : raw;
+  return (exact ? currencyExact : currency).format(converted);
 }
 
 function formatSignedCurrency(value) {
@@ -920,6 +933,14 @@ function bindUploadForm() {
         throw new Error(payload.error || "Upload failed.");
       }
       dashboardData = payload.data;
+      if (dashboardData.source && dashboardData.source.dataCurrency) {
+        dataCurrency = dashboardData.source.dataCurrency;
+        displayCurrency = dataCurrency;
+        localStorage.setItem("displayCurrency", displayCurrency);
+        document.querySelectorAll(".currency-btn").forEach((b) =>
+          b.classList.toggle("active", b.dataset.currency === displayCurrency),
+        );
+      }
       updateSourcePill(dashboardData);
       renderMatchStats(dashboardData);
       renderPreviewTables(dashboardData);

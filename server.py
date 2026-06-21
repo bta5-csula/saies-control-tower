@@ -767,6 +767,12 @@ def build_dashboard(sales_source=None, prices_source=None, carbon_source=None, s
     units     = sales["QUANTITY"].sum()
     avg_price = revenue / units if units else 0
 
+    data_currency = "USD"
+    if "CURRENCY" in prices.columns:
+        mode = prices["CURRENCY"].mode()
+        if not mode.empty and str(mode.iloc[0]).strip().upper() in ("EUR", "USD"):
+            data_currency = str(mode.iloc[0]).strip().upper()
+
     preview_sales_columns = ["SIM_CALENDAR_DATE", "MATERIAL_NUMBER", "MATERIAL_DESCRIPTION", "DISTRIBUTION_CHANNEL", "QUANTITY", "NET_PRICE", "NET_VALUE", "CONTRIBUTION_MARGIN"]
     preview_price_columns = ["SIM_CALENDAR_DATE", "MATERIAL_NUMBER", "MATERIAL_DESCRIPTION", "DISTRIBUTION_CHANNEL", "PRICE", "CURRENCY"]
     preview_merged_columns = ["SIM_CALENDAR_DATE", "MATERIAL_NUMBER", "MATERIAL_DESCRIPTION", "DISTRIBUTION_CHANNEL", "QUANTITY", "NET_PRICE", "PRICE", "NET_VALUE", "CONTRIBUTION_MARGIN"]
@@ -783,6 +789,7 @@ def build_dashboard(sales_source=None, prices_source=None, carbon_source=None, s
             "matchRate": _safe_number(matched_rows / len(sales), 4) if len(sales) else 0,
             "matchedSuccessfully": matched_rows == len(sales) and len(sales) > 0,
             "dateRange": f"{sales['SIM_CALENDAR_DATE'].min().strftime('%b %d, %Y')} to {sales['SIM_CALENDAR_DATE'].max().strftime('%b %d, %Y')}",
+            "dataCurrency": data_currency,
         },
         "kpis": {
             "totalRevenue": _safe_number(revenue),
@@ -944,10 +951,15 @@ def _carbon_prompt_section(carbon: dict) -> str:
     return "\n".join(lines) + "\n"
 
 def _build_system_prompt(data, external=False, currency="EUR", usd_rate=None):
+    data_currency = data.get("source", {}).get("dataCurrency", "EUR")
     def fmt(value):
+        if currency == data_currency:
+            return f"{currency} {_safe_number(value):,.0f}"
         if currency == "USD" and usd_rate:
             return f"USD {_safe_number(value * usd_rate):,.0f}"
-        return f"EUR {_safe_number(value):,.0f}"
+        if currency == "EUR" and usd_rate:
+            return f"EUR {_safe_number(value / usd_rate):,.0f}"
+        return f"{data_currency} {_safe_number(value):,.0f}"
 
     kpis     = data["kpis"]
     source   = data["source"]
@@ -1037,10 +1049,15 @@ def _groq_answer(question, data, external=False, currency="EUR", usd_rate=None):
         return None
 
 def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
+    data_currency = data.get("source", {}).get("dataCurrency", "EUR")
     def fmt(value):
+        if currency == data_currency:
+            return _format_money(value, currency)
         if currency == "USD" and usd_rate:
             return f"USD {_safe_number(value * usd_rate):,.0f}"
-        return _format_money(value, currency)
+        if currency == "EUR" and usd_rate:
+            return f"EUR {_safe_number(value / usd_rate):,.0f}"
+        return _format_money(value, data_currency)
 
     products        = data["products"]
     q               = (question or "").strip()

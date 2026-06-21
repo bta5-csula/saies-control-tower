@@ -8,3 +8,5 @@ NOTES.md
 docs/aabs_control_tower_notes.md
 docs/aabs_control_tower_recommendations.docx
 scripts/build_aabs_friend_doc.py
+server.err.log
+server.out.log

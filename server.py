@@ -860,8 +860,8 @@ def _parse_upload(headers, body):
             files[field_name] = {"filename": filename, "content": BytesIO(part.get_payload(decode=True))}
     return files
 
-def _format_money(value):
-    return f"EUR {_safe_number(value):,.0f}"
+def _format_money(value, currency="EUR"):
+    return f"{currency} {_safe_number(value):,.0f}"
 
 def _format_units(value):
     return f"{_safe_number(value, 0):,.0f}"
@@ -1040,7 +1040,7 @@ def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
     def fmt(value):
         if currency == "USD" and usd_rate:
             return f"USD {_safe_number(value * usd_rate):,.0f}"
-        return _format_money(value)
+        return _format_money(value, currency)
 
     products        = data["products"]
     q               = (question or "").strip()
@@ -1200,7 +1200,7 @@ def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
 
     def _carbon_unavailable_response():
         return {
-            "answer": "The carbon emissions data belongs to the default ERP simulation dataset and is not part of your uploaded files. To access carbon analysis, restore the default data on the Data Upload page.",
+            "answer": "Carbon emissions data is not available for the current dataset. To access carbon analysis, either upload a Carbon Emissions file alongside your Sales and Prices files, or restore the default data on the Data Upload page.",
             "products": [], "cards": [], "suggestions": suggestions,
         }
 

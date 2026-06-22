@@ -988,6 +988,15 @@ function renderPreviewTables(data) {
   renderPlainPreview("sales-preview", data.preview.sales);
   renderPlainPreview("prices-preview", data.preview.prices);
   renderPlainPreview("matched-preview", data.preview.matched);
+
+  const detailSection = document.getElementById("source-details-section");
+  const details = data.preview.sourceDetails;
+  if (details && details.length) {
+    renderPlainPreview("source-details-preview", details);
+    detailSection.hidden = false;
+  } else {
+    detailSection.hidden = true;
+  }
 }
 
 function renderRows(targetId, rows, columns) {

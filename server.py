@@ -777,6 +777,21 @@ def build_dashboard(sales_source=None, prices_source=None, carbon_source=None, s
     preview_price_columns = ["SIM_CALENDAR_DATE", "MATERIAL_NUMBER", "MATERIAL_DESCRIPTION", "DISTRIBUTION_CHANNEL", "PRICE", "CURRENCY"]
     preview_merged_columns = ["SIM_CALENDAR_DATE", "MATERIAL_NUMBER", "MATERIAL_DESCRIPTION", "DISTRIBUTION_CHANNEL", "QUANTITY", "NET_PRICE", "PRICE", "NET_VALUE", "CONTRIBUTION_MARGIN"]
 
+    source_detail_cols = [
+        ("SIM_CALENDAR_DATE", "Date"), ("MATERIAL_NUMBER", "Product"),
+        ("Carrier", "Carrier"), ("Origin_Airport", "Origin"),
+        ("Destination_Airport", "Destination"), ("Cargo_Type", "Cargo Type"),
+        ("Weight_kg", "Weight (kg)"), ("Delivery_Status", "Delivery Status"),
+    ]
+    available_detail_cols = [(col, label) for col, label in source_detail_cols if col in sales.columns]
+    extra_cols = [col for col, _ in available_detail_cols if col not in preview_sales_columns]
+    has_source_details = len(extra_cols) > 0
+    if has_source_details:
+        detail_display = {col: label for col, label in available_detail_cols}
+        source_details = _records(sales, [col for col, _ in available_detail_cols], display_names=detail_display)
+    else:
+        source_details = []
+
     return {
         "source": {
             "salesFile": source_names.get("sales", "Sales.xlsx"),
@@ -809,6 +824,7 @@ def build_dashboard(sales_source=None, prices_source=None, carbon_source=None, s
             "sales": _records(sales, preview_sales_columns, display_names=_DISPLAY_NAMES),
             "prices": _records(prices, preview_price_columns, display_names=_DISPLAY_NAMES),
             "matched": _records(merged, preview_merged_columns, display_names=_DISPLAY_NAMES),
+            "sourceDetails": source_details,
         },
     }
 

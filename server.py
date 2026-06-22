@@ -1317,7 +1317,8 @@ def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
     top_products = sorted(products, key=lambda row: row["revenue"], reverse=True)[:3]
     llm_answer   = _gemini_answer(q, data, external, currency, usd_rate) or _groq_answer(q, data, external, currency, usd_rate)
     if llm_answer:
-        return {"answer": llm_answer, "products": top_products, "cards": [], "suggestions": suggestions}
+        show_products = external or "external" not in llm_answer.lower()
+        return {"answer": llm_answer, "products": top_products if show_products else [], "cards": [], "suggestions": suggestions}
 
     return {
         "answer": "I can answer questions about product priority, product status, forecast, price impact, profit concerns, carbon emissions, and file matching. For a quick starting point, ask which products should be prioritized.",

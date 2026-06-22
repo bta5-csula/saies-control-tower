@@ -1314,7 +1314,9 @@ def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
     top_products = sorted(products, key=lambda row: row["revenue"], reverse=True)[:3]
     llm_answer   = _gemini_answer(q, data, external, currency, usd_rate) or _groq_answer(q, data, external, currency, usd_rate)
     if llm_answer:
-        return {"answer": llm_answer, "products": top_products, "cards": [], "suggestions": suggestions}
+        refusal_phrases = ["unable to", "cannot", "don't have", "do not have", "not contain", "no information", "outside", "beyond"]
+        is_refusal = any(phrase in llm_answer.lower() for phrase in refusal_phrases)
+        return {"answer": llm_answer, "products": [] if is_refusal else top_products, "cards": [], "suggestions": suggestions}
 
     return {
         "answer": "I can answer questions about product priority, product status, forecast, price impact, profit concerns, carbon emissions, and file matching. For a quick starting point, ask which products should be prioritized.",

@@ -711,6 +711,8 @@ def build_dashboard(sales_source=None, prices_source=None, carbon_source=None, s
     using_warehouse = WAREHOUSE_DB.exists() and sales_source is None
     carbon_df = None
 
+    data_format = "erpsim"
+
     if using_warehouse:
         sales, prices = _load_from_warehouse()
         data_source = "saies_warehouse.db"
@@ -805,6 +807,7 @@ def build_dashboard(sales_source=None, prices_source=None, carbon_source=None, s
             "matchedSuccessfully": matched_rows == len(sales) and len(sales) > 0,
             "dateRange": f"{sales['SIM_CALENDAR_DATE'].min().strftime('%b %d, %Y')} to {sales['SIM_CALENDAR_DATE'].max().strftime('%b %d, %Y')}",
             "dataCurrency": data_currency,
+            "dataFormat": data_format,
         },
         "kpis": {
             "totalRevenue": _safe_number(revenue),
@@ -1005,9 +1008,21 @@ def _build_system_prompt(data, external=False, currency="EUR", usd_rate=None):
             "If listing items, name at most 5; do not enumerate every product. "
             "If the data is insufficient to answer, say so.\n\n"
         )
+    data_format = source.get("dataFormat", "erpsim")
+    if data_format == "lax":
+        domain_context = (
+            "IMPORTANT CONTEXT: This data represents air cargo operations at Los Angeles International Airport (LAX). "
+            "The products listed are cargo categories (e.g. Consumer Goods, Aerospace Parts, Pharmaceuticals). "
+            "When the user mentions 'LAX', they are referring to the airport or the overall business, NOT a product. "
+            "Answer questions about LAX by summarizing the portfolio-level data.\n\n"
+        )
+    else:
+        domain_context = ""
+
     return (
         preamble +
         currency_instruction +
+        domain_context +
         f"Today's date: {time.strftime('%B %d, %Y')}\n"
         f"Data source: {source.get('dataSource', 'Excel files')}\n"
         f"Date range: {source['dateRange']}\n"

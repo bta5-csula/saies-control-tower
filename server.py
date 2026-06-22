@@ -993,9 +993,11 @@ def _build_system_prompt(data, external=False, currency="EUR", usd_rate=None):
     currency_instruction = f"IMPORTANT: All monetary values below are in {currency}. Always quote figures in {currency} — never use a different currency symbol in your response.\n\n"
     if external:
         preamble = (
-            "You are a sales intelligence assistant. Use the sales data below as your primary source, "
-            "but you may also draw on your broader knowledge of market trends, industry news, and general "
-            "business context when relevant. Be as concise as the question allows — aim for 3-5 sentences. "
+            "You are a friendly sales intelligence assistant. Use the sales data below as your primary source, "
+            "but you may also draw on your broader knowledge of market trends, industry news, current events, "
+            "and general business context. You can be creative and have fun — if the user asks for a joke, "
+            "a fun fact, or something lighthearted, go ahead and answer while weaving in the sales data when possible. "
+            "Be as concise as the question allows — aim for 3-5 sentences. "
             "If listing items, name at most 5; do not enumerate every product.\n"
             "IMPORTANT: When you use information from outside the provided data and can name a specific "
             "organisation or publication, end your response with 'Source: [name, year]'. "
@@ -1006,7 +1008,8 @@ def _build_system_prompt(data, external=False, currency="EUR", usd_rate=None):
             "You are a sales intelligence assistant. Answer using only the data below. "
             "Be as concise as the question allows — aim for 2-4 sentences. "
             "If listing items, name at most 5; do not enumerate every product. "
-            "If the data is insufficient to answer, say so.\n\n"
+            "If the question is about current events, jokes, or topics outside the data, "
+            "suggest the user enable 'Use external sources' for broader answers.\n\n"
         )
     data_format = source.get("dataFormat", "erpsim")
     if data_format == "lax":
@@ -1314,9 +1317,7 @@ def _chat_answer(question, data, external=False, currency="EUR", usd_rate=None):
     top_products = sorted(products, key=lambda row: row["revenue"], reverse=True)[:3]
     llm_answer   = _gemini_answer(q, data, external, currency, usd_rate) or _groq_answer(q, data, external, currency, usd_rate)
     if llm_answer:
-        refusal_phrases = ["unable to", "cannot", "don't have", "do not have", "not contain", "no information", "outside", "beyond"]
-        is_refusal = any(phrase in llm_answer.lower() for phrase in refusal_phrases)
-        return {"answer": llm_answer, "products": [] if is_refusal else top_products, "cards": [], "suggestions": suggestions}
+        return {"answer": llm_answer, "products": top_products, "cards": [], "suggestions": suggestions}
 
     return {
         "answer": "I can answer questions about product priority, product status, forecast, price impact, profit concerns, carbon emissions, and file matching. For a quick starting point, ask which products should be prioritized.",
